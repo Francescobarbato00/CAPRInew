@@ -61,7 +61,7 @@ export default function PopupForm() {
                   <option value="MAGISTRATO ONORARIO">Magistrato Onorario</option>
                   <option value="MAGISTRATO AMMINISTRATIVO">Magistrato Amministrativo</option>
                   <option value="MAGISTRATO TRIBUTARIO">Magistrato Tributario</option>
-                  <option value="MAGISTRATO DELLA CORTE DEI CONTI">Migistrato della Corte dei Conti</option>
+                  <option value="MAGISTRATO DELLA CORTE DEI CONTI">Magistrato della Corte dei Conti</option>
                   <option value="INFORMATICO">Informatico</option>
                   <option value="AMMINISTRATIVO">Amministrativo</option>
                   <option value="AVVOCATO LIBERO FORO">Avvocato Libero Foro</option>
