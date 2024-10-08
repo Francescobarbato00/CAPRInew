@@ -9,10 +9,10 @@ export default function Section() {
         <div className="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0">
           <div className="md:w-1/2">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-8 leading-tight">I contenuti formativi</h2>
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Formazione progetto "Italia Login"</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Webinar Disponibili</h3>
             <p className="text-lg font-light mb-4">Webinar</p>
             <p className="text-lg sm:text-xl mb-8">
-              Un percorso di formazione iniziato nel 2021 ed erogato attraverso webinar sulla piattaforma messa a disposizione da FORMEZ.
+              "Questioni di Diritto e Processo del lavoro, nell'era della rivoluzion tecnologica"
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
               VAI ALL'ELENCO DEI WEBINAR &rarr;
@@ -38,7 +38,7 @@ export default function Section() {
             <h3 className="text-xl sm:text-2xl font-semibold mb-2">Accessibilità</h3>
             <p className="text-lg font-light mb-4">Webinar</p>
             <p className="text-lg sm:text-xl mb-8">
-              Un programma formativo gratuito sull'accessibilità digitale, fruibile da tutti i dipendenti pubblici e privati tramite aule virtuali. Il percorso si articola in tre diversi livelli: base, intermedio e avanzato.
+            "Giustizia moderna alla luce dei Regolamenti adottati dall'UE nel Decennio Digitale"
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
               VAI AL PROGRAMMA &rarr;
