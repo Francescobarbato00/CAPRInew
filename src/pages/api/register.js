@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import QRCode from 'qrcode';
+import { supabase } from './supabaseClient';  // Importa il client di Supabase
 
 export default async function handler(req, res) {
   try {
@@ -13,10 +14,28 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Dati di registrazione mancanti" });
     }
 
-    console.log("Nome:", formData.nome);
-    console.log("Cognome:", formData.cognome);
-    console.log("Email:", formData.email);
-    console.log("QR Code (se esiste):", formData.qrCode);
+    const { data, error } = await supabase
+  .from('registrations')
+  .insert([
+    {
+      nome: formData.nome,
+      cognome: formData.cognome,
+      email: formData.email,
+      telefono: formData.telefono,
+      qualifica: formData.qualifica,
+      sessione: formData.sessione,
+      // Rimuovi gruppoTematico se non necessario
+      // gruppoTematico: formData.gruppoTematico || null,
+      note: formData.note || null
+    },
+  ]);
+
+    if (error) {
+      console.error("Errore durante l'inserimento dei dati nel database:", error);
+      return res.status(500).json({ error: "Errore durante la registrazione nel database" });
+    }
+
+    console.log("Dati salvati nel database con successo:", data);
 
     // Crea l'URL di validazione (esempio)
     const validationUrl = `https://iltuosito.com/validate?id=${formData.id}`;
