@@ -33,40 +33,43 @@ export default function NewsSection() {
             </div>
           </div>
 
-          {/* News Item 2 */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/path-to-your-image-2.jpg" alt="News 2" className="w-full h-40 sm:h-48 object-cover" />
-            <div className="p-4 sm:p-6">
-              <div className="flex flex-wrap space-x-2 mb-2">
-                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Dati</span>
-                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Open Data</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Titolo dell'articolo 2
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                Questo è il testo descrittivo dell'articolo 2. Si parla delle novità riguardanti i dati aperti e il piano triennale.
-              </p>
-              <p className="text-xs sm:text-sm text-gray-400">NEWS • 20/09/2024</p>
-            </div>
-          </div>
-
+          
           {/* News Item 3 */}
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/path-to-your-image-3.jpg" alt="News 3" className="w-full h-40 sm:h-48 object-cover" />
+            <img src="/foto3.jpg" alt="News 3" className="w-full h-40 sm:h-48 object-cover" />
             <div className="p-4 sm:p-6">
               <div className="flex flex-wrap space-x-2 mb-2">
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Accessibilità</span>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Titolo dell'articolo 3
+                Intervento del Signor Ministro all'Evento sulla Digitalizzazione della Giustizia
               </h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                Questo è il testo descrittivo dell'articolo 3. Parla delle scadenze per la presentazione della dichiarazione di accessibilità.
+              Focus sul Ruolo della Tecnologia nel Rinnovamento del Sistema Giudiziario Italiano.
               </p>
-              <p className="text-xs sm:text-sm text-gray-400">NEWS • 19/09/2024</p>
+              <p className="text-xs sm:text-sm text-gray-400">NEWS • 7/10/2024</p>
             </div>
           </div>
+
+
+          {/* News Item 2 */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="/prova.png" alt="News 2" className="w-full h-40 sm:h-48 object-cover" />
+            <div className="p-4 sm:p-6">
+              <div className="flex flex-wrap space-x-2 mb-2">
+                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Locandine</span>
+                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Capri</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+                Online le Locandine Ufficiali dell'Evento
+              </h3>
+              <p className="text-gray-600 mb-4 text-sm sm:text-base">
+              Pubblicato il Programma Completo e l'Elenco dei Relatori per le Due Giornate del Convegno di Capri.
+              </p>
+              <p className="text-xs sm:text-sm text-gray-400">NEWS • 20/09/2024</p>
+            </div>
+          </div>
+
 
         </div>
       </div>
