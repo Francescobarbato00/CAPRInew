@@ -17,19 +17,19 @@ export default function NewsSection() {
           
           {/* News Item 1 */}
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src="/path-to-your-image-1.jpg" alt="News 1" className="w-full h-40 sm:h-48 object-cover" />
+            <img src="/dottoressa.jpg" alt="News 1" className="w-full h-40 sm:h-48 object-cover" />
             <div className="p-4 sm:p-6">
               <div className="flex flex-wrap space-x-2 mb-2">
-                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">SUAP&SUE</span>
-                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">PNRR</span>
+                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Capri</span>
+                <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">2024</span>
               </div>
               <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                Titolo dell'articolo 1
+              Capri 2024 - REPORT DEL CONVEGNO
               </h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                Questo è il testo descrittivo dell'articolo 1. È stato pubblicato per informare gli utenti delle novità legate al SUAP&SUE e al PNRR.
+              Gentilissimi iscritti e interessati al convegno, a nome di tutti i promotori e sostenitori di questa iniziativa, giunta alla dodicesima edizione, un piccolo report e un grande ringraziamento.
               </p>
-              <p className="text-xs sm:text-sm text-gray-400">NEWS • 30/09/2024</p>
+              <p className="text-xs sm:text-sm text-gray-400">NEWS • 7/10/2024</p>
             </div>
           </div>
 
