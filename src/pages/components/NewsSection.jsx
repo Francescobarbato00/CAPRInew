@@ -6,7 +6,8 @@ export default function NewsSection() {
       <div className="container mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 space-y-4 sm:space-y-0">
-          <h2 className="text-3xl sm:text-4xl font-light">Le notizie in primo piano</h2>
+        <h2 className="text-3xl sm:text-4xl font-light text-black">Le notizie in primo piano</h2>
+
           <a href="#" className="text-blue-600 font-semibold underline hover:text-blue-800">
             SCOPRI TUTTE LE NOTIZIE &rarr;
           </a>
