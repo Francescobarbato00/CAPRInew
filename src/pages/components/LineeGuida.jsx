@@ -2,143 +2,76 @@ import React from 'react';
 
 const LineeGuida = () => {
   return (
-    <div style={styles.pageContainer}>
-      <div style={styles.container}>
-        <h1 style={styles.title}>Le Linee Guida</h1>
-        <p style={styles.subtitle}>Definiscono principi e regole da seguire per la progettazione, realizzazione e gestione dei servizi digitali.</p>
-        <a href="#" style={styles.link}>SCOPRI TUTTE LE LINEE GUIDA &rarr;</a>
+    <div className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-lg mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-light text-black mb-6">Le Linee Guida</h1>
+        <p className="text-lg sm:text-xl text-gray-600 mb-8">
+          Definiscono principi e regole da seguire per la progettazione, realizzazione e gestione dei servizi digitali.
+        </p>
+        <a href="#" className="text-blue-600 text-lg sm:text-xl font-semibold underline hover:text-blue-800 mb-10 block">
+          SCOPRI TUTTE LE LINEE GUIDA &rarr;
+        </a>
 
-        <div style={styles.guideList}>
-          <div style={styles.guideItem}>
-            <div style={styles.icon}><img src="document-icon.png" alt="Document Icon" style={styles.iconImage} /></div>
-            <div style={styles.info}>
-              <div style={styles.tags}>
-                <span style={styles.tag}>Linee Guida</span>
-                <span style={styles.tag}>Conservazione</span>
-                <span style={styles.tag}>Documento informatico</span>
+        <div className="space-y-8">
+          {/* Guide Item 1 */}
+          <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="w-12 h-12">
+              <img src="document-icon.png" alt="Document Icon" className="w-full h-full object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="flex flex-wrap space-x-2 mb-2">
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Linee Guida</span>
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Conservazione</span>
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Documento informatico</span>
               </div>
-              <a href="#" style={styles.titleLink}>Linee Guida sulla formazione, gestione e conservazione dei documenti informatici</a>
-              <p style={styles.fileInfo}>PDF | 780,7 KB</p>
+              <a href="#" className="text-xl sm:text-2xl font-medium text-blue-600 hover:text-blue-800 block mb-2">
+                Linee Guida sulla formazione, gestione e conservazione dei documenti informatici
+              </a>
+              <p className="text-gray-500 text-base sm:text-lg">PDF | 780,7 KB</p>
             </div>
           </div>
 
-          <hr style={styles.separator} />
+          <hr className="border-t border-gray-300" />
 
-          <div style={styles.guideItem}>
-            <div style={styles.icon}><img src="document-icon.png" alt="Document Icon" style={styles.iconImage} /></div>
-            <div style={styles.info}>
-              <div style={styles.tags}>
-                <span style={styles.tag}>Linee Guida</span>
-                <span style={styles.tag}>Accessibilità</span>
+          {/* Guide Item 2 */}
+          <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="w-12 h-12">
+              <img src="document-icon.png" alt="Document Icon" className="w-full h-full object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="flex flex-wrap space-x-2 mb-2">
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Linee Guida</span>
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Accessibilità</span>
               </div>
-              <a href="#" style={styles.titleLink}>Linee Guida sull'accessibilità degli strumenti informatici - PA</a>
-              <p style={styles.fileInfo}>PDF | 1,3 MB</p>
+              <a href="#" className="text-xl sm:text-2xl font-medium text-blue-600 hover:text-blue-800 block mb-2">
+                Linee Guida sull'accessibilità degli strumenti informatici - PA
+              </a>
+              <p className="text-gray-500 text-base sm:text-lg">PDF | 1,3 MB</p>
             </div>
           </div>
 
-          <hr style={styles.separator} />
+          <hr className="border-t border-gray-300" />
 
-          <div style={styles.guideItem}>
-            <div style={styles.icon}><img src="document-icon.png" alt="Document Icon" style={styles.iconImage} /></div>
-            <div style={styles.info}>
-              <div style={styles.tags}>
-                <span style={styles.tag}>Linee Guida</span>
-                <span style={styles.tag}>Accessibilità</span>
+          {/* Guide Item 3 */}
+          <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <div className="w-12 h-12">
+              <img src="document-icon.png" alt="Document Icon" className="w-full h-full object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="flex flex-wrap space-x-2 mb-2">
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Linee Guida</span>
+                <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded text-xs sm:text-sm">Accessibilità</span>
               </div>
-              <a href="#" style={styles.titleLink}>Linee Guida sull'accessibilità degli strumenti informatici per soggetti privati</a>
-              <p style={styles.fileInfo}>PDF | 398,6 KB</p>
+              <a href="#" className="text-xl sm:text-2xl font-medium text-blue-600 hover:text-blue-800 block mb-2">
+                Linee Guida sull'accessibilità degli strumenti informatici per soggetti privati
+              </a>
+              <p className="text-gray-500 text-base sm:text-lg">PDF | 398,6 KB</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-// Stile CSS in linea
-const styles = {
-  pageContainer: {
-    backgroundColor: '#f0f0f0',  // Sfondo uniforme grigio per tutta la pagina
-    padding: '40px',  // Spazio attorno alla sezione
-  },
-  container: {
-    fontFamily: "'Titillium Web', sans-serif",
-    padding: '20px 0',  // Aggiungi padding verticale per separare il testo dai bordi
-    maxWidth: '1200px',  // Estende la larghezza per un aspetto più spazioso
-    margin: '0 auto', // Centra il contenuto
-  },
-  title: {
-    fontSize: '34px',
-    fontWeight: '400', // Maggior peso per il titolo
-    marginBottom: '20px',
-    textAlign: 'left',
-  },
-  subtitle: {
-    fontSize: '18px',
-    fontWeight: '300',
-    color: '#555',
-    marginBottom: '30px',
-    textAlign: 'left',
-  },
-  link: {
-    fontSize: '18px',
-    color: '#007bff',
-    textDecoration: 'none',
-    marginBottom: '40px', // Più spazio per separare il link dal resto del contenuto
-    display: 'block',
-    textAlign: 'left',
-  },
-  guideList: {
-    marginTop: '30px',
-  },
-  guideItem: {
-    display: 'flex',
-    alignItems: 'flex-start',  // Allinea in cima l'icona e il testo
-    marginBottom: '30px',
-    textAlign: 'left',
-  },
-  icon: {
-    marginRight: '20px',  // Aumenta lo spazio tra l'icona e il testo
-  },
-  iconImage: {
-    width: '36px',  // Icone leggermente più grandi per maggiore visibilità
-    height: '36px',
-  },
-  info: {
-    flexGrow: 1,
-    textAlign: 'left',
-  },
-  tags: {
-    display: 'flex',
-    gap: '10px',
-    marginBottom: '10px',
-  },
-  tag: {
-    backgroundColor: '#e0e0e0',
-    padding: '6px 12px',  // Aggiunge un po' più di spazio interno ai tag
-    borderRadius: '5px',
-    fontSize: '13px', // Font leggermente più grande per i tag
-    fontWeight: '300',
-  },
-  titleLink: {
-    fontSize: '20px',  // Font leggermente più grande per i link
-    color: '#007bff',
-    textDecoration: 'none',
-    marginBottom: '8px', // Spazio più definito tra titolo e descrizione
-    display: 'block',
-    fontWeight: '400',
-  },
-  fileInfo: {
-    fontSize: '16px',
-    color: '#777',
-    fontWeight: '300',
-  },
-  separator: {
-    border: 'none',
-    height: '1px',
-    backgroundColor: '#ddd',
-    margin: '20px 0',
-  },
 };
 
 export default LineeGuida;
