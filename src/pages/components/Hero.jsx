@@ -112,150 +112,151 @@ export default function HeroSection() {
 
       {/* Modal del form con stile migliorato */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-2xl w-full max-w-xl p-6 relative z-20 transition-transform duration-300 transform mx-4 md:mx-auto overflow-auto" style={{ maxHeight: '90vh' }}>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-800">Iscriviti al Convegno</h2>
-              <button
-                className="text-gray-500 hover:text-gray-700"
-                onClick={() => setShowModal(false)}
-              >
-                ✖
-              </button>
-            </div>
+  <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg shadow-2xl w-full max-w-xl p-6 relative z-20 transition-transform duration-300 transform mx-4 md:mx-auto overflow-auto" style={{ maxHeight: '90vh' }}>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold text-gray-800">Iscriviti al Convegno</h2>
+        <button
+          className="text-gray-500 hover:text-gray-700"
+          onClick={() => setShowModal(false)}
+        >
+          ✖
+        </button>
+      </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-gray-700">Cognome</label>
-                <input
-                  name="cognome"
-                  type="text"
-                  value={formData.cognome}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Inserisci il cognome"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Nome</label>
-                <input
-                  name="nome"
-                  type="text"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Inserisci il nome"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Qualifica</label>
-                <select
-                  name="qualifica"
-                  value={formData.qualifica}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                >
-                  <option value="">Seleziona la qualifica</option>
-                  <option value="MAGISTRATO ORDINARIO">Magistrato Ordinario</option>
-                  <option value="MAGISTRATO ONORARIO">Magistrato Onorario</option>
-                  <option value="MAGISTRATO AMMINISTRATIVO">Magistrato Amministrativo</option>
-                  <option value="MAGISTRATO TRIBUTARIO">Magistrato Tributario</option>
-                  <option value="MAGISTRATO DELLA CORTE DEI CONTI">Magistrato della Corte dei Conti</option>
-                  <option value="INFORMATICO">Informatico</option>
-                  <option value="AMMINISTRATIVO">Amministrativo</option>
-                  <option value="AVVOCATO LIBERO FORO">Avvocato Libero Foro</option>
-                  <option value="AVVOCATURA DELLO STATO">Avvocatura dello Stato</option>
-                  <option value="PROFESSORE UNIVERSITARIO">Professore Universitario</option>
-                  <option value="Altro">Altro</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Indirizzo Mail</label>
-                <input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Inserisci la mail"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Numero di Telefono</label>
-                <input
-                  name="telefono"
-                  type="tel"
-                  value={formData.telefono}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Inserisci il numero di telefono"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Sessione</label>
-                <select
-                  name="sessione"
-                  value={formData.sessione}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  required
-                >
-                  <option value="4 ottobre">Sessione del 4 ottobre</option>
-                  <option value="5 ottobre">Sessione del 5 ottobre</option>
-                  <option value="nessuna">Nessuna</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Gruppo Tematico</label>
-                <select
-                  name="gruppoTematico"
-                  value={formData.gruppoTematico}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                >
-                  <option value="1">L’innovazione e la digitalizzazione del processo tributario</option>
-                  <option value="2">L’innovazione e la digitalizzazione nel diritto e processo civile</option>
-                  <option value="3">L’innovazione e la digitalizzazione del processo penale</option>
-                  <option value="4">Casi d'uso dell'intelligenza artificiale nella giustizia</option>
-                  <option value="nessuno">A nessuno dei gruppi</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700">Note</label>
-                <textarea
-                  name="note"
-                  value={formData.note}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Inserisci eventuali note"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300"
-              >
-                Invia
-              </button>
-            </form>
-          </div>
-
-          {/* Overlay scuro dietro il modal */}
-          <div className="fixed inset-0 bg-gray-900 opacity-60 z-10"></div>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-gray-700">Cognome</label>
+          <input
+            name="cognome"
+            type="text"
+            value={formData.cognome}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            placeholder="Inserisci il cognome"
+            required
+          />
         </div>
-      )}
+
+        <div>
+          <label className="block text-gray-700">Nome</label>
+          <input
+            name="nome"
+            type="text"
+            value={formData.nome}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            placeholder="Inserisci il nome"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Qualifica</label>
+          <select
+            name="qualifica"
+            value={formData.qualifica}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            required
+          >
+            <option value="">Seleziona la qualifica</option>
+            <option value="MAGISTRATO ORDINARIO">Magistrato Ordinario</option>
+            <option value="MAGISTRATO ONORARIO">Magistrato Onorario</option>
+            <option value="MAGISTRATO AMMINISTRATIVO">Magistrato Amministrativo</option>
+            <option value="MAGISTRATO TRIBUTARIO">Magistrato Tributario</option>
+            <option value="MAGISTRATO DELLA CORTE DEI CONTI">Magistrato della Corte dei Conti</option>
+            <option value="INFORMATICO">Informatico</option>
+            <option value="AMMINISTRATIVO">Amministrativo</option>
+            <option value="AVVOCATO LIBERO FORO">Avvocato Libero Foro</option>
+            <option value="AVVOCATURA DELLO STATO">Avvocatura dello Stato</option>
+            <option value="PROFESSORE UNIVERSITARIO">Professore Universitario</option>
+            <option value="Altro">Altro</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Indirizzo Mail</label>
+          <input
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            placeholder="Inserisci la mail"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Numero di Telefono</label>
+          <input
+            name="telefono"
+            type="tel"
+            value={formData.telefono}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            placeholder="Inserisci il numero di telefono"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Sessione</label>
+          <select
+            name="sessione"
+            value={formData.sessione}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            required
+          >
+            <option value="4 ottobre">Sessione del 4 ottobre</option>
+            <option value="5 ottobre">Sessione del 5 ottobre</option>
+            <option value="nessuna">Nessuna</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Gruppo Tematico</label>
+          <select
+            name="gruppoTematico"
+            value={formData.gruppoTematico}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+          >
+            <option value="1">L’innovazione e la digitalizzazione del processo tributario</option>
+            <option value="2">L’innovazione e la digitalizzazione nel diritto e processo civile</option>
+            <option value="3">L’innovazione e la digitalizzazione del processo penale</option>
+            <option value="4">Casi d'uso dell'intelligenza artificiale nella giustizia</option>
+            <option value="nessuno">A nessuno dei gruppi</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-gray-700">Note</label>
+          <textarea
+            name="note"
+            value={formData.note}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
+            placeholder="Inserisci eventuali note"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300"
+        >
+          Invia
+        </button>
+      </form>
+    </div>
+
+    {/* Overlay scuro dietro il modal */}
+    <div className="fixed inset-0 bg-gray-900 opacity-60 z-10"></div>
+  </div>
+)}
+
     </>
   );
 }
