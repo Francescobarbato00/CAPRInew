@@ -28,7 +28,28 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger menu icon for mobile */}
-        <div className="md:hidden">
+        <div className="md:hidden flex space-x-4 items-center">
+          {/* Search icon for mobile */}
+          <button
+            onClick={toggleModal}
+            className="text-blue-900 focus:outline-none"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
+              ></path>
+            </svg>
+          </button>
+
           <button
             onClick={toggleMenu}
             className="text-blue-900 focus:outline-none"
@@ -50,7 +71,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Menu links */}
+        {/* Menu links for desktop */}
         <div className="hidden md:flex absolute inset-x-0 justify-center">
           <ul className="flex space-x-8 text-lg font-medium">
             <li className="hover:text-blue-400 transition-colors duration-300">
@@ -74,31 +95,30 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-30">
-          <ul className="flex flex-col items-center space-y-4 py-6 px-4 text-lg font-medium text-black">
-            <li className="hover:text-blue-400 transition-colors duration-300">
-              <a href="event" onClick={toggleMenu}>L'Evento</a>
-            </li>
-            <li className="hover:text-blue-400 transition-colors duration-300">
-              <a href="#" onClick={toggleMenu}>Servizi</a>
-            </li>
-            <li className="hover:text-blue-400 transition-colors duration-300">
-              <a href="#" onClick={toggleMenu}>Comunicazioni</a>
-            </li>
-            <li className="hover:text-blue-400 transition-colors duration-300">
-              <a href="#" onClick={toggleMenu}>Streaming</a>
-            </li>
-            <li className="hover:text-blue-400 transition-colors duration-300">
-              <a href="contact" onClick={toggleMenu}>Contattaci</a>
-            </li>
-          </ul>
-        </div>
-        
+            <ul className="flex flex-col items-center space-y-4 py-6 px-4 text-lg font-medium text-black">
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <a href="event" onClick={toggleMenu}>L'Evento</a>
+              </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <a href="#" onClick={toggleMenu}>Servizi</a>
+              </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <a href="#" onClick={toggleMenu}>Comunicazioni</a>
+              </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <a href="#" onClick={toggleMenu}>Streaming</a>
+              </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <a href="contact" onClick={toggleMenu}>Contattaci</a>
+              </li>
+            </ul>
+          </div>
         )}
 
-        {/* Search icon */}
+        {/* Search icon for desktop */}
         <div className="hidden md:block relative">
           <button
-            onClick={toggleModal} // Toggle modal on click
+            onClick={toggleModal}
             className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
           >
             <svg
@@ -127,7 +147,7 @@ export default function Navbar() {
         >
           <div className="w-full max-w-3xl mx-auto px-4">
             <div className="flex justify-between items-center mb-6">
-            <h2 className="text-7xl font-light">Cerca nel sito</h2>
+              <h2 className="text-7xl font-light">Cerca nel sito</h2>
 
               <button
                 onClick={toggleModal}
@@ -142,7 +162,9 @@ export default function Navbar() {
                 placeholder="Cerca..."
                 className="w-full border border-gray-300 rounded-lg p-4 text-lg focus:ring-2 focus:ring-blue-500"
               />
-              <button className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300">Cerca</button>
+              <button className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300">
+                Cerca
+              </button>
             </div>
           </div>
         </div>
