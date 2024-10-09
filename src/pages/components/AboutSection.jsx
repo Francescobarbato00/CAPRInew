@@ -12,7 +12,7 @@ export default function AboutSection() {
       <div className="flex flex-col md:flex-row items-start">
         {/* Titolo */}
         <div className="w-full md:w-1/3 mb-6 md:mb-0">
-          <h1 className="text-3xl sm:text-4xl font-normal leading-snug">
+          <h1 className="text-3xl sm:text-4xl text-black font-normal leading-snug">
             L'Evento Annuale per la trasformazione Digitale della Giustizia
           </h1>
         </div>
