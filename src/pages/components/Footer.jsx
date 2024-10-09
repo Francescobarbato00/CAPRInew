@@ -41,6 +41,7 @@ export default function Footer() {
               <li><a href="#" className="hover:text-gray-300">Gnews</a></li>
               <li><a href="#" className="hover:text-gray-300">Scuola Superiore Della Magistratura</a></li>
               <li><a href="#" className="hover:text-gray-300">Corte Suprema di Cassazione</a></li>
+              <li><a href="#" className="hover:text-gray-300">Agenzia per l'Italia Digitale</a></li>
             </ul>
           </div>
         </div>
