@@ -23,7 +23,7 @@ export default function NewsSection() {
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Capri</span>
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">2024</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black">
               Capri 2024 - REPORT DEL CONVEGNO
               </h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
@@ -34,14 +34,14 @@ export default function NewsSection() {
           </div>
 
           
-          {/* News Item 3 */}
+          {/* News Item 2 */}
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src="/foto3.jpg" alt="News 3" className="w-full h-40 sm:h-48 object-cover" />
             <div className="p-4 sm:p-6">
               <div className="flex flex-wrap space-x-2 mb-2">
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Accessibilità</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black">
                 Intervento del Signor Ministro all'Evento sulla Digitalizzazione della Giustizia
               </h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
@@ -51,8 +51,7 @@ export default function NewsSection() {
             </div>
           </div>
 
-
-          {/* News Item 2 */}
+          {/* News Item 3 */}
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src="/prova.png" alt="News 2" className="w-full h-40 sm:h-48 object-cover" />
             <div className="p-4 sm:p-6">
@@ -60,7 +59,7 @@ export default function NewsSection() {
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Locandine</span>
                 <span className="bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs sm:text-sm">Capri</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-black">
                 Online le Locandine Ufficiali dell'Evento
               </h3>
               <p className="text-gray-600 mb-4 text-sm sm:text-base">
@@ -69,7 +68,6 @@ export default function NewsSection() {
               <p className="text-xs sm:text-sm text-gray-400">NEWS • 20/09/2024</p>
             </div>
           </div>
-
 
         </div>
       </div>
