@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AboutSection() {
   return (
-    <section className="max-w-7xl mx-auto py-10 px-5">
+    <section className="max-w-7xl mx-auto py-10 px-5 bg-white sm:bg-white md:bg-transparent">
       {/* Breadcrumb */}
       <div className="text-sm mb-4 text-gray-500">
         <a href="/" className="hover:underline">Home</a> <span className="mx-2">/</span> <span>L'Evento</span>
