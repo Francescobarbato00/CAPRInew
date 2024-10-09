@@ -74,24 +74,25 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md z-30">
-            <ul className="flex flex-col items-center space-y-4 py-6 px-4 text-lg font-medium">
-              <li className="hover:text-blue-400 transition-colors duration-300">
-                <a href="event" onClick={toggleMenu}>L'Evento</a>
-              </li>
-              <li className="hover:text-blue-400 transition-colors duration-300">
-                <a href="#" onClick={toggleMenu}>Servizi</a>
-              </li>
-              <li className="hover:text-blue-400 transition-colors duration-300">
-                <a href="#" onClick={toggleMenu}>Comunicazioni</a>
-              </li>
-              <li className="hover:text-blue-400 transition-colors duration-300">
-                <a href="#" onClick={toggleMenu}>Streaming</a>
-              </li>
-              <li className="hover:text-blue-400 transition-colors duration-300">
-                <a href="contact" onClick={toggleMenu}>Contattaci</a>
-              </li>
-            </ul>
-          </div>
+          <ul className="flex flex-col items-center space-y-4 py-6 px-4 text-lg font-medium text-black">
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <a href="event" onClick={toggleMenu}>L'Evento</a>
+            </li>
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <a href="#" onClick={toggleMenu}>Servizi</a>
+            </li>
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <a href="#" onClick={toggleMenu}>Comunicazioni</a>
+            </li>
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <a href="#" onClick={toggleMenu}>Streaming</a>
+            </li>
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <a href="contact" onClick={toggleMenu}>Contattaci</a>
+            </li>
+          </ul>
+        </div>
+        
         )}
 
         {/* Search icon */}
