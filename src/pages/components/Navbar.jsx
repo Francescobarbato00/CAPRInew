@@ -139,36 +139,37 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Modal for search */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-white bg-opacity-90 z-40 flex justify-center items-center transition-opacity duration-500 ease-in-out"
-          style={{ animation: "fadeIn 0.5s ease" }} // Smooth fade-in animation
-        >
-          <div className="w-full max-w-3xl mx-auto px-4">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-7xl font-light">Cerca nel sito</h2>
+    {/* Modal for search */}
+{isModalOpen && (
+  <div
+    className="fixed inset-0 bg-white bg-opacity-90 z-40 flex justify-center items-center transition-opacity duration-500 ease-in-out"
+    style={{ animation: "fadeIn 0.5s ease" }} // Smooth fade-in animation
+  >
+    <div className="w-full max-w-3xl mx-auto px-4">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-7xl font-light">Cerca nel sito</h2>
 
-              <button
-                onClick={toggleModal}
-                className="text-gray-500 text-lg hover:text-gray-700"
-              >
-                Chiudi X {/* Close button */}
-              </button>
-            </div>
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Cerca..."
-                className="w-full border border-gray-300 rounded-lg p-4 text-lg focus:ring-2 focus:ring-blue-500"
-              />
-              <button className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300">
-                Cerca
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+        <button
+          onClick={toggleModal}
+          className="text-gray-500 text-lg hover:text-gray-700"
+        >
+          Chiudi X {/* Close button */}
+        </button>
+      </div>
+      <div className="w-full">
+        <input
+          type="text"
+          placeholder="Cerca..."
+          className="w-full border border-gray-300 rounded-lg p-4 text-lg text-black focus:ring-2 focus:ring-blue-500"
+        />
+        <button className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300">
+          Cerca
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       <style jsx>{`
         @keyframes fadeIn {
