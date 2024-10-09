@@ -169,7 +169,7 @@ export default function Navbar() {
   >
     <div className="w-full max-w-3xl mx-auto px-4">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-7xl font-light text-black md:text-gray-800">
+        <h2 className="text-7xl font-light text-black md:text-gray-800 md:font-light">
           Cerca nel sito
         </h2>
 
@@ -193,6 +193,7 @@ export default function Navbar() {
     </div>
   </div>
 )}
+
 
     </>
   );
