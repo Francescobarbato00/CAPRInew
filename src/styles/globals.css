@@ -28,3 +28,6 @@ body {
     text-wrap: balance;
   }
 }
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
