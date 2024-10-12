@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../api/supabaseClient';
+import Link from 'next/link';
 
 const Comunicazione = () => {
+    const [comunicazioni, setComunicazioni] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchComunicazioni = async () => {
+            const { data, error } = await supabase
+                .from('comunicazioni') // Nome della tua tabella comunicazioni
+                .select('*')
+                .order('created_at', { ascending: false }); // Ordina per data di creazione
+
+            if (error) {
+                console.error('Errore nel recupero delle comunicazioni:', error.message);
+            } else {
+                setComunicazioni(data);
+            }
+            setLoading(false);
+        };
+
+        fetchComunicazioni();
+    }, []);
+
     return (
         <div style={{ fontFamily: "'Titillium Web', sans-serif", color: 'rgb(26, 26, 26)', maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
             {/* Sezione Header */}
@@ -20,66 +43,72 @@ const Comunicazione = () => {
             <nav style={{ marginBottom: '30px', borderBottom: '2px solid #e0e0e0', paddingBottom: '10px' }}>
                 <ul style={{ display: 'flex', justifyContent: 'left', listStyle: 'none', padding: '0', marginBottom: '0' }}>
                     <li style={{ marginRight: '20px' }}>
-                        <a href="#news" style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>News</a>
+                        <Link href="/news">
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>News</span>
+                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <a href="#eventi" style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Eventi</a>
+                        <Link href="/eventi">
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Eventi</span>
+                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <a href="#comunicazioni-tecniche" style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Comunicazioni Tecniche</a>
+                        <Link href="/comunicazioni-tecniche">
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Comunicazioni Tecniche</span>
+                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <a href="#pubblicazioni" style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Pubblicazioni</a>
+                        <Link href="/pubblicazioni">
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Pubblicazioni</span>
+                        </Link>
                     </li>
                 </ul>
             </nav>
 
-            {/* Sezione Articoli */}
-            <section style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginBottom: '50px' }}>
-                <div style={{ width: '32%', backgroundColor: '#fff', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <img src="calendar.jpg" alt="Calendar" style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '15px' }} />
-                    <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                        <span style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>SUAP&SUE</span>
-                        <span style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>PNRR</span>
-                    </div>
-                    <h3 style={{ fontSize: '32px', fontWeight: '400', lineHeight: '45px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        SUAP: prorogata la scadenza dei bandi
-                    </h3>
-                    <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        Fino al 24 ottobre 2024, Regioni e Comuni possono partecipare ai bandi di finanziamento per l’adeguamento delle piattaforme tecnologiche utilizzate per la gestione degli sportelli unici.
-                    </p>
-                    <a href="#vai-all-articolo" style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '18px' }}>VAI ALL'ARTICOLO →</a>
-                </div>
-
-                <div style={{ width: '32%', backgroundColor: '#fff', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <img src="open_data.jpg" alt="Open Data" style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '15px' }} />
-                    <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                        <span style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>Dati</span>
-                        <span style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>Open Data</span>
-                    </div>
-                    <h3 style={{ fontSize: '32px', fontWeight: '400', lineHeight: '45px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        Il 26 settembre il terzo webinar
-                    </h3>
-                    <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        Si conclude il ciclo. Verranno fornite le istruzioni operative per l’utilizzo degli strumenti messi a disposizione.
-                    </p>
-                    <a href="#vai-all-articolo" style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '18px' }}>VAI ALL'ARTICOLO →</a>
-                </div>
-
-                <div style={{ width: '32%', backgroundColor: '#fff', border: '1px solid #ddd', borderRadius: '8px', padding: '20px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <img src="checklist.jpg" alt="Checklist" style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '15px' }} />
-                    <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                        <span style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>Accessibilità</span>
-                    </div>
-                    <h3 style={{ fontSize: '32px', fontWeight: '400', lineHeight: '45px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        Il 23 settembre scade il termine
-                    </h3>
-                    <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
-                        Le pubbliche amministrazioni e i soggetti privati dovranno presentare o aggiornare la dichiarazione di accessibilità per ciascun sito web o app.
-                    </p>
-                    <a href="#vai-all-articolo" style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '18px' }}>VAI ALL'ARTICOLO →</a>
-                </div>
-            </section>
+            {/* Sezione Articoli dinamici */}
+            {loading ? (
+                <p>Caricamento delle comunicazioni...</p>
+            ) : (
+                <section style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginBottom: '50px', flexWrap: 'wrap' }}>
+                    {comunicazioni.map((comunicazione) => (
+                        <div
+                            key={comunicazione.id}
+                            style={{
+                                width: '32%',
+                                backgroundColor: '#fff',
+                                border: '1px solid #ddd',
+                                borderRadius: '8px',
+                                padding: '20px',
+                                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                                marginBottom: '20px'
+                            }}
+                        >
+                            <img
+                                src={comunicazione.image_url || '/placeholder.jpg'} // Usa una immagine placeholder se non esiste un URL
+                                alt={comunicazione.title}
+                                style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '15px' }}
+                            />
+                            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                                {/* Tags dinamici, se esistono */}
+                                {comunicazione.tags && comunicazione.tags.split(',').map((tag, idx) => (
+                                    <span key={idx} style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>
+                                        {tag.trim()}
+                                    </span>
+                                ))}
+                            </div>
+                            <h3 style={{ fontSize: '32px', fontWeight: '400', lineHeight: '45px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
+                                {comunicazione.title}
+                            </h3>
+                            <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
+                                {comunicazione.description}
+                            </p>
+                            <Link href={`/comunicazioni/${comunicazione.slug}`}>
+                                <span style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '18px', cursor: 'pointer' }}>VAI ALL'ARTICOLO →</span>
+                            </Link>
+                        </div>
+                    ))}
+                </section>
+            )}
         </div>
     );
 }

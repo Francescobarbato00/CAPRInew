@@ -80,6 +80,13 @@ export default function Login() {
           >
             Non hai un account? Registrati
           </button>
+          <button
+            onClick={() => router.push('/forgot-password')} // Cambiato per andare alla pagina di registrazione
+            className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
+            style={{ fontFamily: 'Titillium Web, sans-serif' }}
+          >
+            Hai dimenticato la password? Reimpostala!
+          </button>
         </div>
       </div>
     </>

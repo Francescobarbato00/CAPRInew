@@ -8,6 +8,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
   const [session, setSession] = useState(null); // Stato sessione utente
+  const [userRole, setUserRole] = useState(''); // Stato per il ruolo dell'utente
+  const [searchQuery, setSearchQuery] = useState(''); // Stato per il termine di ricerca
+  const [searchResults, setSearchResults] = useState([]); // Stato per i risultati della ricerca
+  const [loading, setLoading] = useState(false); // Stato per il caricamento dei risultati
+
   const router = useRouter();
 
   // Funzione per aprire/chiudere il menu
@@ -23,28 +28,90 @@ export default function Navbar() {
   // Funzione per gestire il logout
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    setSession(null); // Aggiorna lo stato per rimuovere la sessione
     router.push('/'); // Reindirizza alla home dopo il logout
   };
 
+  // Recupero della sessione e del ruolo utente
   useEffect(() => {
-    // Recupera la sessione attiva al caricamento della pagina
     const getSession = async () => {
-      const { data } = await supabase.auth.getSession();
-      setSession(data?.session);
+      try {
+        const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+
+        if (sessionError || !sessionData?.session) {
+          console.error('Errore nel recupero della sessione:', sessionError);
+          router.push('/login');
+          return;
+        }
+
+        const userId = sessionData.session.user.id;
+        console.log('ID utente:', userId);
+
+        // Recupera il ruolo dell'utente dal database
+        const { data: userData, error: roleError } = await supabase
+          .from('users')
+          .select('role')
+          .eq('id', userId);
+
+        if (roleError) {
+          console.error('Errore nel recupero del ruolo:', roleError);
+          return;
+        }
+
+        if (!userData || userData.length === 0) {
+          console.error('Nessun utente trovato con questo ID.');
+          return;
+        }
+
+        // Mostra i dati per verificare cosa viene restituito
+        console.log('Dati utente recuperati:', userData);
+
+        const userRole = userData[0]?.role || '';  // Seleziona il primo record se esiste
+
+        if (userRole === 'admin') {
+          setUserRole('admin');
+        } else {
+          console.warn('L\'utente non è admin.');
+        }
+
+        setSession(sessionData.session);
+      } catch (error) {
+        console.error('Errore durante il recupero del ruolo utente:', error.message);
+      }
     };
+
+    getSession();
 
     // Listener per gestire i cambiamenti di stato della sessione
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      setSession(session);
+      if (session) {
+        setSession(session);
+      } else {
+        setSession(null); // Reset della sessione se l'utente si disconnette
+      }
     });
-
-    getSession();
 
     // Cleanup dell'event listener quando il componente viene smontato
     return () => {
       authListener.subscription.unsubscribe();
     };
   }, []);
+
+  // Funzione per gestire la ricerca
+  const handleSearch = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('news') // Nome della tabella
+      .select('*')
+      .ilike('title', `%${searchQuery}%`); // Cerca articoli dove il titolo corrisponde al termine di ricerca
+
+    if (error) {
+      console.error('Errore durante la ricerca:', error.message);
+    } else {
+      setSearchResults(data);
+    }
+    setLoading(false);
+  };
 
   return (
     <>
@@ -134,12 +201,23 @@ export default function Navbar() {
               </Link>
             </div>
           ) : (
-            <button
-              onClick={handleLogout}
-              className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
-            >
-              Logout
-            </button>
+            <>
+              {/* Mostra il pulsante Admin solo se l'utente è un admin */}
+              {userRole === 'admin' && (
+                <Link href="/admin">
+                  <span className="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                    Admin
+                  </span>
+                </Link>
+              )}
+
+              <button
+                onClick={handleLogout}
+                className="text-gray-700 hover:text-blue-600 font-medium transition duration-300"
+              >
+                Logout
+              </button>
+            </>
           )}
         </div>
 
@@ -236,19 +314,51 @@ export default function Navbar() {
                 onClick={toggleModal}
                 className="text-gray-500 text-lg hover:text-gray-700"
               >
-                Chiudi X {/* Close button */}
+                Chiudi X
               </button>
             </div>
             <div className="w-full">
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Cerca..."
                 className="w-full border border-gray-300 rounded-lg p-4 text-lg text-black focus:ring-2 focus:ring-blue-500"
               />
-              <button className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300">
+              <button
+                onClick={handleSearch}
+                className="mt-4 w-full bg-blue-500 text-white py-3 rounded-lg text-lg hover:bg-blue-600 transition-colors duration-300"
+              >
                 Cerca
               </button>
             </div>
+
+            {/* Visualizzazione dei risultati */}
+            {loading ? (
+              <p className="text-center text-gray-500 mt-6">Caricamento...</p>
+            ) : (
+              <div className="mt-6">
+                {searchResults.length > 0 ? (
+                  searchResults.map((article) => (
+                    <div
+                      key={article.id}
+                      className="p-4 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+                    >
+                      <Link href={`/articles/${article.slug}`}>
+                        <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
+                          {article.title}
+                        </h3>
+                      </Link>
+                      <p className="text-gray-600 mt-2">
+                        {article.content.substring(0, 100)}...
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500">Nessun risultato trovato.</p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -5,39 +5,43 @@ import Head from 'next/head';
 
 const ComunicazionePage = () => {
   const router = useRouter();
-  const { slug } = router.query;
-  const [comunicazione, setComunicazione] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { slug } = router.query; // Recupera lo slug dalla URL
+  const [comunicazione, setComunicazione] = useState(null); // Stato per i dati della comunicazione
+  const [loading, setLoading] = useState(true); // Stato di caricamento
 
+  // Effettua una chiamata al database per recuperare i dati della comunicazione tramite lo slug
   useEffect(() => {
     if (slug) {
       const fetchComunicazione = async () => {
         const { data, error } = await supabase
-          .from('comunicazioni') // Tabella corretta
+          .from('comunicazioni') // Assicurati che questa sia la tabella corretta
           .select('*')
-          .eq('slug', slug)
-          .single();
+          .eq('slug', slug) // Filtra la comunicazione in base allo slug
+          .single(); // Ritorna un singolo record
 
         if (error) {
           console.error('Errore nel recupero della comunicazione:', error.message);
         } else {
-          setComunicazione(data);
+          setComunicazione(data); // Imposta i dati della comunicazione nel relativo stato
         }
-        setLoading(false);
+        setLoading(false); // Fine caricamento
       };
 
       fetchComunicazione();
     }
   }, [slug]);
 
+  // Visualizzazione durante il caricamento
   if (loading) return <p>Caricamento...</p>;
+
+  // Visualizzazione se la comunicazione non è trovata
   if (!comunicazione) return <p>Comunicazione non trovata</p>;
 
   return (
     <div style={{ fontFamily: "'Titillium Web', sans-serif", padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
       <Head>
         <title>{comunicazione.title} | Comunicazione</title>
-        <meta name="description" content={comunicazione.description} />
+        <meta name="description" content={comunicazione.content?.substring(0, 160)} />
       </Head>
 
       <header style={{ marginBottom: '50px' }}>
@@ -51,7 +55,7 @@ const ComunicazionePage = () => {
 
       <section style={{ marginBottom: '30px' }}>
         <img
-          src={comunicazione.image_url || '/placeholder.jpg'}
+          src={comunicazione.image_url || '/placeholder.jpg'} // Mostra immagine o un segnaposto
           alt={comunicazione.title}
           style={{ width: '100%', height: '400px', objectFit: 'cover', marginBottom: '20px' }}
         />
