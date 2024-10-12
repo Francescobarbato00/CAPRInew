@@ -39,8 +39,7 @@ export default function Navbar() {
         const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
 
         if (sessionError || !sessionData?.session) {
-          console.error('Errore nel recupero della sessione:', sessionError);
-          router.push('/login');
+          console.log('Nessuna sessione attiva'); // Modificato: rimuovere il redirect al login
           return;
         }
 
@@ -63,15 +62,12 @@ export default function Navbar() {
           return;
         }
 
-        // Mostra i dati per verificare cosa viene restituito
         console.log('Dati utente recuperati:', userData);
 
         const userRole = userData[0]?.role || '';  // Seleziona il primo record se esiste
 
         if (userRole === 'admin') {
           setUserRole('admin');
-        } else {
-          console.warn('L\'utente non è admin.');
         }
 
         setSession(sessionData.session);
