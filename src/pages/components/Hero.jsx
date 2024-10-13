@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../api/supabaseClient';  // Assicurati di importare il client di Supabase
+import { supabase } from '../lib/supabaseClient';  // Assicurati di importare il client di Supabase
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
@@ -22,13 +22,22 @@ export default function HeroSection() {
   // Verifica se l'utente è autenticato all'inizio
   useEffect(() => {
     const getUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
+      const { data } = await supabase.auth.getUser();
       if (data?.user) {
         setUser(data.user);  // Imposta l'utente se è autenticato
+      } else {
+        setUser(null);  // Se non è autenticato, imposta null
       }
     };
     getUser();
   }, []);
+
+  // Aggiorna l'interfaccia al logout e ricarica l'utente
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);  // Imposta lo stato dell'utente a null dopo il logout
+    setShowModal(false);  // Chiudi il modal (se aperto)
+  };
 
   // Gestisce il cambiamento degli input del form
   const handleChange = (e) => {
@@ -61,13 +70,6 @@ export default function HeroSection() {
       console.error('Errore durante l\'invio dei dati:', error);
       alert('Errore durante l\'invio dei dati');
     }
-  };
-
-  // Funzione per il logout
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    router.push('/login');  // Reindirizza alla pagina di login dopo il logout
   };
 
   return (
@@ -128,7 +130,9 @@ export default function HeroSection() {
                 L'adesione al convegno dovrà essere effettuata tramite la compilazione del form
               </p>
 
-              
+              <button onClick={handleLogout} className="mt-4 bg-red-500 text-white py-2 px-4 rounded-md">
+                Logout
+              </button>
             </div>
           ) : (
             <div className="text-center">
