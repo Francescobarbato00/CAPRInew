@@ -217,11 +217,11 @@ export default function Navbar() {
 
         {/* Hamburger menu icon for mobile */}
         {/* Hamburger menu icon and search icon for mobile */}
-<div className="md:hidden flex justify-between items-center w-full px-4">
-  {/* Lente di ricerca centrale */}
+<div className="md:hidden flex justify-end items-center w-full px-4">
+  {/* Lente di ricerca a sinistra */}
   <button
     onClick={toggleModal}
-    className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
+    className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center mr-auto"
   >
     <svg
       className="w-5 h-5"
