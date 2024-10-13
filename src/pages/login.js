@@ -33,7 +33,7 @@ export default function Login() {
         />
       </Head>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full sm:w-full md:w-full lg:w-3/4 xl:w-1/2">
           <h1 className="text-4xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: 'Titillium Web, sans-serif' }}>
             Login
           </h1>
@@ -47,7 +47,7 @@ export default function Login() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci la tua email"
                 required
               />
@@ -60,7 +60,7 @@ export default function Login() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci la tua password"
                 required
               />
@@ -81,7 +81,7 @@ export default function Login() {
             Non hai un account? Registrati
           </button>
           <button
-            onClick={() => router.push('/forgot-password')} // Cambiato per andare alla pagina di registrazione
+            onClick={() => router.push('/forgot-password')} // Cambiato per andare alla pagina di recupero password
             className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
             style={{ fontFamily: 'Titillium Web, sans-serif' }}
           >
