@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient';  // Assicurati di importare il client di Supabase
+import { supabase } from '../api/supabaseClient';  // Assicurati di importare il client di Supabase
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 

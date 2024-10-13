@@ -29,7 +29,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setSession(null); // Aggiorna lo stato per rimuovere la sessione
-    router.push('/'); // Reindirizza alla home dopo il logout
+    router.reload();  // Forza il ricaricamento della pagina dopo il logout
   };
 
   // Recupero della sessione e del ruolo utente
@@ -39,7 +39,7 @@ export default function Navbar() {
         const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
 
         if (sessionError || !sessionData?.session) {
-          console.log('Nessuna sessione attiva'); // Modificato: rimuovere il redirect al login
+          console.log('Nessuna sessione attiva'); 
           return;
         }
 
@@ -80,11 +80,7 @@ export default function Navbar() {
 
     // Listener per gestire i cambiamenti di stato della sessione
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        setSession(session);
-      } else {
-        setSession(null); // Reset della sessione se l'utente si disconnette
-      }
+      setSession(session); // Aggiorna la sessione attuale o la rimuove
     });
 
     // Cleanup dell'event listener quando il componente viene smontato
