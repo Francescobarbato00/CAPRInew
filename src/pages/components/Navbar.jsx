@@ -213,13 +213,14 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Lente di ricerca centrale per mobile */}
-<li className="hover:text-blue-400 transition-colors duration-300">
+        
+
+        {/* Hamburger menu icon for mobile */}
+        {/* Hamburger menu icon and search icon for mobile */}
+<div className="md:hidden flex justify-between items-center w-full px-4">
+  {/* Lente di ricerca centrale */}
   <button
-    onClick={() => {
-      toggleModal();
-      toggleMenu(); // Chiude il menu dopo il clic
-    }}
+    onClick={toggleModal}
     className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
   >
     <svg
@@ -237,31 +238,28 @@ export default function Navbar() {
       ></path>
     </svg>
   </button>
-</li>
 
-
-        {/* Hamburger menu icon for mobile */}
-        <div className="md:hidden flex space-x-4 items-center">
-          <button
-            onClick={toggleMenu}
-            className="text-blue-900 focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              ></path>
-            </svg>
-          </button>
-        </div>
+  {/* Menu hamburger icon */}
+  <button
+    onClick={toggleMenu}
+    className="text-blue-900 focus:outline-none"
+  >
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+      ></path>
+    </svg>
+  </button>
+</div>
 
         
 
