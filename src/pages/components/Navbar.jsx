@@ -213,6 +213,33 @@ export default function Navbar() {
           )}
         </div>
 
+        {/* Lente di ricerca centrale per mobile */}
+<li className="hover:text-blue-400 transition-colors duration-300">
+  <button
+    onClick={() => {
+      toggleModal();
+      toggleMenu(); // Chiude il menu dopo il clic
+    }}
+    className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
+  >
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
+      ></path>
+    </svg>
+  </button>
+</li>
+
+
         {/* Hamburger menu icon for mobile */}
         <div className="md:hidden flex space-x-4 items-center">
           <button
@@ -268,32 +295,7 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              {/* Lente di ricerca centrale per mobile */}
-<li className="hover:text-blue-400 transition-colors duration-300">
-  <button
-    onClick={() => {
-      toggleModal();
-      toggleMenu(); // Chiude il menu dopo il clic
-    }}
-    className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
-  >
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
-      ></path>
-    </svg>
-  </button>
-</li>
-
+              
 
               {/* Pulsanti Login e Registrazione per mobile */}
               {!session && (
