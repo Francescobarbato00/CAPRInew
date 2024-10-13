@@ -27,12 +27,12 @@ const Comunicazione = () => {
     return (
         <div style={{ fontFamily: "'Titillium Web', sans-serif", color: 'rgb(26, 26, 26)', maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
             {/* Sezione Header */}
-            <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '50px' }}>
-                <div>
-                    <h1 style={{ fontSize: '64px', fontWeight: '400', lineHeight: '72px', marginBottom: '0' }}>Comunicazione</h1>
+            <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '50px', flexWrap: 'wrap' }}>
+                <div style={{ flex: '1 1 100%', marginBottom: '20px' }}>
+                    <h1 style={{ fontSize: '2.5rem', fontWeight: '400', lineHeight: '1.2', marginBottom: '0' }}>Comunicazione</h1>
                 </div>
-                <div style={{ maxWidth: '600px', textAlign: 'right' }}>
-                    <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', margin: '0' }}>
+                <div style={{ flex: '1 1 100%', textAlign: 'left', marginBottom: '20px', maxWidth: '100%' }}>
+                    <p style={{ fontSize: '1rem', fontWeight: '400', lineHeight: '1.5', color: 'rgb(26, 26, 26)', margin: '0' }}>
                         In questa sezione puoi consultare notizie, eventi, comunicazioni tecniche e pubblicazioni sulla trasformazione digitale,
                         l’innovazione tecnologica, le attività e le strategie per l’innovazione promosse nel Convegno.
                     </p>
@@ -41,25 +41,25 @@ const Comunicazione = () => {
 
             {/* Barra di navigazione */}
             <nav style={{ marginBottom: '30px', borderBottom: '2px solid #e0e0e0', paddingBottom: '10px' }}>
-                <ul style={{ display: 'flex', justifyContent: 'left', listStyle: 'none', padding: '0', marginBottom: '0' }}>
+                <ul style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', listStyle: 'none', padding: '0', marginBottom: '0' }}>
                     <li style={{ marginRight: '20px' }}>
                         <Link href="/news">
-                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>News</span>
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>News</span>
                         </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
                         <Link href="/eventi">
-                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Eventi</span>
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Eventi</span>
                         </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
                         <Link href="/comunicazioni-tecniche">
-                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Comunicazioni Tecniche</span>
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Comunicazioni Tecniche</span>
                         </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
                         <Link href="/pubblicazioni">
-                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '24px', lineHeight: '40px' }}>Pubblicazioni</span>
+                            <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Pubblicazioni</span>
                         </Link>
                     </li>
                 </ul>
@@ -74,13 +74,15 @@ const Comunicazione = () => {
                         <div
                             key={comunicazione.id}
                             style={{
-                                width: '32%',
+                                width: '100%',
+                                maxWidth: '32%',
                                 backgroundColor: '#fff',
                                 border: '1px solid #ddd',
                                 borderRadius: '8px',
                                 padding: '20px',
                                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-                                marginBottom: '20px'
+                                marginBottom: '20px',
+                                flex: '1 1 100%',
                             }}
                         >
                             <img
@@ -88,7 +90,7 @@ const Comunicazione = () => {
                                 alt={comunicazione.title}
                                 style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '15px' }}
                             />
-                            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                            <div style={{ display: 'flex', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
                                 {/* Tags dinamici, se esistono */}
                                 {comunicazione.tags && comunicazione.tags.split(',').map((tag, idx) => (
                                     <span key={idx} style={{ background: '#e0e0e0', padding: '5px 10px', borderRadius: '5px', fontSize: '14px', fontWeight: '500', color: '#333' }}>
@@ -96,14 +98,14 @@ const Comunicazione = () => {
                                     </span>
                                 ))}
                             </div>
-                            <h3 style={{ fontSize: '32px', fontWeight: '400', lineHeight: '45px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: '400', lineHeight: '1.2', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
                                 {comunicazione.title}
                             </h3>
-                            <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
+                            <p style={{ fontSize: '1rem', fontWeight: '400', lineHeight: '1.5', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>
                                 {comunicazione.description}
                             </p>
                             <Link href={`/comunicazioni/${comunicazione.slug}`}>
-                                <span style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '18px', cursor: 'pointer' }}>VAI ALL'ARTICOLO →</span>
+                                <span style={{ textDecoration: 'none', color: '#0073e6', fontWeight: '400', fontSize: '1rem', cursor: 'pointer' }}>VAI ALL'ARTICOLO →</span>
                             </Link>
                         </div>
                     ))}
