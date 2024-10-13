@@ -126,7 +126,6 @@ const handleSearch = async () => {
   setLoading(false);
 };
 
-
   return (
     <>
       {/* Aggiungi il font Titillium Web */}
@@ -235,55 +234,51 @@ const handleSearch = async () => {
           )}
         </div>
 
-        
-
         {/* Hamburger menu icon for mobile */}
         {/* Hamburger menu icon and search icon for mobile */}
-<div className="md:hidden flex justify-end items-center w-full px-4">
-  {/* Lente di ricerca a sinistra dell'hamburger */}
-  <button
-    onClick={toggleModal}
-    className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
-  >
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
-      ></path>
-    </svg>
-  </button>
+        <div className="md:hidden flex justify-end items-center w-full px-4">
+          {/* Lente di ricerca a sinistra dell'hamburger */}
+          <button
+            onClick={toggleModal}
+            className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
+              ></path>
+            </svg>
+          </button>
 
-  {/* Menu hamburger icon */}
-  <button
-    onClick={toggleMenu}
-    className="ml-4 text-blue-900 focus:outline-none"
-  >
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-      ></path>
-    </svg>
-  </button>
-</div>
-
-        
+          {/* Menu hamburger icon */}
+          <button
+            onClick={toggleMenu}
+            className="ml-4 text-blue-900 focus:outline-none"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              ></path>
+            </svg>
+          </button>
+        </div>
 
         {/* Mobile Menu */}
         {isOpen && (
@@ -314,8 +309,6 @@ const handleSearch = async () => {
                   Contattaci
                 </Link>
               </li>
-
-              
 
               {/* Pulsanti Login e Registrazione per mobile */}
               {!session && (
@@ -398,7 +391,11 @@ const handleSearch = async () => {
                       key={article.id}
                       className="p-4 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
                     >
-                      <Link href={`/articles/${article.slug}`}>
+                      <Link
+                        href={`${
+                          article.content ? `/articles/${article.slug}` : `/comunicazioni/${article.slug}`
+                        }`}
+                      >
                         <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
                           {article.title}
                         </h3>
