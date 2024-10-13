@@ -154,7 +154,7 @@ export default function Navbar() {
         {/* Pulsanti di ricerca, login e registrazione */}
         <div className="flex items-center space-x-4 z-10">
           {/* Search icon for desktop */}
-          <div className="relative">
+          <div className="relative hidden md:block">
             <button
               onClick={toggleModal}
               className="w-10 h-10 bg-white text-blue-900 rounded-full flex justify-center items-center"
@@ -216,26 +216,6 @@ export default function Navbar() {
         {/* Hamburger menu icon for mobile */}
         <div className="md:hidden flex space-x-4 items-center">
           <button
-            onClick={toggleModal}
-            className="text-blue-900 focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M11 19a8 8 0 100-16 8 8 0 000 16zm0 0l4.28 4.28"
-              ></path>
-            </svg>
-          </button>
-
-          <button
             onClick={toggleMenu}
             className="text-blue-900 focus:outline-none"
           >
@@ -285,6 +265,37 @@ export default function Navbar() {
                   Contattaci
                 </Link>
               </li>
+
+              {/* Pulsanti Login e Registrazione per mobile */}
+              {!session && (
+                <>
+                  <li className="hover:text-blue-400 transition-colors duration-300">
+                    <Link href="/login" onClick={toggleMenu}>
+                      Login
+                    </Link>
+                  </li>
+                  <li className="hover:text-blue-400 transition-colors duration-300">
+                    <Link href="/registers" onClick={toggleMenu}>
+                      Registrazione
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {/* Logout per mobile */}
+              {session && (
+                <li className="hover:text-blue-400 transition-colors duration-300">
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      toggleMenu();
+                    }}
+                    className="focus:outline-none"
+                  >
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         )}
