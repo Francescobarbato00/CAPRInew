@@ -69,20 +69,17 @@ const Comunicazione = () => {
             {loading ? (
                 <p>Caricamento delle comunicazioni...</p>
             ) : (
-                <section style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginBottom: '50px', flexWrap: 'wrap' }}>
+                <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '50px' }}>
                     {comunicazioni.map((comunicazione) => (
                         <div
                             key={comunicazione.id}
                             style={{
-                                width: '100%',
-                                maxWidth: '32%',
                                 backgroundColor: '#fff',
                                 border: '1px solid #ddd',
                                 borderRadius: '8px',
                                 padding: '20px',
                                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-                                marginBottom: '20px',
-                                flex: '1 1 100%',
+                                marginBottom: '20px'
                             }}
                         >
                             <img
@@ -132,11 +129,6 @@ const Comunicazione = () => {
                     nav li {
                         margin-right: 0;
                         margin-bottom: 10px;
-                    }
-
-                    section div {
-                        max-width: 100%;
-                        flex: 1 1 100%;
                     }
 
                     section img {
