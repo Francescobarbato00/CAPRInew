@@ -89,21 +89,43 @@ export default function Navbar() {
     };
   }, []);
 
-  // Funzione per gestire la ricerca
-  const handleSearch = async () => {
-    setLoading(true);
-    const { data, error } = await supabase
+ // Funzione per gestire la ricerca
+const handleSearch = async () => {
+  setLoading(true);
+
+  try {
+    // Query per cercare nella tabella "news"
+    const { data: newsData, error: newsError } = await supabase
       .from('news') // Nome della tabella
       .select('*')
-      .ilike('title', `%${searchQuery}%`); // Cerca articoli dove il titolo corrisponde al termine di ricerca
+      .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
 
-    if (error) {
-      console.error('Errore durante la ricerca:', error.message);
-    } else {
-      setSearchResults(data);
+    if (newsError) {
+      console.error('Errore durante la ricerca nelle news:', newsError.message);
     }
-    setLoading(false);
-  };
+
+    // Query per cercare nella tabella "comunicazioni"
+    const { data: comunicazioniData, error: comunicazioniError } = await supabase
+      .from('comunicazioni') // Nome della tabella
+      .select('*')
+      .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
+
+    if (comunicazioniError) {
+      console.error('Errore durante la ricerca nelle comunicazioni:', comunicazioniError.message);
+    }
+
+    // Unisci i risultati delle due ricerche
+    const combinedResults = [...(newsData || []), ...(comunicazioniData || [])];
+
+    // Aggiorna lo stato con i risultati combinati
+    setSearchResults(combinedResults);
+  } catch (error) {
+    console.error('Errore durante la ricerca:', error.message);
+  }
+
+  setLoading(false);
+};
+
 
   return (
     <>
