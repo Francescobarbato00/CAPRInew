@@ -60,7 +60,7 @@ export default function Register() {
         />
       </Head>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full sm:w-full md:w-full lg:w-3/4 xl:w-1/2">
           <h1
             className="text-4xl font-bold text-center text-gray-800 mb-8"
             style={{ fontFamily: 'Titillium Web, sans-serif' }}
@@ -80,7 +80,7 @@ export default function Register() {
                 type="text"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci il tuo nome"
                 required
               />
@@ -97,7 +97,7 @@ export default function Register() {
                 type="text"
                 value={cognome}
                 onChange={(e) => setCognome(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci il tuo cognome"
                 required
               />
@@ -114,7 +114,7 @@ export default function Register() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci la tua email"
                 required
               />
@@ -131,7 +131,7 @@ export default function Register() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Inserisci la tua password"
                 required
               />
