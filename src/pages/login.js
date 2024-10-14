@@ -32,15 +32,15 @@ export default function Login() {
           rel="stylesheet"
         />
       </Head>
-      <div className="h-screen flex items-center justify-center bg-gray-100 m-0 p-0">
-        <div className="bg-white shadow-lg rounded-lg p-8 w-full sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2 h-full flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center bg-gray-100 p-4">
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
           <div className="w-full">
             <h1 className="text-4xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: 'Titillium Web, sans-serif' }}>
               Login
             </h1>
             {error && <p className="text-red-500 text-center mb-6">{error}</p>}
-            <form onSubmit={handleLogin} className="h-full">
-              <div className="mb-6">
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: 'Titillium Web, sans-serif' }}>
                   Email
                 </label>
@@ -53,7 +53,7 @@ export default function Login() {
                   required
                 />
               </div>
-              <div className="mb-6">
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: 'Titillium Web, sans-serif' }}>
                   Password
                 </label>
@@ -75,14 +75,14 @@ export default function Login() {
               </button>
             </form>
             <button
-              onClick={() => router.push('/registers')} // Cambiato per andare alla pagina di registrazione
+              onClick={() => router.push('/registers')}
               className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
               style={{ fontFamily: 'Titillium Web, sans-serif' }}
             >
               Non hai un account? Registrati
             </button>
             <button
-              onClick={() => router.push('/forgot-password')} // Cambiato per andare alla pagina di recupero password
+              onClick={() => router.push('/forgot-password')}
               className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
               style={{ fontFamily: 'Titillium Web, sans-serif' }}
             >

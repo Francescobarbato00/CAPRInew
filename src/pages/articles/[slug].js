@@ -137,7 +137,7 @@ const ComunicazionePage = () => {
         onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
         onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
       >
-        Vai a Info Section
+        Torna alle News
       </button>
     </div>
   );

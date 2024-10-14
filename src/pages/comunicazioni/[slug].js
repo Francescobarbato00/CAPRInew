@@ -97,7 +97,7 @@ const ComunicazionePage = () => {
           marginTop: '20px',
         }}
       >
-        Vai a Info Section
+        Torna alle Comunicazioni
       </button>
     </div>
   );
