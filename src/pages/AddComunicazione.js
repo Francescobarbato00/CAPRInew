@@ -9,7 +9,7 @@ export default function AddComunicazione() {
   const [imageUrl, setImageUrl] = useState('');
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(false);
-  const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState(false); // Stato di caricamento immagine
   const [session, setSession] = useState(null); // Stato per la sessione
   const router = useRouter();
 
@@ -58,9 +58,22 @@ export default function AddComunicazione() {
         return;
       }
 
-      if (imageFile) {
-        console.log("Caricamento immagine...");
-        await uploadImage(imageFile);
+      // Controllo che l'immagine sia stata selezionata
+      if (!imageFile) {
+        alert('Seleziona un\'immagine prima di inviare il form.');
+        setLoading(false);
+        return;
+      }
+
+      // Carica l'immagine e aspetta che sia completato il caricamento
+      await uploadImage(imageFile);
+
+      // Verifica che l'URL dell'immagine sia stato impostato correttamente
+      if (!imageUrl) {
+        console.error("URL immagine non disponibile dopo il caricamento.");
+        alert('Attendi il completamento del caricamento dell\'immagine.');
+        setLoading(false);
+        return;
       }
 
       let slug = title.toLowerCase().replace(/\s+/g, '-');
@@ -102,30 +115,43 @@ export default function AddComunicazione() {
   // Funzione per caricare l'immagine
   const uploadImage = async (file) => {
     try {
-      setUploading(true);
+      setUploading(true); // Imposta lo stato di caricamento a true
       const fileExt = file.name.split('.').pop();
       const fileName = `${Date.now()}.${fileExt}`;
       const filePath = `${fileName}`;
+
+      console.log("Nome file da caricare:", fileName);
 
       const { error: uploadError } = await supabase.storage
         .from('comunicazioni-images')
         .upload(filePath, file);
 
-      if (uploadError) throw uploadError;
+      if (uploadError) {
+        throw uploadError;
+      }
 
-      const { data: publicUrlData, error: urlError } = supabase.storage
+      const { data: publicUrlData, error: urlError } = await supabase.storage
         .from('comunicazioni-images')
         .getPublicUrl(filePath);
 
-      if (urlError) throw urlError;
+      if (urlError) {
+        throw urlError;
+      }
 
-      setImageUrl(publicUrlData.publicUrl);
+      console.log("URL pubblico dell'immagine caricata:", publicUrlData.publicUrl);
+      setImageUrl(publicUrlData.publicUrl); // Imposta l'URL dell'immagine nello stato
     } catch (error) {
       console.error('Errore durante il caricamento dell\'immagine:', error.message);
     } finally {
-      setUploading(false);
+      setUploading(false); // Imposta lo stato di caricamento a false
     }
   };
+
+  useEffect(() => {
+    if (uploading === false && imageUrl !== '') {
+      console.log("Immagine caricata con successo:", imageUrl);
+    }
+  }, [uploading, imageUrl]); // Verifica lo stato di caricamento dell'immagine
 
   return (
     <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg mt-10">
@@ -193,18 +219,18 @@ export default function AddComunicazione() {
         <button
           type="submit"
           className={`w-full px-6 py-3 text-white font-medium rounded-lg shadow-md ${
-            loading ? 'bg-gray-500' : 'bg-blue-600 hover:bg-blue-700'
+            loading || uploading ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
           }`}
-          disabled={loading}
+          disabled={loading || uploading} // Disabilitato durante il caricamento
         >
-          {loading ? 'Caricamento...' : 'Aggiungi Comunicazione'}
+          {loading || uploading ? 'Caricamento...' : 'Aggiungi Comunicazione'}
         </button>
         <button
-              className="w-full bg-gray-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-gray-600 transition-all duration-300 mt-6"
-              onClick={() => router.push('/')}
-            >
-              Torna alla Home
-            </button>
+          className="w-full bg-gray-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-gray-600 transition-all duration-300 mt-6"
+          onClick={() => router.push('/')}
+        >
+          Torna alla Home
+        </button>
       </form>
     </div>
   );

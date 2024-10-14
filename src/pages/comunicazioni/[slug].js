@@ -81,6 +81,24 @@ const ComunicazionePage = () => {
             ))}
         </div>
       </section>
+
+      {/* Pulsante estetico che rimanda a infoSection.js */}
+      <button
+        onClick={() => router.push('/infoSection')} // Cambia '/percorso-info-section' con il percorso corretto
+        style={{
+          backgroundColor: '#007bff',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '5px',
+          fontSize: '16px',
+          fontWeight: '600',
+          border: 'none',
+          cursor: 'pointer',
+          marginTop: '20px',
+        }}
+      >
+        Vai a Info Section
+      </button>
     </div>
   );
 };

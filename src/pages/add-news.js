@@ -3,72 +3,68 @@ import { supabase } from './api/supabaseClient';
 import { useRouter } from 'next/router';
 
 export default function AddNews() {
-  const [title, setTitle] = useState(''); // Hook per il titolo
-  const [content, setContent] = useState(''); // Hook per il contenuto
-  const [imageFile, setImageFile] = useState(null); // File immagine caricato
-  const [imageUrl, setImageUrl] = useState(''); // URL dell'immagine
-  const [loading, setLoading] = useState(false); // Stato di caricamento
-  const [uploading, setUploading] = useState(false); // Stato di caricamento dell'immagine
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [imageFile, setImageFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
-  const router = useRouter(); // Hook per la navigazione
+  const router = useRouter();
 
   useEffect(() => {
-    // Verifica che l'utente sia autenticato
     const checkUser = async () => {
       const { data } = await supabase.auth.getSession();
       if (!data?.session) {
-        router.push('/login'); // Se l'utente non è autenticato, reindirizza al login
+        router.push('/login');
       }
     };
     checkUser();
-  }, [router]); // Si esegue solo al montaggio del componente
+  }, [router]);
+
+  useEffect(() => {
+    console.log("URL aggiornato:", imageUrl);
+  }, [imageUrl]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Se c'è un file immagine, caricalo
       if (imageFile) {
         console.log("Inizio caricamento immagine...");
-        await uploadImage(imageFile);
+        await uploadImage(imageFile); // Aspetta che l'immagine sia caricata
       }
 
-      // Genera lo slug dal titolo
+      // Verifica che l'immagine sia stata caricata correttamente
+      if (!imageUrl) {
+        alert("Attendi il completamento del caricamento dell'immagine.");
+        setLoading(false);
+        return;
+      }
+
       let slug = title.toLowerCase().replace(/\s+/g, '-');
 
-      // Controlla se lo slug esiste già
       const { data: existingNews } = await supabase
         .from('news')
         .select('slug')
         .eq('slug', slug);
 
       if (existingNews.length > 0) {
-        // Se esiste già, aggiungi un timestamp per rendere lo slug unico
         slug = `${slug}-${Date.now()}`;
       }
 
-      console.log("Aggiunta della news con i seguenti dati:");
-      console.log({ title, slug, content, imageUrl });
+      console.log("Aggiunta della news con i seguenti dati:", { title, slug, content, imageUrl });
 
-      // Inserisci i dati nel database
       const { data, error } = await supabase
         .from('news')
-        .insert([
-          {
-            title,
-            slug,
-            content,
-            image_url: imageUrl, // Usa l'URL dell'immagine salvata
-          },
-        ]);
+        .insert([{ title, slug, content, image_url: imageUrl }]);
 
       if (error) {
-        throw error; // Se c'è un errore durante l'inserimento della news
+        throw error;
       }
 
       alert('News aggiunta con successo!');
-      // Resetta i campi del form
       setTitle('');
       setContent('');
       setImageFile(null);
@@ -81,18 +77,15 @@ export default function AddNews() {
     }
   };
 
-  // Funzione per caricare l'immagine su Supabase
   const uploadImage = async (file) => {
     try {
       setUploading(true);
-
       const fileExt = file.name.split('.').pop();
       const fileName = `${Date.now()}.${fileExt}`;
       const filePath = `${fileName}`;
 
-      console.log("Caricamento dell'immagine nel bucket news-images...");
+      console.log("Nome file:", fileName);
 
-      // Carica il file nel bucket di Supabase
       const { error: uploadError } = await supabase.storage
         .from('news-images')
         .upload(filePath, file);
@@ -101,7 +94,6 @@ export default function AddNews() {
         throw uploadError;
       }
 
-      // Ottieni l'URL pubblico dell'immagine
       const { data: publicUrlData, error: urlError } = supabase.storage
         .from('news-images')
         .getPublicUrl(filePath);
@@ -110,8 +102,8 @@ export default function AddNews() {
         throw urlError;
       }
 
-      console.log("Immagine caricata con successo. URL:", publicUrlData.publicUrl);
-      setImageUrl(publicUrlData.publicUrl); // Salva l'URL dell'immagine
+      console.log("URL pubblico dell'immagine:", publicUrlData.publicUrl);
+      setImageUrl(publicUrlData.publicUrl); // Imposta l'URL dell'immagine
     } catch (error) {
       console.error('Errore durante il caricamento dell\'immagine:', error.message);
       alert('Errore durante il caricamento dell\'immagine');
@@ -120,11 +112,10 @@ export default function AddNews() {
     }
   };
 
-  // Funzione di gestione del file input
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setImageFile(file); // Memorizza il file da caricare
+      setImageFile(file);
     }
   };
 
@@ -132,11 +123,8 @@ export default function AddNews() {
     <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg mt-10">
       <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">Aggiungi una nuova notizia</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Titolo */}
         <div className="relative">
-          <label htmlFor="title" className="block text-lg font-medium text-gray-700">
-            Titolo
-          </label>
+          <label htmlFor="title" className="block text-lg font-medium text-gray-700">Titolo</label>
           <input
             type="text"
             id="title"
@@ -148,11 +136,8 @@ export default function AddNews() {
           />
         </div>
 
-        {/* Contenuto */}
         <div className="relative">
-          <label htmlFor="content" className="block text-lg font-medium text-gray-700">
-            Contenuto
-          </label>
+          <label htmlFor="content" className="block text-lg font-medium text-gray-700">Contenuto</label>
           <textarea
             id="content"
             placeholder="Inserisci il contenuto della notizia"
@@ -164,11 +149,8 @@ export default function AddNews() {
           />
         </div>
 
-        {/* Caricamento immagine */}
         <div className="relative">
-          <label htmlFor="image" className="block text-lg font-medium text-gray-700">
-            Carica immagine
-          </label>
+          <label htmlFor="image" className="block text-lg font-medium text-gray-700">Carica immagine</label>
           <input
             type="file"
             id="image"
@@ -179,55 +161,35 @@ export default function AddNews() {
           {uploading && <p className="text-blue-500 mt-2">Caricamento in corso...</p>}
         </div>
 
-        {/* Bottone di submit */}
         <div className="text-center">
           <button
             type="submit"
             className={`w-full px-6 py-3 text-white font-medium rounded-lg shadow-md transition duration-150 ease-in-out ${
-              loading
-                ? 'bg-gray-500 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-4'
+              loading || uploading ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-4'
             }`}
-            disabled={loading}
+            disabled={loading || uploading} // Disabilita finché l'immagine non è caricata
           >
-            {loading ? (
-              <div className="flex items-center justify-center">
-                <svg
-                  className="animate-spin h-5 w-5 mr-3 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8v8H4z"
-                  ></path>
-                </svg>
-                Caricamento...
-              </div>
-            ) : (
-              'Aggiungi Notizia'
-            )}
+            {loading || uploading ? 'Caricamento...' : 'Aggiungi Notizia'}
           </button>
         </div>
       </form>
-      
+
+      <div className="mt-6">
+        <h3 className="text-lg font-medium">Anteprima Immagine:</h3>
+        {imageUrl ? (
+          <img src={imageUrl} alt="Immagine della news" className="mt-4 max-w-full h-auto" />
+        ) : (
+          <p>Nessuna immagine caricata.</p>
+        )}
+      </div>
+
       <button
-            onClick={() => router.push('/')}
-            className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
-            style={{ fontFamily: 'Titillium Web, sans-serif' }}
-          >
-            Torna alla Home
-          </button>
+        onClick={() => router.push('/')}
+        className="mt-4 w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out transform hover:scale-105"
+        style={{ fontFamily: 'Titillium Web, sans-serif' }}
+      >
+        Torna alla Home
+      </button>
     </div>
   );
 }

@@ -22,6 +22,7 @@ const ComunicazionePage = () => {
           console.error('Errore nel recupero della news:', error.message);
         } else {
           setNewsItem(data); // Salva i dati recuperati nello stato
+          console.log("Dati news recuperati:", data); // Log per verificare il recupero dei dati
         }
         setLoading(false); // Cambia lo stato di caricamento
       };
@@ -33,18 +34,48 @@ const ComunicazionePage = () => {
   if (loading) return <p>Caricamento...</p>; // Mostra un messaggio di caricamento
   if (!newsItem) return <p>News non trovata</p>; // Messaggio nel caso non venga trovata la news
 
+  // Funzione per navigare verso infoSection.js
+  const handleNavigate = () => {
+    router.push('/infoSection');
+  };
+
   return (
-    <div style={{ fontFamily: "'Titillium Web', sans-serif", padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+    <div 
+      style={{ 
+        fontFamily: "'Titillium Web', sans-serif", 
+        padding: '20px', 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        backgroundColor: '#ffffff', // Sfondo bianco
+        color: '#1a1a1a', // Colore del testo come nella versione desktop
+        minHeight: '100vh', // Copre l'intera altezza della pagina
+      }}
+    >
       <Head>
         <title>{newsItem.title} | News</title>
         <meta name="description" content={newsItem.description || 'Descrizione della notizia'} />
       </Head>
 
       <header style={{ marginBottom: '50px' }}>
-        <h1 style={{ fontSize: '64px', fontWeight: '400', lineHeight: '72px', marginBottom: '0' }}>
+        <h1 
+          style={{ 
+            fontSize: 'clamp(32px, 6vw, 64px)', // Font responsivo, si adatta al viewport
+            fontWeight: '400', 
+            lineHeight: 'clamp(40px, 7vw, 72px)', 
+            marginBottom: '0',
+            color: '#1a1a1a' // Colore del testo desktop
+          }}
+        >
           {newsItem.title}
         </h1>
-        <p style={{ fontSize: '18px', fontWeight: '400', lineHeight: '28px', color: 'rgb(26, 26, 26)' }}>
+        <p 
+          style={{ 
+            fontSize: 'clamp(14px, 4vw, 18px)', // Adattamento del font per mobile
+            fontWeight: '400', 
+            lineHeight: '28px', 
+            color: 'rgb(26, 26, 26)' 
+          }}
+        >
           Pubblicata il {new Date(newsItem.created_at).toLocaleDateString()}
         </p>
       </header>
@@ -53,12 +84,24 @@ const ComunicazionePage = () => {
         <img
           src={newsItem.image_url || '/placeholder.jpg'}
           alt={newsItem.title}
-          style={{ width: '100%', height: '400px', objectFit: 'cover', marginBottom: '20px' }}
+          style={{ 
+            width: '100%', 
+            height: 'auto', // Altezza automatica per mantenere proporzioni
+            objectFit: 'cover', 
+            marginBottom: '20px' 
+          }}
         />
-        <p style={{ fontSize: '20px', lineHeight: '32px', color: 'rgb(26, 26, 26)', marginBottom: '20px' }}>
+        <p 
+          style={{ 
+            fontSize: 'clamp(16px, 5vw, 20px)', // Testo adattabile in base al dispositivo
+            lineHeight: 'clamp(24px, 6vw, 32px)', 
+            color: 'rgb(26, 26, 26)', 
+            marginBottom: '20px' 
+          }}
+        >
           {newsItem.content}
         </p>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {newsItem.tags &&
             newsItem.tags.split(',').map((tag, idx) => (
               <span
@@ -77,6 +120,25 @@ const ComunicazionePage = () => {
             ))}
         </div>
       </section>
+
+      {/* Bottone che porta a infoSection */}
+      <button
+        onClick={handleNavigate}
+        style={{
+          backgroundColor: '#0070f3',
+          color: '#fff',
+          padding: '12px 24px',
+          borderRadius: '5px',
+          border: 'none',
+          fontSize: '16px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s ease',
+        }}
+        onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
+        onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
+      >
+        Vai a Info Section
+      </button>
     </div>
   );
 };
