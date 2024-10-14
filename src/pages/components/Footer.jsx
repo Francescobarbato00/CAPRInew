@@ -13,8 +13,7 @@ export default function Footer() {
             <h2 className="text-lg sm:text-xl font-semibold mb-2">Capri | Digitalizzazione della Giustizia</h2>
             <hr className="border-gray-400 mb-4"/>
             <p>Via Sella Orta 2, Capri</p>
-            <p>Telefono: <a href="tel:+3906852641" className="underline hover:text-gray-300">+39 3925780482</a></p>
-            <p>Codice fiscale: </p>
+            <p>Telefono: <a href="tel:+3906852641" className="underline hover:text-gray-300">+39 392578</a></p>
             <p>
               PEC: <a href="mailto:" className="underline hover:text-gray-300">protocollo@digitalizzazionecapri.it</a>
             </p>
