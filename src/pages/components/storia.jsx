@@ -141,6 +141,8 @@ const SezioneStreamingMateriali = () => {
           padding: 0 20px 0 10px;
           border-right: 1px solid #ccc;
           margin-right: 20px;
+          /* Rimuovi eventuali bordi o linee nere */
+          border-bottom: none;
         }
 
         .indice-titolo {
@@ -169,26 +171,29 @@ const SezioneStreamingMateriali = () => {
         .colonna-contenuto {
           width: 75%;
           padding-left: 20px;
+          /* Elimina eventuali linee nere sotto */
+          border-bottom: none;
+          box-shadow: none;
         }
 
         h1 {
-          font-size: 36px;
+          font-size: 40px; /* Aumenta leggermente la dimensione del testo */
           font-weight: 700;
           color: rgb(26, 26, 26);
         }
 
         h2 {
-          font-size: 22px;
+          font-size: 22px; /* Aumenta leggermente la dimensione del testo */
           font-weight: 600;
           color: rgb(26, 26, 26);
           margin-bottom: 10px;
         }
 
         p {
-          font-size: 16px;
+          font-size: 18px; /* Aumenta leggermente la dimensione del testo */
           font-weight: 300;
           color: rgb(47, 71, 94);
-          line-height: 24px;
+          line-height: 28px;
         }
 
         ul {
@@ -228,7 +233,7 @@ const SezioneStreamingMateriali = () => {
           }
 
           h1 {
-            font-size: 28px;
+            font-size: 32px;
           }
 
           h2 {
@@ -236,7 +241,7 @@ const SezioneStreamingMateriali = () => {
           }
 
           p, a {
-            font-size: 14px;
+            font-size: 16px; /* Testo più grande su mobile */
           }
 
           ul {
@@ -246,7 +251,7 @@ const SezioneStreamingMateriali = () => {
 
         @media (max-width: 480px) {
           h1 {
-            font-size: 24px;
+            font-size: 28px;
           }
 
           h2 {
@@ -254,7 +259,7 @@ const SezioneStreamingMateriali = () => {
           }
 
           p, a {
-            font-size: 12px;
+            font-size: 14px; /* Testo più grande su dispositivi molto piccoli */
           }
 
           ul {
