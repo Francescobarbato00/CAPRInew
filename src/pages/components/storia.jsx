@@ -141,12 +141,12 @@ const SezioneStreamingMateriali = () => {
           padding: 0 20px 0 10px;
           border-right: 1px solid #ccc;
           margin-right: 20px;
-          /* Rimuovi eventuali bordi o linee nere */
+          /* Rimuovo eventuali bordi */
           border-bottom: none;
         }
 
         .indice-titolo {
-          font-size: 18px;
+          font-size: 22px; /* Aumentato leggermente */
           font-weight: 600;
           color: rgb(0, 102, 204);
         }
@@ -158,42 +158,42 @@ const SezioneStreamingMateriali = () => {
         }
 
         .indice-lista li {
-          margin-bottom: 10px;
+          margin-bottom: 15px; /* Ridotto leggermente */
         }
 
         .indice-lista a {
           color: rgb(0, 102, 204);
           font-weight: 600;
-          font-size: 18px;
+          font-size: 20px; /* Aumentato leggermente */
           text-decoration: none;
         }
 
         .colonna-contenuto {
           width: 75%;
           padding-left: 20px;
-          /* Elimina eventuali linee nere sotto */
+          /* Rimuovo eventuali bordi */
           border-bottom: none;
           box-shadow: none;
         }
 
         h1 {
-          font-size: 40px; /* Aumenta leggermente la dimensione del testo */
+          font-size: 44px; /* Aumentato */
           font-weight: 700;
           color: rgb(26, 26, 26);
         }
 
         h2 {
-          font-size: 22px; /* Aumenta leggermente la dimensione del testo */
+          font-size: 26px; /* Aumentato */
           font-weight: 600;
           color: rgb(26, 26, 26);
           margin-bottom: 10px;
         }
 
         p {
-          font-size: 18px; /* Aumenta leggermente la dimensione del testo */
+          font-size: 20px; /* Aumentato leggermente */
           font-weight: 300;
           color: rgb(47, 71, 94);
-          line-height: 28px;
+          line-height: 30px;
         }
 
         ul {
@@ -208,7 +208,7 @@ const SezioneStreamingMateriali = () => {
         a {
           color: rgb(0, 102, 204);
           font-weight: 600;
-          font-size: 18px;
+          font-size: 20px;
           text-decoration: none;
         }
 
@@ -233,15 +233,15 @@ const SezioneStreamingMateriali = () => {
           }
 
           h1 {
-            font-size: 32px;
+            font-size: 36px;
           }
 
           h2 {
-            font-size: 18px;
+            font-size: 22px;
           }
 
           p, a {
-            font-size: 16px; /* Testo più grande su mobile */
+            font-size: 18px; /* Testo più grande su mobile */
           }
 
           ul {
@@ -251,15 +251,15 @@ const SezioneStreamingMateriali = () => {
 
         @media (max-width: 480px) {
           h1 {
-            font-size: 28px;
+            font-size: 32px;
           }
 
           h2 {
-            font-size: 16px;
+            font-size: 20px;
           }
 
           p, a {
-            font-size: 14px; /* Testo più grande su dispositivi molto piccoli */
+            font-size: 16px; /* Testo più grande su dispositivi molto piccoli */
           }
 
           ul {
