@@ -40,13 +40,13 @@ const SezioneStreamingMateriali = () => {
             <ul>
               <li>
                 <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTdjYzY2NjctY2ZlMi00Y2E3LWFlOGQtZTRiNGMwNmVlZjI4%40thread.v2/0?context=%7B%22Tid%22%3A%2243ea8a99-c6ed-4a82-b447-d69d06583d87%22%2C%22Oid%22%3A%2275a497e9-fe5d-4c97-9f64-22a2441eb7e1%22%2C%22IsBroadcastMeeting%22%3Atrue%2C%22role%22%3A%22a%22%7D&btype=a&role=a" target="_blank" rel="noopener noreferrer">
-                  Questioni di diritto e processo del lavoro, nell’era della rivoluzione tecnologica <br />
+                  Questioni di diritto e processo del lavoro, <br />nell’era della rivoluzione tecnologica <br />
                   Venerdì 4 ottobre 2024 - 14:30 - 18:00
                 </a>
               </li>
               <li>
                 <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2Y2NDY1ZWUtNGY3Ni00ZmEwLTkzZjMtMTc4NDkzZTUzMmVj%40thread.v2/0?context=%7B%22Tid%22%3A%2243ea8a99-c6ed-4a82-b447-d69d06583d87%22%2C%22Oid%22%3A%2275a497e9-fe5d-4c97-9f64-22a2441eb7e1%22%2C%22IsBroadcastMeeting%22%3Atrue%2C%22role%22%3A%22a%22%7D&btype=a&role=a" target="_blank" rel="noopener noreferrer">
-                  La Giustizia moderna alla luce dei Regolamenti adottati dall’UE nel Decennio Digitale <br />
+                  La Giustizia moderna alla luce dei <br />Regolamenti adottati dall’UE nel Decennio Digitale <br />
                   Sabato 5 ottobre 2024 - 08:45 - 13:30
                 </a>
               </li>
@@ -84,7 +84,7 @@ const SezioneStreamingMateriali = () => {
             <ul>
               <li>
                 <a href="https://youtu.be/1Ac-ynp7QEs" target="_blank" rel="noopener noreferrer">
-                  Presidente della Camera Avvocati Tributaristi di Napoli: "Intervento Capri" <br />
+                  Presidente della Camera Avvocati Tributaristi di Napoli: <br />"Intervento Capri" <br />
                   Relatore: Avv. Michele Di Fiore
                 </a>
               </li>
@@ -133,13 +133,14 @@ const SezioneStreamingMateriali = () => {
           font-family: 'Titillium Web', sans-serif;
           background-color: #fff;
           color: #000;
+          padding: 0 20px;
         }
 
         .colonna-indice {
           width: 20%;
-          padding: 0 20px 0 40px;
+          padding: 0 20px 0 10px;
           border-right: 1px solid #ccc;
-          margin-right: 40px;
+          margin-right: 20px;
         }
 
         .indice-titolo {
@@ -155,39 +156,39 @@ const SezioneStreamingMateriali = () => {
         }
 
         .indice-lista li {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
 
         .indice-lista a {
           color: rgb(0, 102, 204);
           font-weight: 600;
-          font-size: 20px;
+          font-size: 18px;
           text-decoration: none;
         }
 
         .colonna-contenuto {
-          width: 70%;
+          width: 75%;
           padding-left: 20px;
         }
 
         h1 {
-          font-size: 48px;
+          font-size: 36px;
           font-weight: 700;
           color: rgb(26, 26, 26);
         }
 
         h2 {
-          font-size: 24px;
+          font-size: 22px;
           font-weight: 600;
           color: rgb(26, 26, 26);
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
 
         p {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 300;
           color: rgb(47, 71, 94);
-          line-height: 28px;
+          line-height: 24px;
         }
 
         ul {
@@ -196,13 +197,13 @@ const SezioneStreamingMateriali = () => {
         }
 
         li {
-          margin-bottom: 20px;
+          margin-bottom: 15px;
         }
 
         a {
           color: rgb(0, 102, 204);
           font-weight: 600;
-          font-size: 20px;
+          font-size: 18px;
           text-decoration: none;
         }
 
@@ -210,7 +211,7 @@ const SezioneStreamingMateriali = () => {
         @media (max-width: 768px) {
           .container {
             flex-direction: column;
-            margin: 0 10px;
+            padding: 0 10px;
           }
 
           .colonna-indice {
@@ -227,24 +228,6 @@ const SezioneStreamingMateriali = () => {
           }
 
           h1 {
-            font-size: 32px;
-          }
-
-          h2 {
-            font-size: 20px;
-          }
-
-          p, a {
-            font-size: 16px;
-          }
-
-          ul {
-            padding-left: 10px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          h1 {
             font-size: 28px;
           }
 
@@ -257,11 +240,29 @@ const SezioneStreamingMateriali = () => {
           }
 
           ul {
+            padding-left: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 24px;
+          }
+
+          h2 {
+            font-size: 16px;
+          }
+
+          p, a {
+            font-size: 12px;
+          }
+
+          ul {
             padding-left: 5px;
           }
 
           .colonna-indice {
-            padding-left: 10px;
+            padding-left: 5px;
           }
         }
       `}</style>
