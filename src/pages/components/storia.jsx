@@ -125,6 +125,13 @@ const SezioneStreamingMateriali = () => {
       </div>
 
       <style jsx>{`
+        /* CSS Reset per eliminare margini, padding e bordi predefiniti */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
         /* Stili di base */
         .container {
           display: flex;
@@ -141,12 +148,12 @@ const SezioneStreamingMateriali = () => {
           padding: 0 20px 0 10px;
           border-right: 1px solid #ccc;
           margin-right: 20px;
-          /* Rimuovo eventuali bordi */
-          border-bottom: none;
+          border-bottom: none; /* Elimina il bordo inferiore */
+          box-shadow: none; /* Assicura che non ci siano ombre */
         }
 
         .indice-titolo {
-          font-size: 22px; /* Aumentato leggermente */
+          font-size: 22px;
           font-weight: 600;
           color: rgb(0, 102, 204);
         }
@@ -158,39 +165,38 @@ const SezioneStreamingMateriali = () => {
         }
 
         .indice-lista li {
-          margin-bottom: 15px; /* Ridotto leggermente */
+          margin-bottom: 15px;
         }
 
         .indice-lista a {
           color: rgb(0, 102, 204);
           font-weight: 600;
-          font-size: 20px; /* Aumentato leggermente */
+          font-size: 20px;
           text-decoration: none;
         }
 
         .colonna-contenuto {
           width: 75%;
           padding-left: 20px;
-          /* Rimuovo eventuali bordi */
-          border-bottom: none;
-          box-shadow: none;
+          border-bottom: none; /* Rimuovi qualsiasi bordo inferiore */
+          box-shadow: none; /* Assicura che non ci siano ombre */
         }
 
         h1 {
-          font-size: 44px; /* Aumentato */
+          font-size: 44px;
           font-weight: 700;
           color: rgb(26, 26, 26);
         }
 
         h2 {
-          font-size: 26px; /* Aumentato */
+          font-size: 26px;
           font-weight: 600;
           color: rgb(26, 26, 26);
           margin-bottom: 10px;
         }
 
         p {
-          font-size: 20px; /* Aumentato leggermente */
+          font-size: 20px;
           font-weight: 300;
           color: rgb(47, 71, 94);
           line-height: 30px;
@@ -241,7 +247,7 @@ const SezioneStreamingMateriali = () => {
           }
 
           p, a {
-            font-size: 18px; /* Testo più grande su mobile */
+            font-size: 18px;
           }
 
           ul {
@@ -259,7 +265,7 @@ const SezioneStreamingMateriali = () => {
           }
 
           p, a {
-            font-size: 16px; /* Testo più grande su dispositivi molto piccoli */
+            font-size: 16px;
           }
 
           ul {

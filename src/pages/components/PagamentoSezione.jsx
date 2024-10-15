@@ -17,7 +17,7 @@ const PagamentoSezione = () => {
       <div style={{ display: 'flex', justifyContent: 'center', padding: '30px', fontFamily: "'Titillium Web', Geneva, Tahoma, sans-serif", backgroundColor: '#ffffff', color: '#000000' }}>
         <div style={{ width: '90%', maxWidth: '1200px' }}>
           {/* Titolo della pagina */}
-          <h1 style={{ fontSize: '3rem', fontWeight: '700', color: 'rgb(26, 26, 26)', textAlign: 'center', marginBottom: '40px' }}>
+          <h1 style={{ fontSize: '3rem', fontWeight: '300', color: 'rgb(26, 26, 26)', textAlign: 'center', marginBottom: '40px' }}>
             Pagamento Cena Evento
           </h1>
           <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', lineHeight: '1.5', textAlign: 'center', marginBottom: '60px' }}>
