@@ -25,9 +25,9 @@ const PagamentoSezione = () => {
           </p>
 
           {/* Lista degli articoli */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '20px' }}>
+          <div className="articoli-container">
             {/* Articolo singolo */}
-            <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+            <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
                 Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
@@ -54,7 +54,7 @@ const PagamentoSezione = () => {
             </div>
 
             {/* Articolo singolo 2 */}
-            <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+            <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
                 Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
@@ -81,7 +81,7 @@ const PagamentoSezione = () => {
             </div>
 
             {/* Articolo singolo 3 */}
-            <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
+            <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
                 Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
@@ -124,6 +124,22 @@ const PagamentoSezione = () => {
       </div>
 
       <style jsx>{`
+        .articoli-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 20px;
+        }
+
+        .articolo {
+          width: calc(33.33% - 20px);
+          background-color: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+
         @media (max-width: 768px) {
           h1 {
             font-size: 2rem;
@@ -133,7 +149,7 @@ const PagamentoSezione = () => {
             font-size: 0.875rem;
           }
 
-          div[style*='calc(33.33%'] {
+          .articolo {
             width: 100%;
             margin-bottom: 20px;
           }
@@ -156,7 +172,7 @@ const PagamentoSezione = () => {
             font-size: 0.75rem;
           }
 
-          div[style*='calc(33.33%'] {
+          .articolo {
             width: 100%;
             margin-bottom: 20px;
           }
