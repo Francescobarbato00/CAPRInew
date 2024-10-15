@@ -290,7 +290,7 @@ const handleSearch = async () => {
                 </Link>
               </li>
               <li className="hover:text-blue-400 transition-colors duration-300">
-                <Link href="#" onClick={toggleMenu}>
+                <Link href="/service" onClick={toggleMenu}>
                   Servizi
                 </Link>
               </li>
