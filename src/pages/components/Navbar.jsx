@@ -158,7 +158,7 @@ const handleSearch = async () => {
               <Link href="/event">L'Evento</Link>
             </li>
             <li className="hover:text-blue-400 transition-colors duration-300">
-              <Link href="#">Servizi</Link>
+              <Link href="service">Servizi</Link>
             </li>
             <li className="hover:text-blue-400 transition-colors duration-300">
               <Link href="/infoSection">Comunicazioni</Link>
