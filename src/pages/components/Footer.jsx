@@ -28,7 +28,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><a href="#" className="hover:text-gray-300">Amministrazione trasparente</a></li>
               <li><a href="#" className="hover:text-gray-300">Domande frequenti</a></li>
-              <li><a href="#" className="hover:text-gray-300">Segnalazioni</a></li>
+              <li><a href="LegalNotes" className="hover:text-gray-300">Note Legali</a></li>
             </ul>
           </div>
 
