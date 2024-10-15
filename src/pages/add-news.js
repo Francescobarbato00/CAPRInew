@@ -36,7 +36,6 @@ export default function AddNews() {
         await uploadImage(imageFile); // Aspetta che l'immagine sia caricata
       }
 
-      // Verifica che l'immagine sia stata caricata correttamente
       if (!imageUrl) {
         alert("Attendi il completamento del caricamento dell'immagine.");
         setLoading(false);

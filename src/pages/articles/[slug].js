@@ -91,16 +91,17 @@ const ComunicazionePage = () => {
             marginBottom: '20px' 
           }}
         />
-        <p 
+        <div 
           style={{ 
             fontSize: 'clamp(16px, 5vw, 20px)', // Testo adattabile in base al dispositivo
             lineHeight: 'clamp(24px, 6vw, 32px)', 
             color: 'rgb(26, 26, 26)', 
             marginBottom: '20px' 
           }}
-        >
-          {newsItem.content}
-        </p>
+          dangerouslySetInnerHTML={{
+            __html: newsItem.content.replace(/\n/g, '<br />'), // Sostituisce i "vai a capo" con <br>
+          }}
+        />
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           {newsItem.tags &&
             newsItem.tags.split(',').map((tag, idx) => (
