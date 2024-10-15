@@ -61,7 +61,8 @@ const ChatComponent = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 flex flex-col items-end z-50">
+    // Aggiunta sm:left-1/2 sm:transform sm:-translate-x-1/2 per centrare su mobile
+    <div className="fixed bottom-4 right-4 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-full sm:max-w-sm flex flex-col items-end sm:items-center z-50">
       {/* Chat Bubble (Mostra solo se la chat è chiusa) */}
       {!isOpen && (
         <div
@@ -77,7 +78,7 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
+          className={`mt-4 p-4 w-96 sm:w-full sm:max-w-sm h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
         >
           <div className="flex justify-between items-center border-b pb-2 mb-4">
             <p className="text-lg font-bold text-blue-500">Assistente Virtuale Capri</p>
@@ -101,7 +102,7 @@ const ChatComponent = () => {
                 <div
                   className={`p-2 rounded-lg max-w-xs text-sm ${
                     message.sender === 'user'
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-500 text-white sm:bg-gray-100 sm:text-black' // Testo nero per utenti su mobile
                       : 'bg-gray-200 text-black'
                   }`}
                 >
