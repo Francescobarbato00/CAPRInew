@@ -53,34 +53,8 @@ const PagamentoSezione = () => {
                 Paga ora
               </a>
             </div>
-
-            <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
-              <h2 style={{ fontSize: '24px', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
-              <p style={{ fontSize: '16px', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
-                Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
-              </p>
-              <p style={{ fontSize: '18px', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: €50 a persona</p>
-
-              {/* Pulsante Paga */}
-              <a href={`mailto:info@example.com?subject=Pagamento Cena&body=Ecco i dettagli del pagamento:\n\nIBAN: ${iban}\nImporto: 50€\n\nGrazie per aver partecipato all'evento!`} 
-                style={{ 
-                  display: 'inline-block', 
-                  padding: '12px 20px', 
-                  backgroundColor: 'rgb(0, 102, 204)', 
-                  color: 'white', 
-                  fontWeight: '600', 
-                  borderRadius: '5px', 
-                  textDecoration: 'none', 
-                  textAlign: 'center', 
-                  transition: 'background-color 0.3s ease' 
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(0, 92, 190)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(0, 102, 204)'}
-              >
-                Paga ora
-              </a>
-            </div>
-            <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+              {/* Articolo singolo */}
+              <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
               <h2 style={{ fontSize: '24px', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '16px', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
                 Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
@@ -107,6 +81,33 @@ const PagamentoSezione = () => {
               </a>
             </div>
 
+              {/* Articolo singolo */}
+              <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+              <h2 style={{ fontSize: '24px', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
+              <p style={{ fontSize: '16px', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
+                Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
+              </p>
+              <p style={{ fontSize: '18px', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: €50 a persona</p>
+
+              {/* Pulsante Paga */}
+              <a href={`mailto:info@example.com?subject=Pagamento Cena&body=Ecco i dettagli del pagamento:\n\nIBAN: ${iban}\nImporto: 50€\n\nGrazie per aver partecipato all'evento!`} 
+                style={{ 
+                  display: 'inline-block', 
+                  padding: '12px 20px', 
+                  backgroundColor: 'rgb(0, 102, 204)', 
+                  color: 'white', 
+                  fontWeight: '600', 
+                  borderRadius: '5px', 
+                  textDecoration: 'none', 
+                  textAlign: 'center', 
+                  transition: 'background-color 0.3s ease' 
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(0, 92, 190)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'rgb(0, 102, 204)'}
+              >
+                Paga ora
+              </a>
+            </div>
 
             {/* Altri articoli simili possono essere aggiunti con lo stesso layout */}
           </div>
@@ -119,7 +120,7 @@ const PagamentoSezione = () => {
             </p>
             <p style={{ fontSize: '22px', fontWeight: '600', color: 'rgb(0, 102, 204)' }}>{iban}</p>
             <p style={{ fontSize: '18px', fontWeight: '300', color: 'rgb(47, 71, 94)', lineHeight: '28px', marginTop: '20px' }}>
-              Indica nella causale: <strong>Pagamento Cena Evento</strong> e specifica il nome dei partecipanti. 
+              Indica nella causale: <strong>Pagamento Cena Evento</strong> e specifica il nome dei partecipanti. Grazie per aver partecipato!
             </p>
           </div>
         </div>
