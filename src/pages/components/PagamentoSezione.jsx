@@ -52,6 +52,8 @@ const PagamentoSezione = () => {
                 Paga ora
               </a>
             </div>
+
+            {/* Articolo singolo 2 */}
             <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
@@ -77,6 +79,8 @@ const PagamentoSezione = () => {
                 Paga ora
               </a>
             </div>
+
+            {/* Articolo singolo 3 */}
             <div style={{ width: 'calc(33.33% - 20px)', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', textAlign: 'center' }}>
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
@@ -103,7 +107,6 @@ const PagamentoSezione = () => {
               </a>
             </div>
 
-            {/* Ripeti il blocco per altre card */}
           </div>
 
           {/* Sezione informazioni sul pagamento */}
@@ -112,7 +115,7 @@ const PagamentoSezione = () => {
             <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', lineHeight: '1.5', marginBottom: '20px' }}>
               Effettua il pagamento tramite bonifico bancario al seguente IBAN:
             </p>
-            <p style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(0, 102, 204)' }}>{iban}</p>
+            <p style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(0, 102, 204)', wordWrap: 'break-word' }}>{iban}</p>
             <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', lineHeight: '1.5', marginTop: '20px' }}>
               Indica nella causale: <strong>Pagamento Cena Evento</strong> e specifica il nome dei partecipanti. Grazie per aver partecipato!
             </p>
@@ -132,6 +135,11 @@ const PagamentoSezione = () => {
 
           div[style*='calc(33.33%'] {
             width: 100%;
+            margin-bottom: 20px;
+          }
+
+          p[style*='break-word'] {
+            font-size: 1.25rem;
           }
         }
 
@@ -151,6 +159,10 @@ const PagamentoSezione = () => {
           div[style*='calc(33.33%'] {
             width: 100%;
             margin-bottom: 20px;
+          }
+
+          p[style*='break-word'] {
+            font-size: 1rem;
           }
         }
       `}</style>
