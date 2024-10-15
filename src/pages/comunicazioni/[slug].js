@@ -111,27 +111,31 @@ const ComunicazionePage = () => {
             ))}
         </div>
       </section>
-      <button
-  onClick={() => router.push('/infoSection')}
-  style={{
-    backgroundColor: '#007bff',
-    color: 'white',
-    padding: '12px 24px',
-    borderRadius: '5px',
-    fontSize: '16px',
-    fontWeight: '600',
-    border: 'none',
-    cursor: 'pointer',
-    marginTop: '20px',
-    textAlign: 'left', // Allinea a sinistra
-  }}
->
-  Torna alle Comunicazioni
-</button>
 
+      <button
+        onClick={() => router.push('/infoSection')}
+        style={{
+          backgroundColor: '#007bff',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '5px',
+          fontSize: '16px',
+          fontWeight: '600',
+          border: 'none',
+          cursor: 'pointer',
+          marginTop: '20px',
+          textAlign: 'left', // Allinea a sinistra
+        }}
+      >
+        Torna alle Comunicazioni
+      </button>
 
       <style jsx>{`
         @media (max-width: 768px) {
+          div {
+            background-color: white;  // Sfondo bianco su mobile
+            color: black;  // Testo nero su mobile
+          }
           h1 {
             font-size: 36px;
             line-height: 42px;
@@ -149,6 +153,10 @@ const ComunicazionePage = () => {
         }
 
         @media (max-width: 480px) {
+          div {
+            background-color: white;  // Sfondo bianco su mobile
+            color: black;  // Testo nero su mobile
+          }
           h1 {
             font-size: 28px;
             line-height: 36px;
