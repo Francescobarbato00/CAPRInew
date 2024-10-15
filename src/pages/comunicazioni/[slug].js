@@ -59,9 +59,12 @@ const ComunicazionePage = () => {
           alt={comunicazione.title}
           style={{ width: '100%', height: '400px', objectFit: 'cover', marginBottom: '20px' }}
         />
-        <p style={{ fontSize: '20px', lineHeight: '32px', color: 'rgb(26, 26, 26)', marginBottom: '20px' }}>
-          {comunicazione.content}
-        </p>
+        <div
+          style={{ fontSize: '20px', lineHeight: '32px', color: 'rgb(26, 26, 26)', marginBottom: '20px' }}
+          dangerouslySetInnerHTML={{
+            __html: comunicazione.content.replace(/\n/g, '<br />'), // Gestione dei "vai a capo"
+          }}
+        />
         <div style={{ display: 'flex', gap: '10px' }}>
           {comunicazione.tags &&
             comunicazione.tags.split(',').map((tag, idx) => (
