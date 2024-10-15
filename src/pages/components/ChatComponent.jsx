@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { FaComments } from 'react-icons/fa';
-import { IoCloseSharp } from 'react-icons/io5';
-import axios from 'axios'; // Import axios for API requests
+import { useState, useEffect } from 'react';
+import { FaComments } from 'react-icons/fa'; // Icona per la chat
+import { IoCloseSharp } from 'react-icons/io5'; // Icona più estetica per la "X"
 
 const ChatComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState('');
-  const [isThinking, setIsThinking] = useState(false);
+  const [isThinking, setIsThinking] = useState(false); // Stato per mostrare "Sto pensando..."
+  const [botResponse, setBotResponse] = useState(''); // Stato per la risposta automatica in casting
 
   // Funzione per aprire e chiudere la chat
   const handleChatToggle = () => {
@@ -15,7 +15,7 @@ const ChatComponent = () => {
   };
 
   // Funzione per inviare il messaggio
-  const sendMessage = async () => {
+  const sendMessage = () => {
     if (userMessage.trim() === '') return;
 
     const newMessage = {
@@ -26,47 +26,42 @@ const ChatComponent = () => {
 
     setMessages([...messages, newMessage]);
     setUserMessage('');
-    setIsThinking(true);
+    setIsThinking(true); // Mostra "Sto pensando..."
 
-    // Simula una risposta automatica (esempio di chiamata API a un'IA come OpenAI)
-    const botMessage = await fetchBotResponse(userMessage);
+    // Simula una risposta automatica dopo un breve intervallo
+    setTimeout(() => {
+      const botMessage = 'Grazie per il tuo messaggio! Ti risponderemo a breve.';
 
-    // Mostra la risposta del bot
-    const finalMessage = {
-      text: botMessage,
-      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      sender: 'bot',
-    };
-
-    setMessages((prevMessages) => [...prevMessages, finalMessage]);
-    setIsThinking(false);
+      // Inizia il casting della risposta
+      startBotResponseCasting(botMessage);
+    }, 500);
   };
 
-  // Funzione per chiamare l'API di OpenAI
-  const fetchBotResponse = async (userInput) => {
-    try {
-      const response = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: 'gpt-4',
-          messages: [{ role: 'user', content: userInput }],
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
-          },
-        }
-      );
-      return response.data.choices[0].message.content;
-    } catch (error) {
-      console.error('Errore durante la chiamata a OpenAI API:', error);
-      return 'Oops, c\'è stato un errore. Riprova più tardi.';
-    }
+  // Funzione per simulare la digitazione della risposta del bot
+  const startBotResponseCasting = (message) => {
+    setBotResponse(''); // Resetto la risposta del bot
+    setIsThinking(false); // "Sto pensando..." scompare subito quando inizia il casting
+    let index = 0;
+
+    const intervalId = setInterval(() => {
+      if (index < message.length) {
+        setBotResponse((prev) => prev + message[index]);
+        index++;
+      } else {
+        clearInterval(intervalId);
+        const finalMessage = {
+          text: message,
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          sender: 'bot',
+        };
+        setMessages((prevMessages) => [...prevMessages, finalMessage]);
+        setBotResponse(''); // Resetto la risposta dopo averla inviata
+      }
+    }, 30); // Tempo più veloce tra una lettera e l'altra (30ms)
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-4 sm:right-4 sm:flex-col sm:items-center sm:w-full sm:px-4 z-50">
+    <div className="fixed bottom-4 right-4 flex flex-col items-end z-50">
       {/* Chat Bubble (Mostra solo se la chat è chiusa) */}
       {!isOpen && (
         <div
@@ -74,7 +69,7 @@ const ChatComponent = () => {
           onClick={handleChatToggle}
         >
           <div className="relative bg-blue-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl z-50">
-            <FaComments className="text-white text-2xl" />
+            <FaComments className="text-white text-2xl" /> {/* Icona della chat */}
           </div>
         </div>
       )}
@@ -82,7 +77,7 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`mt-4 p-4 w-96 sm:w-full sm:max-w-sm h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
+          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
         >
           <div className="flex justify-between items-center border-b pb-2 mb-4">
             <p className="text-lg font-bold text-blue-500">Assistente Virtuale Capri</p>
@@ -90,7 +85,7 @@ const ChatComponent = () => {
               className="text-gray-400 hover:text-gray-600 p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <IoCloseSharp className="text-lg" />
+              <IoCloseSharp className="text-lg" /> {/* Icona X più estetica */}
             </button>
           </div>
 
@@ -106,7 +101,7 @@ const ChatComponent = () => {
                 <div
                   className={`p-2 rounded-lg max-w-xs text-sm ${
                     message.sender === 'user'
-                      ? 'bg-blue-500 sm:bg-gray-100 text-white sm:text-black' // Testo nero per utenti su mobile
+                      ? 'bg-blue-500 text-white'
                       : 'bg-gray-200 text-black'
                   }`}
                 >
@@ -124,6 +119,15 @@ const ChatComponent = () => {
                 </div>
               </div>
             )}
+
+            {/* Mostra la risposta in "casting" */}
+            {botResponse && (
+              <div className="flex justify-start">
+                <div className="p-2 rounded-lg max-w-xs text-sm bg-gray-200 text-black">
+                  <p>{botResponse}</p>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Input message */}
@@ -134,7 +138,7 @@ const ChatComponent = () => {
               onChange={(e) => setUserMessage(e.target.value)}
               placeholder="Scrivi un messaggio..."
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+              onKeyPress={(e) => e.key === 'Enter' && sendMessage()} // Invia messaggio con Enter
             />
             <button
               className="ml-2 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
