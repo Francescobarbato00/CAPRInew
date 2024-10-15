@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaComments } from 'react-icons/fa'; // Icona per la chat
 import { IoCloseSharp } from 'react-icons/io5'; // Icona più estetica per la "X"
 
@@ -61,8 +61,7 @@ const ChatComponent = () => {
   };
 
   return (
-    // Modificato per centrare la chat quando aperta
-    <div className={`fixed ${!isOpen ? 'bottom-4 right-4' : 'top-10 left-1/2 transform -translate-x-1/2'} w-full max-w-md z-50`}>
+    <div className="fixed bottom-4 right-4 flex flex-col items-end z-50">
       {/* Chat Bubble (Mostra solo se la chat è chiusa) */}
       {!isOpen && (
         <div
@@ -78,7 +77,7 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className="mt-4 p-4 w-96 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col"
+          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
         >
           <div className="flex justify-between items-center border-b pb-2 mb-4">
             <p className="text-lg font-bold text-blue-500">Assistente Virtuale Capri</p>
@@ -102,7 +101,7 @@ const ChatComponent = () => {
                 <div
                   className={`p-2 rounded-lg max-w-xs text-sm ${
                     message.sender === 'user'
-                      ? 'bg-gray-100 text-black' // Testo nero per utenti
+                      ? 'bg-blue-500 text-white'
                       : 'bg-gray-200 text-black'
                   }`}
                 >
