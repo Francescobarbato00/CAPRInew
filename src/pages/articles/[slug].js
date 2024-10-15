@@ -59,9 +59,9 @@ const ComunicazionePage = () => {
       <header style={{ marginBottom: '50px' }}>
         <h1 
           style={{ 
-            fontSize: 'clamp(32px, 6vw, 64px)', // Font responsivo, si adatta al viewport
+            fontSize: 'clamp(36px, 4vw, 64px)', // Font responsivo anche su desktop
             fontWeight: '400', 
-            lineHeight: 'clamp(40px, 7vw, 72px)', 
+            lineHeight: 'clamp(42px, 5vw, 72px)', 
             marginBottom: '0',
             color: '#1a1a1a' // Colore del testo desktop
           }}
@@ -70,7 +70,7 @@ const ComunicazionePage = () => {
         </h1>
         <p 
           style={{ 
-            fontSize: 'clamp(14px, 4vw, 18px)', // Adattamento del font per mobile
+            fontSize: 'clamp(14px, 2vw, 18px)', // Adattamento del font per mobile e desktop
             fontWeight: '400', 
             lineHeight: '28px', 
             color: 'rgb(26, 26, 26)' 
@@ -93,8 +93,8 @@ const ComunicazionePage = () => {
         />
         <div 
           style={{ 
-            fontSize: 'clamp(16px, 5vw, 20px)', // Testo adattabile in base al dispositivo
-            lineHeight: 'clamp(24px, 6vw, 32px)', 
+            fontSize: 'clamp(16px, 2vw, 20px)', // Testo adattabile in base al dispositivo
+            lineHeight: 'clamp(24px, 3vw, 32px)', 
             color: 'rgb(26, 26, 26)', 
             marginBottom: '20px' 
           }}
@@ -134,12 +134,61 @@ const ComunicazionePage = () => {
           fontSize: '16px',
           cursor: 'pointer',
           transition: 'background-color 0.3s ease',
+          marginTop: '20px', // Aggiungo spazio sopra
+          textAlign: 'left',  // Allinea il pulsante a sinistra
         }}
         onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
         onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
       >
         Torna alle News
       </button>
+
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          h1 {
+            font-size: 48px;
+            line-height: 60px;
+          }
+          p {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 36px;
+            line-height: 42px;
+          }
+          p {
+            font-size: 14px;
+            line-height: 22px;
+          }
+          div[style*='padding: 20px'] {
+            padding: 15px;
+          }
+          img {
+            max-height: 300px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 28px;
+            line-height: 36px;
+          }
+          p {
+            font-size: 12px;
+            line-height: 18px;
+          }
+          div[style*='padding: 20px'] {
+            padding: 10px;
+          }
+          img {
+            max-height: 250px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
