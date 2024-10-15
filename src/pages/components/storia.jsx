@@ -50,7 +50,6 @@ const SezioneStreamingMateriali = () => {
                   Sabato 5 ottobre 2024 - 08:45 - 13:30
                 </a>
               </li>
-              {/* Continua la lista dei webinar */}
             </ul>
           </section>
 
@@ -75,7 +74,6 @@ const SezioneStreamingMateriali = () => {
                   Capri 14 ottobre 2023 - Certosa plenaria
                 </a>
               </li>
-              {/* Continua la lista delle registrazioni */}
             </ul>
           </section>
 
@@ -118,11 +116,6 @@ const SezioneStreamingMateriali = () => {
               <li>
                 <a href="/5.pdf" target="_blank" rel="noopener noreferrer">
                   Locandina del 5 Ottobre 2024
-                </a>
-              </li>
-              <li>
-                <a href="/Capri-14-ottobre-2023.pdf" target="_blank" rel="noopener noreferrer">
-                  Locandina del 14 Ottobre 2023
                 </a>
               </li>
             </ul>
@@ -265,6 +258,10 @@ const SezioneStreamingMateriali = () => {
 
           ul {
             padding-left: 5px;
+          }
+
+          .colonna-indice {
+            padding-left: 10px;
           }
         }
       `}</style>
