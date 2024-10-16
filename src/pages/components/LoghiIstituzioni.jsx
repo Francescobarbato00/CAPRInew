@@ -32,14 +32,13 @@ const LoghiIstituzioni = () => {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column', // Disposizione a colonna
           backgroundColor: '#fff',
           padding: '50px 20px',
           fontFamily: "'Titillium Web', Geneva, Tahoma, sans-serif",
         }}
       >
-        {/* Titolo */}
-        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        {/* Colonna a sinistra: Testo */}
+        <div style={{ width: '30%', paddingRight: '40px', display: 'flex', alignItems: 'center' }}>
           <h2
             style={{
               fontSize: '48px',
@@ -55,15 +54,15 @@ const LoghiIstituzioni = () => {
           </h2>
         </div>
 
-        {/* Sezione loghi */}
+        {/* Colonna a destra: Loghi */}
         <div
           style={{
+            width: '70%',
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)', // 4 colonne su desktop
+            gridTemplateColumns: 'repeat(4, 1fr)', // 4 loghi per fila su desktop
             gap: '40px',
             justifyItems: 'center',
             alignItems: 'center',
-            width: '100%',
           }}
         >
           {loghi.map((logo, index) => (
@@ -90,22 +89,40 @@ const LoghiIstituzioni = () => {
       {/* Ombra leggera alla fine della sezione */}
       <div style={{ height: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)' }}></div>
 
-      {/* Stile per mobile con 2 loghi per riga */}
+      {/* Media queries per rendere la sezione responsive solo su mobile */}
       <style jsx>{`
         @media (max-width: 768px) {
-          /* Per dispositivi mobili: cambia la griglia a 2 loghi per riga */
-          div[style*='grid-template-columns'] {
-            grid-template-columns: repeat(2, 1fr); /* 2 loghi per riga */
-            gap: 20px; /* Riduciamo lo spazio tra i loghi */
+          /* Cambiamo il layout a colonna su mobile */
+          div[style*='display: flex'] {
+            flex-direction: column; /* Disposizione a colonna */
+            padding: 20px; /* Riduciamo il padding su mobile */
           }
 
-          /* Adattiamo la dimensione del titolo su mobile */
+          /* Centratura del testo e dimensioni ridotte su mobile */
+          div[style*='width: 30%'] {
+            width: 100%; /* Il testo occupa tutta la larghezza su mobile */
+            padding-right: 0;
+            text-align: center; /* Centratura del testo */
+            margin-bottom: 20px; /* Spazio sotto il titolo */
+          }
+
           h2 {
-            font-size: 28px;
-            line-height: 34px;
+            font-size: 28px; /* Riduciamo la dimensione del font su mobile */
+            line-height: 34px; /* Riduciamo l'interlinea */
           }
 
-          /* Ridimensioniamo i loghi su mobile */
+          /* Griglia a due colonne per i loghi su mobile */
+          div[style*='grid-template-columns'] {
+            grid-template-columns: repeat(2, 1fr); /* 2 loghi per riga su mobile */
+            gap: 20px; /* Riduciamo il gap su mobile */
+          }
+
+          /* La sezione loghi occupa tutta la larghezza su mobile */
+          div[style*='width: 70%'] {
+            width: 100%;
+          }
+
+          /* Riduciamo la dimensione dei loghi su mobile */
           div[style*='width: 150px'] {
             width: 100px;
             height: 70px;
