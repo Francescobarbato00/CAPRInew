@@ -29,25 +29,10 @@ const LoghiIstituzioni = () => {
         />
       </Head>
 
-      <div
-        style={{
-          display: 'flex',
-          backgroundColor: '#fff',
-          padding: '50px 20px',
-          fontFamily: "'Titillium Web', Geneva, Tahoma, sans-serif",
-        }}
-      >
+      <div className="container">
         {/* Colonna a sinistra: Testo */}
-        <div style={{ width: '30%', paddingRight: '40px', display: 'flex', alignItems: 'center' }}>
-          <h2
-            style={{
-              fontSize: '48px',
-              fontWeight: '300',
-              color: 'rgb(26, 26, 26)',
-              lineHeight: '48px',
-              fontFamily: "'Titillium Web', sans-serif",
-            }}
-          >
+        <div className="left-column">
+          <h2>
             Istituzioni che
             <br />
             hanno contribuito
@@ -55,28 +40,11 @@ const LoghiIstituzioni = () => {
         </div>
 
         {/* Colonna a destra: Loghi */}
-        <div
-          style={{
-            width: '70%',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)', // 4 loghi per fila su desktop
-            gap: '40px',
-            justifyItems: 'center',
-            alignItems: 'center',
-          }}
-        >
+        <div className="logos-grid">
           {loghi.map((logo, index) => (
             <div
               key={index}
-              style={{
-                width: '150px',
-                height: '100px',
-                filter: 'grayscale(100%)',
-                transition: 'filter 0.3s ease',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              className="logo-item"
               onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%)')}
               onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%)')}
             >
@@ -87,43 +55,84 @@ const LoghiIstituzioni = () => {
       </div>
 
       {/* Ombra leggera alla fine della sezione */}
-      <div style={{ height: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)' }}></div>
+      <div className="shadow"></div>
 
-      {/* Media queries per rendere la sezione responsive solo su mobile */}
+      {/* CSS per rendere la sezione responsive */}
       <style jsx>{`
+        .container {
+          display: flex;
+          background-color: #fff;
+          padding: 50px 20px;
+          font-family: 'Titillium Web', Geneva, Tahoma, sans-serif;
+        }
+
+        .left-column {
+          width: 30%;
+          padding-right: 40px;
+          display: flex;
+          align-items: center;
+        }
+
+        h2 {
+          font-size: 48px;
+          font-weight: 300;
+          color: rgb(26, 26, 26);
+          line-height: 48px;
+        }
+
+        .logos-grid {
+          width: 70%;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 40px;
+          justify-items: center;
+          align-items: center;
+        }
+
+        .logo-item {
+          width: 150px;
+          height: 100px;
+          filter: grayscale(100%);
+          transition: filter 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .shadow {
+          height: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
         @media (max-width: 768px) {
-          /* Cambiamo il layout a colonna su mobile */
-          div[style*='display: flex'] {
-            flex-direction: column; /* Disposizione a colonna */
-            padding: 20px; /* Riduciamo il padding su mobile */
+          .container {
+            flex-direction: column;
+            padding: 20px;
           }
 
-          /* Centratura del testo e dimensioni ridotte su mobile */
-          div[style*='width: 30%'] {
-            width: 100%; /* Il testo occupa tutta la larghezza su mobile */
+          .left-column {
+            width: 100%;
             padding-right: 0;
-            text-align: center; /* Centratura del testo */
-            margin-bottom: 20px; /* Spazio sotto il titolo */
+            text-align: center;
+            margin-bottom: 20px;
           }
 
           h2 {
-            font-size: 28px; /* Riduciamo la dimensione del font su mobile */
-            line-height: 34px; /* Riduciamo l'interlinea */
+            font-size: 28px;
+            line-height: 34px;
           }
 
-          /* Griglia a due colonne per i loghi su mobile */
-          div[style*='grid-template-columns'] {
-            grid-template-columns: repeat(2, 1fr); /* 2 loghi per riga su mobile */
-            gap: 20px; /* Riduciamo il gap su mobile */
+          .logos-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
           }
 
-          /* La sezione loghi occupa tutta la larghezza su mobile */
-          div[style*='width: 70%'] {
+          .logos-grid,
+          .logo-item {
             width: 100%;
           }
 
-          /* Riduciamo la dimensione dei loghi su mobile */
-          div[style*='width: 150px'] {
+          .logo-item {
             width: 100px;
             height: 70px;
           }
