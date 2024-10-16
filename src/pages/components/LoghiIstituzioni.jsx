@@ -54,9 +54,6 @@ const LoghiIstituzioni = () => {
         </div>
       </div>
 
-      {/* Ombra leggera alla fine della sezione */}
-      <div className="shadow"></div>
-
       {/* CSS per rendere la sezione responsive */}
       <style jsx>{`
         .container {
@@ -64,7 +61,6 @@ const LoghiIstituzioni = () => {
           background-color: #fff;
           padding: 50px 20px;
           font-family: 'Titillium Web', Geneva, Tahoma, sans-serif;
-          text-align:center;
         }
 
         .left-column {
@@ -100,28 +96,26 @@ const LoghiIstituzioni = () => {
           align-items: center;
         }
 
-        .shadow {
-          height: 5px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
         @media (max-width: 768px) {
           .container {
             flex-direction: column;
             padding: 20px;
+            margin-bottom: 0; /* Assicura che non ci siano margini in fondo su mobile */
           }
 
           .left-column {
             width: 100%;
             padding-right: 0;
-            text-align: center;
+            text-align: center; /* Centra il contenitore */
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center; /* Centra il contenuto orizzontalmente */
           }
 
           h2 {
             font-size: 28px;
             line-height: 34px;
-            text-align: center; /* Centriamo il titolo su mobile */
+            text-align: center; /* Centra il testo */
           }
 
           .logos-grid {
