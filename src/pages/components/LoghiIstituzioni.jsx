@@ -22,7 +22,7 @@ const LoghiIstituzioni = () => {
     <>
       <Head>
         {/* Imposta il titolo del sito */}
-        <title>Il Mio Sito</title>
+     
         <link
           href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap"
           rel="stylesheet"
