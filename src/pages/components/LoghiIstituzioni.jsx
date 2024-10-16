@@ -120,6 +120,7 @@ const LoghiIstituzioni = () => {
           h2 {
             font-size: 28px;
             line-height: 34px;
+            text-align: center; /* Centriamo il titolo su mobile */
           }
 
           .logos-grid {
