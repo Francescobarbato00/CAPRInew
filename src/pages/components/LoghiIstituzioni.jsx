@@ -64,6 +64,7 @@ const LoghiIstituzioni = () => {
           background-color: #fff;
           padding: 50px 20px;
           font-family: 'Titillium Web', Geneva, Tahoma, sans-serif;
+          text-align:center;
         }
 
         .left-column {
