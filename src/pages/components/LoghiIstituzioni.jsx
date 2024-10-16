@@ -34,12 +34,11 @@ const LoghiIstituzioni = () => {
           display: 'flex',
           backgroundColor: '#fff',
           padding: '50px 20px',
-          flexDirection: 'column', // Imposta il layout come colonna per mobile
           fontFamily: "'Titillium Web', Geneva, Tahoma, sans-serif",
         }}
       >
-        {/* Colonna: Testo sopra i loghi */}
-        <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+        {/* Colonna a sinistra: Testo */}
+        <div style={{ width: '30%', paddingRight: '40px', display: 'flex', alignItems: 'center' }}>
           <h2
             style={{
               fontSize: '48px',
@@ -55,12 +54,12 @@ const LoghiIstituzioni = () => {
           </h2>
         </div>
 
-        {/* Colonna: Loghi sotto il titolo */}
+        {/* Colonna a destra: Loghi */}
         <div
           style={{
-            width: '100%',
+            width: '70%',
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)', // 4 loghi per riga su desktop
+            gridTemplateColumns: 'repeat(4, 1fr)', // 4 loghi per fila su desktop
             gap: '40px',
             justifyItems: 'center',
             alignItems: 'center',
@@ -90,27 +89,44 @@ const LoghiIstituzioni = () => {
       {/* Ombra leggera alla fine della sezione */}
       <div style={{ height: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)' }}></div>
 
-      {/* Aggiunta delle media queries per rendere la sezione responsive */}
+      {/* Media queries per rendere la sezione responsive solo su mobile */}
       <style jsx>{`
         @media (max-width: 768px) {
-          /* Cambiamo il layout a colonna su mobile */
-          div[style*='display: grid'] {
-            grid-template-columns: repeat(2, 1fr); /* 2 loghi per riga su mobile */
-            gap: 20px; /* Riduzione del gap su mobile */
+          /* Disposizione del layout a colonna su mobile */
+          div[style*='display: flex'] {
+            flex-direction: column; /* Cambiamo la disposizione a colonna */
+            padding: 20px; /* Riduciamo il padding su mobile */
           }
 
+          /* Centratura e riduzione del titolo su mobile */
+          div[style*='width: 30%'] {
+            width: 100%;
+            padding-right: 0;
+            text-align: center; /* Centratura del testo */
+            margin-bottom: 20px; /* Spazio sotto il titolo */
+          }
+
+          /* Riduciamo la dimensione del font e l'interlinea su mobile */
           h2 {
-            font-size: 28px; /* Riduciamo la dimensione del font su mobile */
+            font-size: 28px; 
             line-height: 34px;
           }
 
-          div[style*='width: 150px'] {
-            width: 100px; /* Riduzione delle dimensioni dei loghi su mobile */
-            height: 70px;
+          /* Disposizione dei loghi in due colonne su mobile */
+          div[style*='grid-template-columns'] {
+            grid-template-columns: repeat(2, 1fr); /* Due loghi per riga su mobile */
+            gap: 20px; /* Riduciamo lo spazio tra i loghi su mobile */
           }
 
-          div[style*='padding'] {
-            padding: 20px; /* Riduciamo il padding su mobile */
+          /* Adattiamo la larghezza della sezione loghi su mobile */
+          div[style*='width: 70%'] {
+            width: 100%;
+          }
+
+          /* Riduzione delle dimensioni dei loghi su mobile */
+          div[style*='width: 150px'] {
+            width: 100px;
+            height: 70px;
           }
         }
       `}</style>
