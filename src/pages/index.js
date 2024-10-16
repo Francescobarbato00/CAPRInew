@@ -5,6 +5,7 @@ import Section from './components/Section';
 import NewsSection from './components/NewsSection';
 import LineeGuida from './components/LineeGuida';
 import ChatComponent from './components/ChatComponent';
+import LoghiIstituzioni from './components/LoghiIstituzioni';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <NewsSection/>
       <Section/>
+      <LoghiIstituzioni />
       <LineeGuida/>
       <Footer/>
     </div>

@@ -12,7 +12,7 @@ export default function Section() {
             <h3 className="text-xl sm:text-2xl font-semibold mb-2">Webinar Disponibili</h3>
             <p className="text-lg font-light mb-4">Webinar</p>
             <p className="text-lg sm:text-xl mb-8">
-              "Questioni di Diritto e Processo del lavoro, nell'era della rivoluzion tecnologica"
+              "Questioni di Diritto e Processo del lavoro, nell'era della rivoluzione tecnologica"
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
               VAI ALL'ELENCO DEI WEBINAR &rarr;
