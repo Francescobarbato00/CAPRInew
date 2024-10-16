@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 const LoghiIstituzioni = () => {
-  // Percorsi dei loghi dalla cartella public
   const loghi = [
     '/2.png',
     '/3.png',
@@ -88,6 +87,42 @@ const LoghiIstituzioni = () => {
 
       {/* Ombra leggera alla fine della sezione */}
       <div style={{ height: '5px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)' }}></div>
+
+      {/* Aggiungi media queries per il layout responsive solo per mobile */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          div[style*='display: flex'] {
+            flex-direction: column; /* Colonna invece di riga su mobile */
+            padding: 20px; /* Riduci il padding su mobile */
+          }
+
+          div[style*='width: 30%'] {
+            width: 100%; /* Testo a tutta larghezza su mobile */
+            padding-right: 0;
+            text-align: center; /* Testo centrato */
+            margin-bottom: 20px; /* Spazio sotto il testo */
+          }
+
+          h2 {
+            font-size: 28px; /* Riduci la dimensione del font su mobile */
+            line-height: 34px; /* Modifica l'interlinea su mobile */
+          }
+
+          div[style*='grid-template-columns'] {
+            grid-template-columns: 1fr; /* Una sola colonna per i loghi su mobile */
+            gap: 20px; /* Riduci lo spazio tra i loghi su mobile */
+          }
+
+          div[style*='width: 70%'] {
+            width: 100%; /* Loghi a tutta larghezza su mobile */
+          }
+
+          div[style*='width: 150px'] {
+            width: 100px; /* Riduci la dimensione dei loghi su mobile */
+            height: 70px;
+          }
+        }
+      `}</style>
     </>
   );
 };
