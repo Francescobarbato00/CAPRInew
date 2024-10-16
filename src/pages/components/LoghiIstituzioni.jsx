@@ -92,38 +92,37 @@ const LoghiIstituzioni = () => {
       {/* Media queries per rendere la sezione responsive solo su mobile */}
       <style jsx>{`
         @media (max-width: 768px) {
-          /* Disposizione del layout a colonna su mobile */
+          /* Layout a colonna su mobile */
           div[style*='display: flex'] {
-            flex-direction: column; /* Cambiamo la disposizione a colonna */
-            padding: 20px; /* Riduciamo il padding su mobile */
+            flex-direction: column; /* Cambiamo disposizione a colonna su mobile */
+            padding: 20px;
           }
 
-          /* Centratura e riduzione del titolo su mobile */
+          /* Centratura del testo e dimensioni ridotte su mobile */
           div[style*='width: 30%'] {
-            width: 100%;
+            width: 100%; /* Il testo occupa tutta la larghezza */
             padding-right: 0;
             text-align: center; /* Centratura del testo */
             margin-bottom: 20px; /* Spazio sotto il titolo */
           }
 
-          /* Riduciamo la dimensione del font e l'interlinea su mobile */
           h2 {
-            font-size: 28px; 
-            line-height: 34px;
+            font-size: 28px; /* Riduciamo la dimensione del font su mobile */
+            line-height: 34px; /* Riduciamo l'interlinea */
           }
 
-          /* Disposizione dei loghi in due colonne su mobile */
+          /* Griglia a due colonne per i loghi su mobile */
           div[style*='grid-template-columns'] {
-            grid-template-columns: repeat(2, 1fr); /* Due loghi per riga su mobile */
-            gap: 20px; /* Riduciamo lo spazio tra i loghi su mobile */
+            grid-template-columns: repeat(2, 1fr); /* 2 loghi per riga su mobile */
+            gap: 20px; /* Riduciamo il gap su mobile */
           }
 
-          /* Adattiamo la larghezza della sezione loghi su mobile */
+          /* La sezione loghi occupa tutta la larghezza su mobile */
           div[style*='width: 70%'] {
             width: 100%;
           }
 
-          /* Riduzione delle dimensioni dei loghi su mobile */
+          /* Riduciamo la dimensione dei loghi su mobile */
           div[style*='width: 150px'] {
             width: 100px;
             height: 70px;
