@@ -187,10 +187,11 @@ const SezioneStreamingMateriali = () => {
           <section id="criteri">
             <h2>Criteri Redazionali</h2>
             <p>Riferimento per la pubblicazione</p>
+            <p> Si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo</p>
             <ul>
               <li>
-                <a href="/4.pdf" target="_blank" rel="noopener noreferrer">
-                Si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo LINK.
+                <a href="/criteri.pdf" target="_blank" rel="noopener noreferrer">
+              LINK.
                 </a>
               </li>
               
