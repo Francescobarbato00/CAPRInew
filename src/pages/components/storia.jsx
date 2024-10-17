@@ -17,12 +17,12 @@ const SezioneStreamingMateriali = () => {
         <div className="colonna-indice">
           <h2 className="indice-titolo">INDICE DELLA PAGINA</h2>
           <ul className="indice-lista">
-            <li><a href="#webinar">Webinar</a></li>
             <li><a href="#registrazioni2024">Registrazioni 2024</a></li>
             <li><a href="#registrazioni2023">Registrazioni 2023</a></li>
             <li><a href="#interventiVideo">Interventi Video Registrati</a></li>
             <li><a href="#materiali">Materiali</a></li>
             <li><a href="#locandine">Locandine</a></li>
+            <li><a href="#criteri">Criteri Redazionali</a></li>
           </ul>
         </div>
 
@@ -34,30 +34,59 @@ const SezioneStreamingMateriali = () => {
           </p>
 
           {/* Sezione Webinar */}
-          <section id="webinar">
-            <h2>Webinar Disponibili</h2>
-            <p>Partecipa ai nostri webinar nel caso in cui non possa essere presente a Capri. Scegli un webinar e clicca per partecipare!</p>
+          <section id="registrazioni2024">
+            <h2>Registrazioni 2024</h2>
+            <p>Sono disponibili le video registrazioni dei vari momenti del convegno</p>
             <ul>
               <li>
-                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTdjYzY2NjctY2ZlMi00Y2E3LWFlOGQtZTRiNGMwNmVlZjI4%40thread.v2/0?context=%7B%22Tid%22%3A%2243ea8a99-c6ed-4a82-b447-d69d06583d87%22%2C%22Oid%22%3A%2275a497e9-fe5d-4c97-9f64-22a2441eb7e1%22%2C%22IsBroadcastMeeting%22%3Atrue%2C%22role%22%3A%22a%22%7D&btype=a&role=a" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtu.be/R__gHo6SqWs?si=bMK1oWnBYy6d1wK-" target="_blank" rel="noopener noreferrer">
                   Questioni di diritto e processo del lavoro, <br />nell’era della rivoluzione tecnologica <br />
                   Venerdì 4 ottobre 2024 - 14:30 - 18:00
                 </a>
               </li>
               <li>
-                <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2Y2NDY1ZWUtNGY3Ni00ZmEwLTkzZjMtMTc4NDkzZTUzMmVj%40thread.v2/0?context=%7B%22Tid%22%3A%2243ea8a99-c6ed-4a82-b447-d69d06583d87%22%2C%22Oid%22%3A%2275a497e9-fe5d-4c97-9f64-22a2441eb7e1%22%2C%22IsBroadcastMeeting%22%3Atrue%2C%22role%22%3A%22a%22%7D&btype=a&role=a" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtu.be/0cz6gVI2fGg?si=zjzDeym889cWLCMY" target="_blank" rel="noopener noreferrer">
                   La Giustizia moderna alla luce dei <br />Regolamenti adottati dall’UE nel Decennio Digitale <br />
                   Sabato 5 ottobre 2024 - 08:45 - 13:30
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/UILghXjQKEg?si=rgcI_OowotJ4I22v" target="_blank" rel="noopener noreferrer">
+                GRUPPO 1 <br /> L’innovazione e la digitalizzazione nel diritto e processo civile <br />
+                  Sabato 5 ottobre 2024 - 14:45 - 17:30
+
+                
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/UILghXjQKEg?si=rgcI_OowotJ4I22v" target="_blank" rel="noopener noreferrer">
+                GRUPPO 2 <br />  L’innovazione e la digitalizzazione del processo penale <br />
+                  Sabato 5 ottobre 2024 - 14:45 - 17:30
+
+                
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/UK3TUgqLmWk?si=Yy2knlfT9lG9Omzm" target="_blank" rel="noopener noreferrer">
+                GRUPPO 3 <br /> Processo Telematico ed Intelligenza Artificiale: Rischi e Opportunità per la Giustizia Tributaria <br />
+                  Sabato 5 ottobre 2024 - 14:45 - 17:30
+
+                
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/lErIN0WBtWU?si=ZFy5icJQaA9qF_nD" target="_blank" rel="noopener noreferrer">
+                GRUPPO 5 <br /> GRUPPO 5: Europe’s Digital Decade (La digitalizzazione in Europa) <br />
+                  Sabato 5 ottobre 2024 - 14:45 - 17:30
+
+                
                 </a>
               </li>
             </ul>
           </section>
 
           {/* Sezione Registrazioni 2024 */}
-          <section id="registrazioni2024">
-            <h2>Registrazioni 2024</h2>
-            <p>Appena il settore informatico avrà editato i video dell'edizione 2024 saranno disponibili qui.</p>
-          </section>
+  
 
           {/* Sezione Registrazioni 2023 */}
           <section id="registrazioni2023">
@@ -120,6 +149,23 @@ const SezioneStreamingMateriali = () => {
               </li>
             </ul>
           </section>
+
+
+          {/* Sezione Criteri Redazionali */}
+          <section id="criteri">
+            <h2>Criteri Redazionali</h2>
+            <p>Riferimento per la pubblicazione</p>
+            <ul>
+              <li>
+                <a href="/4.pdf" target="_blank" rel="noopener noreferrer">
+                Si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo LINK.
+                </a>
+              </li>
+              
+            </ul>
+          </section>
+
+
 
         </div>
       </div>
