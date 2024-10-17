@@ -33,7 +33,7 @@ const SezioneStreamingMateriali = () => {
             In questa sezione troverai tutti i collegamenti ai webinar, ai video registrati, e i materiali dell'evento. Potrai accedere alle registrazioni delle edizioni passate, scaricare locandine, e consultare documenti utili per la tua partecipazione.
           </p>
 
-          {/* Sezione Webinar */}
+          {/* Sezione Registazioni 2024*/}
           <section id="registrazioni2024">
             <h2>Registrazioni 2024</h2>
             <p>Sono disponibili le video registrazioni dei vari momenti del convegno</p>
@@ -103,6 +103,26 @@ const SezioneStreamingMateriali = () => {
                   Capri 14 ottobre 2023 - Certosa plenaria
                 </a>
               </li>
+              <li>
+                <a href="https://youtu.be/RsaW7YqeaYk?si=Jhb2DqSsb0ZFj3A3" target="_blank" rel="noopener noreferrer">
+                Capri 14 ottobre 2023 - Gruppo civile
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/jLwu33aPEyc?si=y92Zf42gPtzZ5UII" target="_blank" rel="noopener noreferrer">
+                Capri 14 ottobre 2023 - Gruppo penale
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/qCvOuyjFiLE?si=XcsdSQp7HG4vyM8-" target="_blank" rel="noopener noreferrer">
+                Capri 14 ottobre 2023 - Gruppo Giustizia Tributaria
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/ZxIpP4vX-VI?si=3DKxuEIzCU0fFCDv" target="_blank" rel="noopener noreferrer">
+                Capri 14 ottobre 2023 - Gruppo intermagistratura
+                </a>
+              </li>
             </ul>
           </section>
 
@@ -121,6 +141,18 @@ const SezioneStreamingMateriali = () => {
                 <a href="https://youtu.be/J0bCufBj2BA" target="_blank" rel="noopener noreferrer">
                   "La Global Governance per l'informatica giudiziaria" <br />
                   Relatore: Presidente Claudio Castelli
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/3yFDBehX-dw?si=BVrK6uPRFl4q9jLA" target="_blank" rel="noopener noreferrer">
+                "Giudici: mente umana o meccanismo in difesa dell'uguaglianza?" <br />
+                  Relatore: Giovanna De Minico, Prof. Diritto Costituzionale, Univ. Federico II Napoli < br /> e Legal chief del partenariato FAIR.
+                </a>
+              </li>
+              <li>
+                <a href="https://youtu.be/tMKqbFWjma4?si=WyHD69nknz56AfSy" target="_blank" rel="noopener noreferrer">
+                "Le videoregistrazioni del processo penale e il portale delle videoregistrazioni" <br />
+                  Relatore: Dottoressa Fernanda Iannone
                 </a>
               </li>
             </ul>
