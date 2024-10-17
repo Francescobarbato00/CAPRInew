@@ -183,20 +183,13 @@ const SezioneStreamingMateriali = () => {
           </section>
 
 
-          {/* Sezione Criteri Redazionali */}
           <section id="criteri">
-            <h2>Criteri Redazionali</h2>
-            <p>Riferimento per la pubblicazione</p>
-            <p> Si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo</p>
-            <ul>
-              <li>
-                <a href="/criteri.pdf" target="_blank" rel="noopener noreferrer">
-              LINK.
-                </a>
-              </li>
-              
-            </ul>
-          </section>
+  <h2>Criteri Redazionali</h2>
+  <p>Riferimento per la pubblicazione: si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo 
+    <a href="/criteri.pdf" target="_blank" rel="noopener noreferrer"> link</a>.
+  </p>
+</section>
+
 
 
 
@@ -255,11 +248,12 @@ const SezioneStreamingMateriali = () => {
         }
 
         .colonna-contenuto {
-          width: 75%;
-          padding-left: 20px;
-          border-bottom: none; /* Rimuovi qualsiasi bordo inferiore */
-          box-shadow: none; /* Assicura che non ci siano ombre */
-        }
+  padding-left: 20px;
+  border-bottom: none; /* Rimuovi qualsiasi bordo inferiore */
+  box-shadow: none; /* Assicura che non ci siano ombre */
+  margin-bottom: 40px; /* Aggiungi spazio in basso */
+}
+
 
         h1 {
           font-size: 44px;
