@@ -6,6 +6,7 @@ import Link from 'next/link';
 const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [category, setCategory] = useState(''); // Aggiungi lo state per la categoria
   const [error, setError] = useState(null);
   const router = useRouter();
 
@@ -28,6 +29,7 @@ const CreatePost = () => {
         {
           title,
           content,
+          category, // Inserisci la categoria nella query
           author_id: user.id, // Usa l'ID dell'utente autenticato
           status: 'pending',  // Status iniziale "pending" in attesa di approvazione
         },
@@ -84,6 +86,28 @@ const CreatePost = () => {
                 borderRadius: '10px', 
                 border: '2px solid #e0e0e0', 
                 minHeight: '200px', 
+                boxSizing: 'border-box',
+                outline: 'none',
+                transition: 'border-color 0.3s',
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#0066cc'}
+              onBlur={(e) => e.target.style.borderColor = '#e0e0e0'}
+            />
+          </div>
+
+          <div style={{ marginBottom: '30px' }}>
+            <label style={{ display: 'block', fontSize: '20px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Categoria</label>
+            <input
+              type="text"
+              value={category}  // Input per la categoria
+              onChange={(e) => setCategory(e.target.value)}
+              required
+              style={{ 
+                width: '100%', 
+                padding: '15px', 
+                fontSize: '16px', 
+                borderRadius: '10px', 
+                border: '2px solid #e0e0e0', 
                 boxSizing: 'border-box',
                 outline: 'none',
                 transition: 'border-color 0.3s',

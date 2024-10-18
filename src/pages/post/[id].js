@@ -135,7 +135,7 @@ const PostDetail = () => {
           {post.title}
         </h1>
 
-        {/* Data e autore */}
+        {/* Data, autore e categoria */}
         <div
           style={{
             fontSize: '1rem',
@@ -146,6 +146,10 @@ const PostDetail = () => {
           {new Date(post.created_at).toLocaleDateString()} | di{' '}
           <span style={{ fontWeight: '600', color: 'rgb(51, 102, 204)' }}>
             {author ? `${author.nome} ${author.cognome}` : 'Autore sconosciuto'}
+          </span>
+          <br />
+          <span style={{ fontWeight: '600', color: '#777' }}>
+            Categoria: {post.category ? post.category : 'Sconosciuta'}
           </span>
         </div>
 
@@ -168,7 +172,7 @@ const PostDetail = () => {
           <h3 style={{ fontSize: '1.75rem', fontWeight: '600', marginBottom: '20px', color: '#000' }}>Commenti</h3>
           {!session ? (
             <p style={{ fontSize: '1rem', color: '#777', marginBottom: '20px' }}>
-              <strong>Per vedere o scrivere commenti</strong>, devi <Link href="/login" style={{ color: '#1a4278' }}>accedere</Link> o <Link href="/registers" style={{ color: '#1a4278' }}>registrarti</Link>.
+              <strong>Per vedere o scrivere commenti</strong>, devi <Link href="/login" style={{ color: '#1a4278' }}>accedere</Link> o <Link href="/register" style={{ color: '#1a4278' }}>registrarti</Link>.
             </p>
           ) : loadingComments ? (
             <p>Caricamento commenti...</p>

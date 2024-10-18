@@ -21,7 +21,7 @@ const Blog = () => {
   const fetchPosts = async () => {
     const { data: posts, error: postError } = await supabase
       .from('posts')
-      .select('*')
+      .select('*')  // Recupera tutti i campi, incluso 'category'
       .eq('status', 'approved');  // Recupera solo i post approvati
 
     if (postError) {
@@ -114,8 +114,12 @@ const Blog = () => {
                   <p style={{ fontSize: '14px', color: '#777', marginBottom: '5px' }}>
                     Pubblicato il: {new Date(post.created_at).toLocaleDateString()}
                   </p>
-                  <p style={{ fontSize: '14px', color: '#777', marginBottom: '15px' }}>
+                  <p style={{ fontSize: '14px', color: '#777', marginBottom: '5px' }}>
                     Autore: {post.author ? `${post.author.nome} ${post.author.cognome}` : 'Autore Sconosciuto'}
+                  </p>
+                  {/* Visualizza la categoria del post */}
+                  <p style={{ fontSize: '14px', color: '#777', marginBottom: '15px' }}>
+                    Categoria: {post.category ? post.category : 'Sconosciuta'}
                   </p>
                   <p style={{ fontSize: '16px', color: '#333', lineHeight: '1.5', marginBottom: '15px' }}>
                     {post.content.substring(0, 120)}...
