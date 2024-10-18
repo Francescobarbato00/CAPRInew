@@ -312,6 +312,11 @@ const handleSearch = async () => {
                   Contattaci
                 </Link>
               </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <Link href="/blog" onClick={toggleMenu}>
+                  Blog
+                </Link>
+              </li>
 
               {/* Pulsanti Login e Registrazione per mobile */}
               {!session && (

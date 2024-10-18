@@ -65,13 +65,17 @@ const Blog = () => {
   return (
     <>
       <Navbar />
-      <div style={{ padding: '50px', fontFamily: "'Titillium Web', sans-serif", backgroundColor: '#f9f9f9' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: '300', textAlign: 'left', marginBottom: '30px', color: '#1a1a1a' }}>
+      <div style={{ padding: '50px 20px', fontFamily: "'Titillium Web', sans-serif", backgroundColor: '#f9f9f9' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: '300', textAlign: 'left', marginBottom: '30px', color: '#1a1a1a' }}>
           Ultimi Articoli del Blog
         </h1>
 
         {/* Sezione per mostrare gli articoli */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '20px'
+        }}>
           {posts.length === 0 ? (
             <p style={{ gridColumn: '1 / -1', textAlign: 'center', fontSize: '20px', color: '#777' }}>
               Nessun articolo disponibile.
@@ -96,7 +100,7 @@ const Blog = () => {
                 <div>
                   <h2
                     style={{
-                      fontSize: '22px',
+                      fontSize: '1.5rem',
                       fontWeight: '600',
                       color: '#0066cc',
                       marginBottom: '10px',
@@ -154,7 +158,7 @@ const Blog = () => {
               backgroundColor: '#1a4278',  // Blu scuro
               color: '#fff',
               padding: '12px 30px',
-              fontSize: '18px',
+              fontSize: '1.125rem',
               fontWeight: '600',
               borderRadius: '5px',
               border: 'none',
