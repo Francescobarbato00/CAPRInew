@@ -188,6 +188,14 @@ export default function Admin() {
               Gestisci Utenti
             </button>
 
+             {/* Bottone per accedere alla pagina di scansione */}
+             <button
+              className="w-full bg-blue-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-all duration-300"
+              onClick={() => router.push('/scan')}
+            >
+              Avvia Scansione QR
+            </button>
+
             {/* Bottone per tornare all'index */}
             <button
               className="w-full bg-gray-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-gray-600 transition-all duration-300 mt-6"

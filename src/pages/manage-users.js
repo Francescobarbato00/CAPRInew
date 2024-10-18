@@ -4,9 +4,43 @@ import { useRouter } from 'next/router';
 
 export default function ManageUsers() {
   const [users, setUsers] = useState([]);  // Stato per memorizzare la lista degli utenti
-  const [loading, setLoading] = useState(true); // Stato per il caricamento
+  const [loading, setLoading] = useState(true); // Stato per il caricamento degli utenti
+  const [authLoading, setAuthLoading] = useState(true); // Stato per la verifica dell'utente
   const [error, setError] = useState(null); // Stato per gli errori
   const router = useRouter();
+
+  // Funzione per controllare l'autenticazione e il ruolo dell'utente
+  const checkAdmin = async () => {
+    try {
+      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
+      const session = sessionData?.session;
+
+      if (sessionError || !session) {
+        router.push('/login');
+        return;
+      }
+
+      const userId = session.user.id;
+
+      // Recupera il ruolo dell'utente dal database
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('role')
+        .eq('id', userId)
+        .single();
+
+      if (userError || !userData || userData.role !== 'admin') {
+        router.push('/login');
+        return;
+      }
+
+      // Se l'utente è admin, permette di continuare
+      setAuthLoading(false);
+    } catch (error) {
+      console.error('Errore nella verifica dell\'utente:', error);
+      router.push('/login');
+    }
+  };
 
   // Funzione per ottenere la lista degli utenti dal database
   const fetchUsers = async () => {
@@ -70,10 +104,22 @@ export default function ManageUsers() {
     }
   };
 
-  // Esegui il fetch degli utenti al caricamento del componente
+  // Verifica dell'utente e recupero degli utenti solo se è un admin
   useEffect(() => {
-    fetchUsers();
+    const init = async () => {
+      await checkAdmin();
+      await fetchUsers();
+    };
+    init();
   }, []);
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p>Caricamento...</p>
+      </div>
+    );
+  }
 
   if (loading) return <p>Caricamento utenti...</p>;
   if (error) return <p>{error}</p>;
