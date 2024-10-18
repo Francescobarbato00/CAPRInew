@@ -110,7 +110,7 @@ const PostDetail = () => {
     <>
       {/* Header */}
       <header style={{ backgroundColor: '#1a4278', padding: '10px 0' }}>
-        <nav style={{ display: 'flex', justifyContent: 'center', gap: '30px', fontFamily: "'Titillium Web', sans-serif" }}>
+        <nav style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', fontFamily: "'Titillium Web', sans-serif" }}>
           <Link href="/" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Home</Link>
           <Link href="/event" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>L'Evento</Link>
           <Link href="/service" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Servizi</Link>
@@ -121,14 +121,14 @@ const PostDetail = () => {
         </nav>
       </header>
 
-      <div style={{ padding: '40px', fontFamily: "'Titillium Web', sans-serif", maxWidth: '800px', margin: 'auto' }}>
+      <div style={{ padding: '40px 20px', fontFamily: "'Titillium Web', sans-serif", maxWidth: '800px', margin: 'auto' }}>
         {/* Titolo dell'articolo */}
         <h1
           style={{
-            fontSize: '32px',
+            fontSize: '2.5rem',
             fontWeight: '600',
             color: 'rgb(51, 51, 51)',
-            lineHeight: '38px',
+            lineHeight: '1.2',
             marginBottom: '10px',
           }}
         >
@@ -138,9 +138,9 @@ const PostDetail = () => {
         {/* Data e autore */}
         <div
           style={{
-            fontSize: '16px',
+            fontSize: '1rem',
             color: 'rgb(128, 128, 128)',
-            marginBottom: '40px',
+            marginBottom: '30px',
           }}
         >
           {new Date(post.created_at).toLocaleDateString()} | di{' '}
@@ -152,12 +152,12 @@ const PostDetail = () => {
         {/* Testo dell'articolo */}
         <p
           style={{
-            fontSize: '15px',
+            fontSize: '1rem',
             fontWeight: '300',
             color: 'rgb(84, 84, 84)',
-            lineHeight: '31px',
+            lineHeight: '1.8',
             marginBottom: '40px',
-            whiteSpace: 'pre-line', 
+            whiteSpace: 'pre-line',
           }}
         >
           {post.content}
@@ -165,9 +165,9 @@ const PostDetail = () => {
 
         {/* Sezione dei commenti */}
         <div style={{ marginTop: '40px' }}>
-          <h3 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '20px' }}>Commenti</h3>
+          <h3 style={{ fontSize: '1.75rem', fontWeight: '600', marginBottom: '20px' }}>Commenti</h3>
           {!session ? (
-            <p style={{ fontSize: '16px', color: '#777', marginBottom: '20px' }}>
+            <p style={{ fontSize: '1rem', color: '#777', marginBottom: '20px' }}>
               <strong>Per vedere o scrivere commenti</strong>, devi <Link href="/login" style={{ color: '#1a4278' }}>accedere</Link> o <Link href="/registers" style={{ color: '#1a4278' }}>registrarti</Link>.
             </p>
           ) : loadingComments ? (
@@ -185,8 +185,8 @@ const PostDetail = () => {
                   marginBottom: '20px',
                 }}
               >
-                <p style={{ fontSize: '16px', color: '#333', marginBottom: '10px' }}>{comment.content}</p>
-                <div style={{ fontSize: '14px', color: '#555' }}>
+                <p style={{ fontSize: '1rem', color: '#333', marginBottom: '10px' }}>{comment.content}</p>
+                <div style={{ fontSize: '0.875rem', color: '#555' }}>
                   <strong>
                     {comment.user ? `${comment.user.nome} ${comment.user.cognome}` : 'Utente Sconosciuto'}
                   </strong>{' '}
@@ -196,7 +196,7 @@ const PostDetail = () => {
               </div>
             ))
           ) : (
-            <p style={{ fontSize: '16px', color: '#777' }}>Non ci sono commenti ancora. Sii il primo a commentare!</p>
+            <p style={{ fontSize: '1rem', color: '#777' }}>Non ci sono commenti ancora. Sii il primo a commentare!</p>
           )}
 
           {session && (
@@ -208,7 +208,7 @@ const PostDetail = () => {
                 style={{
                   width: '100%',
                   padding: '15px',
-                  fontSize: '16px',
+                  fontSize: '1rem',
                   borderRadius: '10px',
                   border: '1px solid #ccc',
                   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
@@ -222,7 +222,7 @@ const PostDetail = () => {
                   backgroundColor: '#1a4278',
                   color: '#fff',
                   padding: '12px 20px',
-                  fontSize: '16px',
+                  fontSize: '1rem',
                   fontWeight: '600',
                   borderRadius: '10px',
                   border: 'none',
@@ -238,6 +238,40 @@ const PostDetail = () => {
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 0.875rem;
+          }
+          h3 {
+            font-size: 1.5rem;
+          }
+          button {
+            font-size: 0.875rem;
+            padding: 10px 15px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 1.75rem;
+          }
+          p {
+            font-size: 0.75rem;
+          }
+          h3 {
+            font-size: 1.25rem;
+          }
+          button {
+            font-size: 0.75rem;
+            padding: 8px 12px;
+          }
+        }
+      `}</style>
     </>
   );
 };
