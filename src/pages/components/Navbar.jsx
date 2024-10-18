@@ -169,6 +169,9 @@ const handleSearch = async () => {
             <li className="hover:text-blue-400 transition-colors duration-300">
               <Link href="/contact">Contattaci</Link>
             </li>
+            <li className="hover:text-blue-400 transition-colors duration-300">
+              <Link href="/blog">Blog</Link>
+            </li>
           </ul>
         </div>
 

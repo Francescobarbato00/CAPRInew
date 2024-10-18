@@ -4,8 +4,9 @@ import { supabase } from './api/supabaseClient';
 import Head from 'next/head';
 
 export default function Admin() {
-  const [userRole, setUserRole] = useState(''); // Stato per il ruolo dell'utente
-  const [loading, setLoading] = useState(true); // Stato di caricamento
+  const [userRole, setUserRole] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [pendingPosts, setPendingPosts] = useState([]); // Stato per i post in attesa di approvazione
   const router = useRouter();
 
   // Funzione per controllare il ruolo dell'utente
@@ -52,9 +53,52 @@ export default function Admin() {
     }
   };
 
-  // Effettua il check quando la pagina viene caricata
+  // Funzione per recuperare i post in attesa di approvazione
+  const fetchPendingPosts = async () => {
+    const { data, error } = await supabase
+      .from('posts')
+      .select('*')
+      .eq('status', 'pending');  // Recupera solo i post in attesa di approvazione
+
+    if (error) {
+      console.error('Errore nel recupero dei post in attesa:', error.message);
+    } else {
+      setPendingPosts(data);
+    }
+  };
+
+  // Funzione per approvare un post
+  const approvePost = async (postId) => {
+    const { error } = await supabase
+      .from('posts')
+      .update({ status: 'approved' })
+      .eq('id', postId);
+
+    if (error) {
+      console.error('Errore durante l\'approvazione del post:', error.message);
+    } else {
+      fetchPendingPosts(); // Aggiorna la lista dei post dopo l'approvazione
+    }
+  };
+
+  // Funzione per rifiutare un post
+  const rejectPost = async (postId) => {
+    const { error } = await supabase
+      .from('posts')
+      .delete()
+      .eq('id', postId);
+
+    if (error) {
+      console.error('Errore durante il rifiuto del post:', error.message);
+    } else {
+      fetchPendingPosts(); // Aggiorna la lista dei post dopo il rifiuto
+    }
+  };
+
+  // Esegui il check del ruolo dell'utente e recupera i post in attesa di approvazione
   useEffect(() => {
     checkAdmin();
+    fetchPendingPosts();
   }, []);
 
   if (loading) {
@@ -86,9 +130,41 @@ export default function Admin() {
       <div className="min-h-screen bg-gray-100 p-8" style={{ fontFamily: 'Titillium Web, sans-serif' }}>
         <h1 className="text-5xl font-bold text-center text-blue-600 mb-8">Pannello di Amministrazione</h1>
 
+        {/* Sezione per i post in attesa di approvazione */}
         <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+          <h2 className="text-3xl font-bold mb-4">Post in attesa di approvazione</h2>
+          {pendingPosts.length === 0 ? (
+            <p>Non ci sono post in attesa di approvazione.</p>
+          ) : (
+            pendingPosts.map((post) => (
+              <div key={post.id} className="border-b pb-4 mb-4">
+                <h3 className="text-xl font-semibold">{post.title}</h3>
+                <p className="text-gray-500">Autore: {post.author_id}</p>
+                <p>{post.content.substring(0, 100)}...</p>
+
+                <div className="flex justify-between mt-4">
+                  <button
+                    className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600"
+                    onClick={() => approvePost(post.id)}
+                  >
+                    Approva
+                  </button>
+                  <button
+                    className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600"
+                    onClick={() => rejectPost(post.id)}
+                  >
+                    Rifiuta
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Altri pulsanti di gestione */}
+        <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-8">
           <div className="grid grid-cols-1 gap-6">
-            {/* Bottone per andare alla pagina add-news */}
+            {/* Bottone per aggiungere news */}
             <button
               className="w-full bg-blue-500 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-all duration-300"
               onClick={() => router.push('/add-news')}
