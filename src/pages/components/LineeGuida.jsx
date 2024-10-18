@@ -16,7 +16,7 @@ const GalleriaImmagini = () => {
       <div className="max-w-screen-lg mx-auto">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-black mb-4 sm:mb-6">Galleria dell'Evento</h1>
         <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
-          Scopri la nostra selezione di immagini rappresentative del progetto.
+        Esplora la galleria e riscopri i momenti più significativi del nostro evento
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {immagini.map((immagine, index) => (
