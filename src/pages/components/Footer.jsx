@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Contact Information */}
           <div className="md:w-1/3">
             <h2 className="text-lg sm:text-xl font-semibold mb-2">Capri | Digitalizzazione della Giustizia</h2>
-            <hr className="border-gray-400 mb-4"/>
+            <hr className="border-gray-400 mb-4" style={{ width: '200px' }}/>
             <p>Via Sella Orta 2, Capri</p>
             <p>Telefono: <a href="tel:+3906852641" className="underline hover:text-gray-300">+39 392578</a></p>
             <p>
@@ -34,30 +34,30 @@ export default function Footer() {
 
           {/* Thematic Sites */}
           <div className="md:w-1/3">
-  <h2 className="text-lg sm:text-xl font-semibold mb-2">SITI TEMATICI</h2>
-  <ul className="space-y-2">
-    <li>
-      <a href="https://www.giustizia.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-        Ministero della Giustizia
-      </a>
-    </li>
-    <li>
-      <a href="https://www.scuolamagistratura.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-        Scuola Superiore Della Magistratura
-      </a>
-    </li>
-    <li>
-      <a href="https://www.cortedicassazione.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-        Corte Suprema di Cassazione
-      </a>
-    </li>
-    <li>
-      <a href="https://www.agid.gov.it/it" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-        Agenzia per l'Italia Digitale
-      </a>
-    </li>
-  </ul>
-</div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-2">SITI TEMATICI</h2>
+            <ul className="space-y-2">
+              <li>
+                <a href="https://www.giustizia.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  Ministero della Giustizia
+                </a>
+              </li>
+              <li>
+                <a href="https://www.scuolamagistratura.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  Scuola Superiore Della Magistratura
+                </a>
+              </li>
+              <li>
+                <a href="https://www.cortedicassazione.it/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  Corte Suprema di Cassazione
+                </a>
+              </li>
+              <li>
+                <a href="https://www.agid.gov.it/it" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+                  Agenzia per l'Italia Digitale
+                </a>
+              </li>
+            </ul>
+          </div>
 
         </div>
 
