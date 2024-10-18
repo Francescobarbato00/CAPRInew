@@ -7,6 +7,7 @@ const GalleriaImmagini = () => {
     { src: '1.jpg', alt: 'Immagine 3', didascalia: 'Plenaria nella Certosa' },
     { src: '5.jpg', alt: 'Immagine 4', didascalia: 'Sala Diefenbach' },
     { src: '4.jpg', alt: 'Immagine 5', didascalia: 'Museo archeologico di Capri - Quarto del Priore della Certosa di San Giacomo' },
+    { src: '3.jpg', alt: 'Immagine 5', didascalia: 'Sala Pollio' },
     // Aggiungi altre immagini qui
   ];
 
