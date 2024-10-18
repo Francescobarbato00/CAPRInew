@@ -15,7 +15,7 @@ export const sendConfirmationEmail = async (email, formData) => {
     });
 
     // Crea un URL di validazione unico
-    const validationUrl = `https://iltuosito.com/validate?id=${formData.id}`;
+    const validationUrl = `email=${formData.email}`;
     // Genera un QR code con l'URL di validazione
     const qrCodeDataUrl = await QRCode.toDataURL(validationUrl);
 

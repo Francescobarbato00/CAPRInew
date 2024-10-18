@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import QRCode from 'qrcode';
 import { supabase } from './supabaseClient';  // Importa il client di Supabase
+import { v4 as uuidv4 } from 'uuid';  // Usa UUID per generare un token univoco
 
 export default async function handler(req, res) {
   try {
@@ -8,27 +9,30 @@ export default async function handler(req, res) {
     console.log("Dati ricevuti nel body:", req.body);
 
     const formData = req.body;
-
     if (!formData) {
       console.error("Dati mancanti: formData è null o undefined");
       return res.status(400).json({ error: "Dati di registrazione mancanti" });
     }
 
+    // Genera un token univoco per la partecipazione
+    const participationToken = uuidv4();
+    console.log("Token di partecipazione generato:", participationToken);
+
+    // Inserisci i dati del partecipante nel database, incluso il token
     const { data, error } = await supabase
-  .from('registrations')
-  .insert([
-    {
-      nome: formData.nome,
-      cognome: formData.cognome,
-      email: formData.email,
-      telefono: formData.telefono,
-      qualifica: formData.qualifica,
-      sessione: formData.sessione,
-      // Rimuovi gruppoTematico se non necessario
-      // gruppoTematico: formData.gruppoTematico || null,
-      note: formData.note || null
-    },
-  ]);
+      .from('registrations')
+      .insert([
+        {
+          nome: formData.nome,
+          cognome: formData.cognome,
+          email: formData.email,
+          telefono: formData.telefono,
+          qualifica: formData.qualifica,
+          sessione: formData.sessione,
+          note: formData.note || null,
+          partecipation_token: participationToken // Salva il token generato
+        },
+      ]);
 
     if (error) {
       console.error("Errore durante l'inserimento dei dati nel database:", error);
@@ -37,9 +41,9 @@ export default async function handler(req, res) {
 
     console.log("Dati salvati nel database con successo:", data);
 
-    // Crea l'URL di validazione (esempio)
-    const validationUrl = `https://iltuosito.com/validate?id=${formData.id}`;
-    const qrCodeDataUrl = await QRCode.toDataURL(validationUrl);
+    // Genera il QR code con solo il token
+    const qrCodeDataUrl = await QRCode.toDataURL(participationToken); // Genera QR code con solo il token
+    console.log("QR Code generato con successo");
 
     // Crea il contenuto dell'email
     const emailContent = `
@@ -53,8 +57,7 @@ export default async function handler(req, res) {
       **Qualifica:** ${formData.qualifica}
       **Email:** ${formData.email}
       **Telefono:** ${formData.telefono}
-      **Sessione scelta:** ${formData.sessione}
-      **Gruppo Tematico:** ${formData.gruppoTematico || 'Nessuno'}
+      **Sessione scelta:** ${formData.sessione || 'Nessuna'}
       **Note personali:** ${formData.note || 'Nessuna'}
       
       Abbiamo generato un QR code unico che potrai utilizzare per confermare la tua partecipazione all'evento. Troverai il QR code in allegato a questa email.
@@ -91,7 +94,7 @@ export default async function handler(req, res) {
       ],
     };
 
-    // Invio dell'email
+    // Invio dell'email e log per l'invio
     await transporter.sendMail(mailOptions);
     console.log('Email inviata con successo a:', formData.email);
 
