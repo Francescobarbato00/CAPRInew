@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="md:w-1/3">
             <h2 className="text-lg sm:text-xl font-semibold mb-2">LINK UTILI</h2>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-gray-300">Amministrazione trasparente</a></li>
+              <li><a href="trasparenza" className="hover:text-gray-300">Amministrazione trasparente</a></li>
               <li><a href="#" className="hover:text-gray-300">Domande frequenti</a></li>
               <li><a href="LegalNotes" className="hover:text-gray-300">Note Legali</a></li>
             </ul>
