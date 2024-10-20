@@ -41,7 +41,6 @@ const Trasparenza = () => {
             <p>Elenco di consulenti esterni e collaboratori, con i relativi contratti e compensi.</p>
           </section>
 
-
           <section id="attivita">
             <h2>Attività e Procedimenti</h2>
             <p>Elenco di procedimenti amministrativi e responsabili del procedimento.</p>
@@ -75,6 +74,12 @@ const Trasparenza = () => {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #fff; /* Assicura che lo sfondo sia bianco */
         }
 
         .container {
@@ -118,6 +123,7 @@ const Trasparenza = () => {
         }
 
         .colonna-contenuto {
+          width: 80%;
           padding-left: 20px;
           margin-bottom: 40px;
         }
