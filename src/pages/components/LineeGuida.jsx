@@ -24,7 +24,7 @@ const GalleriaImmagini = () => {
   return (
     <div className="bg-gray-100 py-6 px-4 sm:py-10 sm:px-6 lg:px-8">
       <div className="max-w-screen-lg mx-auto">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-black mb-4 sm:mb-6">Galleria dell'Evento</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-6xl font-light text-black mb-4 sm:mb-6">Galleria dell'Evento</h1>
         <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
           Esplora la galleria e riscopri i momenti più significativi del nostro evento
         </p>

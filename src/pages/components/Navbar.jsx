@@ -89,42 +89,52 @@ export default function Navbar() {
     };
   }, []);
 
- // Funzione per gestire la ricerca
-const handleSearch = async () => {
-  setLoading(true);
-
-  try {
-    // Query per cercare nella tabella "news"
-    const { data: newsData, error: newsError } = await supabase
-      .from('news') // Nome della tabella
-      .select('*')
-      .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
-
-    if (newsError) {
-      console.error('Errore durante la ricerca nelle news:', newsError.message);
+  const handleSearch = async () => {
+    setLoading(true);
+  
+    try {
+      // Query per cercare nella tabella "news"
+      const { data: newsData, error: newsError } = await supabase
+        .from('news') // Nome della tabella
+        .select('*')
+        .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
+  
+      if (newsError) {
+        console.error('Errore durante la ricerca nelle news:', newsError.message);
+      }
+  
+      // Query per cercare nella tabella "comunicazioni"
+      const { data: comunicazioniData, error: comunicazioniError } = await supabase
+        .from('comunicazioni') // Nome della tabella
+        .select('*')
+        .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
+  
+      if (comunicazioniError) {
+        console.error('Errore durante la ricerca nelle comunicazioni:', comunicazioniError.message);
+      }
+  
+      // **Nuova query per cercare nella tabella "posts"**
+      const { data: postsData, error: postsError } = await supabase
+        .from('posts') // Nome della tabella
+        .select('*')
+        .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
+  
+      if (postsError) {
+        console.error('Errore durante la ricerca nei post:', postsError.message);
+      }
+  
+      // Unisci i risultati delle tre ricerche
+      const combinedResults = [...(newsData || []), ...(comunicazioniData || []), ...(postsData || [])];
+  
+      // Aggiorna lo stato con i risultati combinati
+      setSearchResults(combinedResults);
+    } catch (error) {
+      console.error('Errore durante la ricerca:', error.message);
     }
-
-    // Query per cercare nella tabella "comunicazioni"
-    const { data: comunicazioniData, error: comunicazioniError } = await supabase
-      .from('comunicazioni') // Nome della tabella
-      .select('*')
-      .ilike('title', `%${searchQuery}%`); // Cerca dove il titolo corrisponde al termine di ricerca
-
-    if (comunicazioniError) {
-      console.error('Errore durante la ricerca nelle comunicazioni:', comunicazioniError.message);
-    }
-
-    // Unisci i risultati delle due ricerche
-    const combinedResults = [...(newsData || []), ...(comunicazioniData || [])];
-
-    // Aggiorna lo stato con i risultati combinati
-    setSearchResults(combinedResults);
-  } catch (error) {
-    console.error('Errore durante la ricerca:', error.message);
-  }
-
-  setLoading(false);
-};
+  
+    setLoading(false);
+  };
+  
 
   return (
     <>
