@@ -398,36 +398,51 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Visualizzazione dei risultati */}
-            {loading ? (
-              <p className="text-center text-gray-500 mt-6">Caricamento...</p>
-            ) : (
-              <div className="mt-6">
-                {searchResults.length > 0 ? (
-                  searchResults.map((article) => (
-                    <div
-                      key={article.id}
-                      className="p-4 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                    >
-                      <Link
-                        href={`${
-                          article.content ? `/articles/${article.slug}` : `/comunicazioni/${article.slug}`
-                        }`}
-                      >
-                        <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
-                          {article.title}
-                        </h3>
-                      </Link>
-                      <p className="text-gray-600 mt-2">
-                        {article.content.substring(0, 100)}...
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-center text-gray-500">Nessun risultato trovato.</p>
-                )}
-              </div>
-            )}
+   {/* Visualizzazione dei risultati */}
+{loading ? (
+  <p className="text-center text-gray-500 mt-6">Caricamento...</p>
+) : (
+  <div className="mt-6">
+    {searchResults.length > 0 ? (
+      searchResults.map((article) => (
+        <div
+          key={article.id}
+          className="p-4 mb-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+        >
+          {/* Se è una comunicazione (slug e category esistono) */}
+          {article.slug && article.category ? (
+            <Link href={`/comunicazioni/${article.slug}`}>
+              <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
+                {article.title}
+              </h3>
+            </Link>
+          ) : article.slug && !article.category ? (
+            /* Se è una news (slug esiste ma category non c'è) */
+            <Link href={`/articles/${article.slug}`}>
+              <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
+                {article.title}
+              </h3>
+            </Link>
+          ) : (
+            /* Altrimenti è un post (usa l'id) */
+            <Link href={`/post/${article.id}`}>
+              <h3 className="text-xl font-semibold text-blue-600 cursor-pointer">
+                {article.title}
+              </h3>
+            </Link>
+          )}
+          <p className="text-gray-600 mt-2">
+            {article.content?.substring(0, 100)}...
+          </p>
+        </div>
+      ))
+    ) : (
+      <p className="text-center text-gray-500">Nessun risultato trovato.</p>
+    )}
+  </div>
+)}
+
+
           </div>
         </div>
       )}
