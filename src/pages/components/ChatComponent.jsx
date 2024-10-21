@@ -184,6 +184,22 @@ const ChatComponent = () => {
             transform: translateY(50px);
           }
         }
+
+        /* Aggiungiamo una media query per dispositivi mobili */
+        @media (max-width: 768px) {
+          .chat-window {
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 0;
+            transform: none;
+            margin: 0;
+            padding: 0;
+          }
+        }
       `}</style>
     </div>
   );
