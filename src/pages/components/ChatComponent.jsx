@@ -77,7 +77,7 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`chat-window mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`}
+          className={`chat-window mt-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`}
         >
           <div className="flex justify-between items-center bg-blue-500 p-2 rounded-t-lg">
             <p className="text-lg font-bold text-white">Assistente Capri</p>
@@ -199,8 +199,15 @@ const ChatComponent = () => {
             margin: 0;
             padding: 0;
           }
+          .flex-1.overflow-y-auto {
+            padding-bottom: 10px;
+          }
           .flex.items-center.bg-gray-100.p-2 {
             padding: 16px;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
           }
         }
       `}</style>
