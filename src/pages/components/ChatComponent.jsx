@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { FaComments } from 'react-icons/fa'; // Icona per la chat
-import { IoCloseSharp } from 'react-icons/io5'; // Icona più estetica per la "X"
+import { useState } from 'react';
+import { IoCloseSharp } from 'react-icons/io5'; // Icona per la chiusura
+import { FaPaperPlane } from 'react-icons/fa'; // Icona per il bottone di invio
 
 const ChatComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +57,7 @@ const ChatComponent = () => {
         setMessages((prevMessages) => [...prevMessages, finalMessage]);
         setBotResponse(''); // Resetto la risposta dopo averla inviata
       }
-    }, 30); // Tempo più veloce tra una lettera e l'altra (30ms)
+    }, 30); // Tempo tra una lettera e l'altra (30ms)
   };
 
   return (
@@ -69,7 +69,7 @@ const ChatComponent = () => {
           onClick={handleChatToggle}
         >
           <div className="relative bg-blue-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl z-50">
-            <FaComments className="text-white text-2xl" /> {/* Icona della chat */}
+            <img src="icon.png" alt="Chat Icon" className="w-8 h-8" />
           </div>
         </div>
       )}
@@ -77,20 +77,21 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col`}
+          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`} 
+          // Aggiunta una classe border-gray-200 per un bordo sottile e delicato
         >
-          <div className="flex justify-between items-center border-b pb-2 mb-4">
-            <p className="text-lg font-bold text-blue-500">Assistente Virtuale Capri</p>
+          <div className="flex justify-between items-center bg-blue-500 p-2 rounded-t-lg">
+            <p className="text-lg font-bold text-white">Assistente Capri</p>
             <button
-              className="text-gray-400 hover:text-gray-600 p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="text-white hover:text-gray-300 p-1 rounded-full transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <IoCloseSharp className="text-lg" /> {/* Icona X più estetica */}
+              <IoCloseSharp className="text-lg" />
             </button>
           </div>
 
           {/* Chat messages */}
-          <div className="flex-1 overflow-y-auto mb-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-white">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -131,20 +132,20 @@ const ChatComponent = () => {
           </div>
 
           {/* Input message */}
-          <div className="flex items-center border-t pt-2">
+          <div className="flex items-center bg-gray-100 p-2 rounded-b-lg border-t border-gray-300">
             <input
               type="text"
               value={userMessage}
               onChange={(e) => setUserMessage(e.target.value)}
               placeholder="Scrivi un messaggio..."
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+              className="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()} // Invia messaggio con Enter
             />
             <button
-              className="ml-2 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+              className="ml-2 bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition-colors"
               onClick={sendMessage}
             >
-              Invia
+              <FaPaperPlane className="text-lg" />
             </button>
           </div>
         </div>
