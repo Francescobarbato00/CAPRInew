@@ -27,11 +27,11 @@ export default function AboutSection() {
           </p>
           <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
             Gli Organizzatori dell'Evento possono essere contattati tramite mail: 
-            <a href="/pagina-di-contatto" className="text-blue-500 hover:underline"> in questa pagina</a> trovi i riferimenti.
+            <a href="/contact" className="text-blue-500 hover:underline"> in questa pagina</a> trovi i riferimenti.
           </p>
 
           {/* Link di approfondimento */}
-          <a href="/ruolo-agenzia" className="text-blue-600 font-semibold hover:underline inline-flex items-center">
+          <a href="/index" className="text-blue-600 font-semibold hover:underline inline-flex items-center">
             ISCRIVITI AL CONVEGNO
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
