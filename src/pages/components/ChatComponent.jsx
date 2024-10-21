@@ -185,7 +185,7 @@ const ChatComponent = () => {
           }
         }
 
-        /* Aggiungiamo una media query per dispositivi mobili */
+        /* Stile per dispositivi mobili per coprire l'intero schermo */
         @media (max-width: 768px) {
           .chat-window {
             width: 100vw;
@@ -194,10 +194,13 @@ const ChatComponent = () => {
             right: 0;
             bottom: 0;
             left: 0;
+            position: fixed;
             border-radius: 0;
-            transform: none;
             margin: 0;
             padding: 0;
+          }
+          .flex.items-center.bg-gray-100.p-2 {
+            padding: 16px;
           }
         }
       `}</style>
