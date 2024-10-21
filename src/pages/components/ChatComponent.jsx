@@ -77,8 +77,7 @@ const ChatComponent = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`} 
-          // Aggiunta una classe border-gray-200 per un bordo sottile e delicato
+          className={`chat-window mt-4 p-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`}
         >
           <div className="flex justify-between items-center bg-blue-500 p-2 rounded-t-lg">
             <p className="text-lg font-bold text-white">Assistente Capri</p>
@@ -150,6 +149,42 @@ const ChatComponent = () => {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        .chat-window {
+          opacity: 0;
+          transform: translateY(50px);
+          animation: fadeInUp 0.5s forwards ease-in-out;
+        }
+
+        .chat-window-closing {
+          opacity: 1;
+          transform: translateY(0px);
+          animation: fadeOutDown 0.5s forwards ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeOutDown {
+          0% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
