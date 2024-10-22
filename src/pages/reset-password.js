@@ -10,6 +10,7 @@ export default function ResetPassword() {
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { token } = router.query; // Ottiene il token dall'URL
 
   // Effettua il reset della password quando l'utente sottomette il form
   const handlePasswordReset = async (e) => {
@@ -24,7 +25,14 @@ export default function ResetPassword() {
     setError('');
     setMessage('');
 
-    // Aggiorna la password tramite Supabase
+    // Verifica se il token è presente
+    if (!token) {
+      setError('Token di reset non valido o mancante.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Aggiorna la password tramite Supabase utilizzando il token
     const { error } = await supabase.auth.updateUser({
       password: newPassword,
     });
@@ -40,6 +48,13 @@ export default function ResetPassword() {
 
     setIsSubmitting(false);
   };
+
+  useEffect(() => {
+    // Se non c'è un token valido nell'URL, reindirizza alla pagina di login
+    if (!token) {
+      router.push('/login');
+    }
+  }, [token, router]);
 
   return (
     <>
