@@ -55,7 +55,7 @@ export default function ContactForm() {
       </Head>
 
       <section className="bg-white max-w-7xl mx-auto py-10 px-5">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-8 text-gray-900" style={{ fontFamily: "'Titillium Web', sans-serif", fontWeight: 400 }}>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-light mb-8 text-gray-900" style={{ fontFamily: "'Titillium Web', sans-serif", fontWeight: 300 }}>
           Contattaci
         </h1>
 
