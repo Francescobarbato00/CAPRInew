@@ -94,10 +94,13 @@ const Legal = () => {
           list-style-type: none;
           padding: 0;
           margin-top: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px; /* Spazio tra gli elementi dell'indice */
         }
 
         .indice-lista li {
-          margin-bottom: 15px;
+          margin-bottom: 0;
         }
 
         .indice-lista a {
@@ -108,6 +111,7 @@ const Legal = () => {
         }
 
         .colonna-contenuto {
+          width: 80%;
           padding-left: 20px;
           margin-bottom: 40px;
         }
@@ -144,6 +148,10 @@ const Legal = () => {
             margin-right: 0;
             border-right: none;
             border-bottom: 1px solid #ccc;
+          }
+
+          .indice-lista {
+            display: block; /* Layout verticale su mobile */
           }
 
           .colonna-contenuto {

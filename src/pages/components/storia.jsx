@@ -54,47 +54,34 @@ const SezioneStreamingMateriali = () => {
                 <a href="https://youtu.be/UILghXjQKEg?si=rgcI_OowotJ4I22v" target="_blank" rel="noopener noreferrer">
                 GRUPPO 1 <br /> L’innovazione e la digitalizzazione nel diritto e processo civile <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
-
-                
                 </a>
               </li>
               <li>
                 <a href="https://youtu.be/UILghXjQKEg?si=rgcI_OowotJ4I22v" target="_blank" rel="noopener noreferrer">
                 GRUPPO 2 <br />  L’innovazione e la digitalizzazione del processo penale <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
-
-                
                 </a>
               </li>
               <li>
                 <a href="https://youtu.be/UK3TUgqLmWk?si=Yy2knlfT9lG9Omzm" target="_blank" rel="noopener noreferrer">
                 GRUPPO 3 <br /> Processo Telematico ed Intelligenza Artificiale: Rischi e Opportunità per la Giustizia Tributaria <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
-
-                
                 </a>
               </li>
               <li>
                 <a href="https://youtu.be/lErIN0WBtWU?si=ZFy5icJQaA9qF_nD" target="_blank" rel="noopener noreferrer">
                 GRUPPO 5 <br /> GRUPPO 5: Europe’s Digital Decade (La digitalizzazione in Europa) - Prima Parte <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
-
-                
                 </a>
               </li>
               <li>
                 <a href="https://www.youtube.com/watch?v=aRnHtv1eSJM" target="_blank" rel="noopener noreferrer">
                 GRUPPO 5 <br /> GRUPPO 5: Europe’s Digital Decade (La digitalizzazione in Europa) - Seconda Parte <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
-
-                
                 </a>
               </li>
             </ul>
           </section>
-
-      
-  
 
           {/* Sezione Registrazioni 2023 */}
           <section id="registrazioni2023">
@@ -154,7 +141,7 @@ const SezioneStreamingMateriali = () => {
               <li>
                 <a href="https://youtu.be/3yFDBehX-dw?si=BVrK6uPRFl4q9jLA" target="_blank" rel="noopener noreferrer">
                 "Giudici: mente umana o meccanismo in difesa dell'uguaglianza?" <br />
-                  Relatore: Giovanna De Minico, Prof. Diritto Costituzionale, Univ. Federico II Napoli < br /> e Legal chief del partenariato FAIR.
+                  Relatore: Giovanna De Minico, Prof. Diritto Costituzionale, Univ. Federico II Napoli <br /> e Legal chief del partenariato FAIR.
                 </a>
               </li>
               <li>
@@ -190,17 +177,13 @@ const SezioneStreamingMateriali = () => {
             </ul>
           </section>
 
-
+          {/* Sezione Criteri Redazionali */}
           <section id="criteri">
-  <h2>Criteri Redazionali</h2>
-  <p>Riferimento per la pubblicazione: si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo 
-    <a href="/criteri.pdf" target="_blank" rel="noopener noreferrer"> link</a>.
-  </p>
-</section>
-
-
-
-
+            <h2>Criteri Redazionali</h2>
+            <p>Riferimento per la pubblicazione: si utilizzano i criteri redazionali della Scuola Superiore della Magistratura, consultabili tramite questo 
+              <a href="/criteri.pdf" target="_blank" rel="noopener noreferrer"> link</a>.
+            </p>
+          </section>
         </div>
       </div>
 
@@ -228,8 +211,6 @@ const SezioneStreamingMateriali = () => {
           padding: 0 20px 0 10px;
           border-right: 1px solid #ccc;
           margin-right: 20px;
-          border-bottom: none; /* Elimina il bordo inferiore */
-          box-shadow: none; /* Assicura che non ci siano ombre */
         }
 
         .indice-titolo {
@@ -239,13 +220,17 @@ const SezioneStreamingMateriali = () => {
         }
 
         .indice-lista {
-          list-style-type: none;
-          padding: 0;
-          margin-top: 20px;
-        }
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Dispone gli elementi uno sotto l'altro */
+  gap: 10px; /* Distanza verticale tra gli elementi */
+}
+
 
         .indice-lista li {
-          margin-bottom: 15px;
+          margin-bottom: 0;
         }
 
         .indice-lista a {
@@ -256,12 +241,10 @@ const SezioneStreamingMateriali = () => {
         }
 
         .colonna-contenuto {
-  padding-left: 20px;
-  border-bottom: none; /* Rimuovi qualsiasi bordo inferiore */
-  box-shadow: none; /* Assicura che non ci siano ombre */
-  margin-bottom: 40px; /* Aggiungi spazio in basso */
-}
-
+          width: 80%;
+          padding-left: 20px;
+          margin-bottom: 40px;
+        }
 
         h1 {
           font-size: 44px;
@@ -312,6 +295,10 @@ const SezioneStreamingMateriali = () => {
             margin-right: 0;
             border-right: none;
             border-bottom: 1px solid #ccc;
+          }
+
+          .indice-lista {
+            display: block; /* Layout verticale su dispositivi mobili */
           }
 
           .colonna-contenuto {
