@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { supabase } from './api/supabaseClient';
 import Head from 'next/head';
 
@@ -6,6 +7,7 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter(); // Hook di Next.js per gestire il routing
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
@@ -19,6 +21,10 @@ export default function ForgotPassword() {
     } else {
       setMessage('Controlla la tua email per il link di reimpostazione della password.');
     }
+  };
+
+  const handleBackToHome = () => {
+    router.push('/'); // Reindirizza alla pagina index
   };
 
   return (
@@ -58,6 +64,15 @@ export default function ForgotPassword() {
               Reimposta password
             </button>
           </form>
+          <div className="mt-6 text-center">
+            <button
+              onClick={handleBackToHome}
+              className="w-full py-3 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-105"
+              style={{ fontFamily: 'Titillium Web, sans-serif' }}
+            >
+              Torna alla Home
+            </button>
+          </div>
         </div>
       </div>
     </>
