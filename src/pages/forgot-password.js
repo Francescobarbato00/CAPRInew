@@ -11,7 +11,7 @@ export default function ForgotPassword() {
     e.preventDefault();
 
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: 'http://localhost:3000/reset-password', // URL della tua pagina di reset
+      redirectTo: 'https://capr-inew.vercel.app/reset-password', // URL della tua pagina di reset
     });
 
     if (error) {
