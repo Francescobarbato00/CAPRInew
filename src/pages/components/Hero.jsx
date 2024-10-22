@@ -114,7 +114,7 @@ export default function HeroSection() {
             className="text-2xl md:text-5xl font-light text-center mb-8 md:mb-16"
             style={{ fontWeight: 300 }}
           >
-            Capri 2025
+            Stay tuned for Capri
           </h3>
 
           {/* Se l'utente è autenticato, mostra il form di iscrizione */}
