@@ -68,6 +68,15 @@ const SezioneStreamingMateriali = () => {
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
                 </a>
               </li>
+
+              <li>
+                <a href="https://youtu.be/UILghXjQKEg?si=mD3_jCVpYHXCsj5T" target="_blank" rel="noopener noreferrer">
+                GRUPPO 4 <br /> L'Intelligenza Artificiale <br />
+                  Sabato 5 ottobre 2024 - 14:45 - 17:30
+                </a>
+              </li>
+
+
               <li>
                 <a href="https://youtu.be/lErIN0WBtWU?si=ZFy5icJQaA9qF_nD" target="_blank" rel="noopener noreferrer">
                 GRUPPO 5 <br /> GRUPPO 5: Europe’s Digital Decade (La digitalizzazione in Europa) - Prima Parte <br />
