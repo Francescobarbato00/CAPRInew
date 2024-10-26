@@ -8,14 +8,14 @@ export default function Section() {
         {/* First Section: Formazione progetto "Italia Login" */}
         <div className="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="md:w-1/2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-8 leading-tight">I contenuti formativi</h2>
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Webinar Disponibili</h3>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-8 leading-tight">Ambiti di Discussione</h2>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Webinar e Tavole Rotonde</h3>
             <p className="text-lg font-light mb-4">Webinar</p>
             <p className="text-lg sm:text-xl mb-8">
-              "Questioni di Diritto e Processo del lavoro, nell'era della rivoluzione tecnologica"
+            I principali temi di discussione includono l'integrazione delle nuove tecnologie e dell'intelligenza artificiale nel sistema giudiziario. L'evento CAPRI mira a esplorare come questi strumenti possono supportare gli operatori della giustizia nel migliorare l'efficienza e l'accessibilità dei processi legali.
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
-              VAI ALL'ELENCO DEI WEBINAR &rarr;
+            VAI AL PROGRAMMA DEGLI AMBITI DI DISCUSSIONE &rarr;
             </a>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
@@ -35,13 +35,13 @@ export default function Section() {
         {/* Second Section: Accessibilità */}
         <div className="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="md:w-1/2">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Accessibilità</h3>
-            <p className="text-lg font-light mb-4">Webinar</p>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Digitalizzazione della Giustizia</h3>
+            <p className="text-lg font-light mb-4">Webinar e Approfondimenti</p>
             <p className="text-lg sm:text-xl mb-8">
-              "Giustizia moderna alla luce dei Regolamenti adottati dall'UE nel Decennio Digitale"
+            Esploriamo le sfide e le opportunità della digitalizzazione nel sistema giudiziario. Come le nuove tecnologie possono migliorare l’efficienza dei processi, ridurre i tempi di risposta e rendere la giustizia più accessibile per tutti.
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
-              VAI AL PROGRAMMA &rarr;
+            VAI AL DETTAGLIO DEL PROGRAMMA &rarr;
             </a>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
@@ -61,13 +61,13 @@ export default function Section() {
         {/* Third Section: Intelligenza Artificiale */}
         <div className="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-8">
           <div className="md:w-1/2">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Intelligenza Artificiale</h3>
-            <p className="text-lg font-light mb-4">Webinar</p>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-2">Supporto per Operatori della Giustizia</h3>
+            <p className="text-lg font-light mb-4">Webinar e Materiale Formativo</p>
             <p className="text-lg sm:text-xl mb-8">
-              Una serie di video su YouTube nati per diffondere e promuovere l'uso sicuro ed efficace dell'IA.
+            Una serie di sessioni formative dedicate a fornire strumenti pratici e conoscenze per aiutare giudici, avvocati e personale amministrativo a utilizzare al meglio le tecnologie digitali e l’intelligenza artificiale nel loro lavoro quotidiano.
             </p>
             <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
-              VAI ALLA PLAYLIST DEI WEBINAR &rarr;
+            VAI ALL’ELENCO DEI MATERIALI FORMATIVI &rarr;
             </a>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
