@@ -14,7 +14,7 @@ export default function Section() {
             <p className="text-lg sm:text-xl mb-8">
             I principali temi di discussione includono l'integrazione delle nuove tecnologie e dell'intelligenza artificiale nel sistema giudiziario. L'evento CAPRI mira a esplorare come questi strumenti possono supportare gli operatori della giustizia nel migliorare l'efficienza e l'accessibilità dei processi legali.
             </p>
-            <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
+            <a href="event" className="text-white font-semibold underline hover:text-gray-300 text-lg">
             VAI AL PROGRAMMA DEGLI AMBITI DI DISCUSSIONE &rarr;
             </a>
           </div>
@@ -24,7 +24,7 @@ export default function Section() {
                 <img src="/logocapri.png" alt="AGID Logo" className="w-10 h-10 sm:w-12 sm:h-12 mr-4" />
                 <h3 className="text-xl sm:text-2xl font-medium">CAPRI 25</h3>
               </div>
-              <p className="text-lg sm:text-xl font-medium">Formazione </p>
+              <p className="text-lg sm:text-xl font-medium">"Formazione" </p>
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Section() {
             <p className="text-lg sm:text-xl mb-8">
             Esploriamo le sfide e le opportunità della digitalizzazione nel sistema giudiziario. Come le nuove tecnologie possono migliorare l’efficienza dei processi, ridurre i tempi di risposta e rendere la giustizia più accessibile per tutti.
             </p>
-            <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
+            <a href="event" className="text-white font-semibold underline hover:text-gray-300 text-lg">
             VAI AL DETTAGLIO DEL PROGRAMMA &rarr;
             </a>
           </div>
@@ -50,7 +50,7 @@ export default function Section() {
                 <img src="/logocapri.png" alt="AGID Logo" className="w-10 h-10 sm:w-12 sm:h-12 mr-4" />
                 <h3 className="text-xl sm:text-2xl font-medium">CAPRI 25</h3>
               </div>
-              <p className="text-lg sm:text-xl font-medium">Accessibilità</p>
+              <p className="text-lg sm:text-xl font-medium">"Accessibilità"</p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function Section() {
             <p className="text-lg sm:text-xl mb-8">
             Una serie di sessioni formative dedicate a fornire strumenti pratici e conoscenze per aiutare giudici, avvocati e personale amministrativo a utilizzare al meglio le tecnologie digitali e l’intelligenza artificiale nel loro lavoro quotidiano.
             </p>
-            <a href="#" className="text-white font-semibold underline hover:text-gray-300 text-lg">
+            <a href="streaming" className="text-white font-semibold underline hover:text-gray-300 text-lg">
             VAI ALL’ELENCO DEI MATERIALI FORMATIVI &rarr;
             </a>
           </div>
@@ -76,7 +76,7 @@ export default function Section() {
                 <img src="/logocapri.png" alt="AGID Logo" className="w-10 h-10 sm:w-12 sm:h-12 mr-4" />
                 <h3 className="text-xl sm:text-2xl font-medium">CAPRI 25</h3>
               </div>
-              <p className="text-lg sm:text-xl font-medium">Intelligenza Artificiale</p>
+              <p className="text-lg sm:text-xl font-medium">"Intelligenza Artificiale"</p>
             </div>
           </div>
         </div>
