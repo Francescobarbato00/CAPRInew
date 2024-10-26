@@ -24,7 +24,7 @@ export default function Section() {
                 <img src="/logocapri.png" alt="AGID Logo" className="w-10 h-10 sm:w-12 sm:h-12 mr-4" />
                 <h3 className="text-xl sm:text-2xl font-medium">CAPRI 25</h3>
               </div>
-              <p className="text-lg sm:text-xl font-medium">Formazione progetto "Italia Login"</p>
+              <p className="text-lg sm:text-xl font-medium">Formazione </p>
             </div>
           </div>
         </div>
