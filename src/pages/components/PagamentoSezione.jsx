@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 
 const PagamentoSezione = () => {
-  const iban = "IT60X0542811101000000123456"; // Esempio di IBAN fisso
+  const iban = "ITXXXXXXXXXXXXXXXX"; // Esempio di IBAN fisso
 
   return (
     <>
@@ -21,7 +21,7 @@ const PagamentoSezione = () => {
             Pagamento Cena Evento
           </h1>
           <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', lineHeight: '1.5', textAlign: 'center', marginBottom: '60px' }}>
-            Qui puoi pagare la cena per il nostro evento utilizzando il pagamento elettronico. Il prezzo è fisso per ogni partecipante. Segui le istruzioni e utilizza l'IBAN fornito per completare il pagamento.
+          In questa sezione, in futuro, sarà possibile effettuare il pagamento per partecipare alla cena del nostro evento presso i ristoranti. Il pagamento verrà attivato appena le prenotazioni saranno disponibili.
           </p>
 
           {/* Lista degli articoli */}
@@ -30,9 +30,9 @@ const PagamentoSezione = () => {
             <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
-                Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
+                Cena prefissata al ristorante per l'evento previsto per il prossimo anno.
               </p>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: €50 a persona</p>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: prossimamente disponibile</p>
 
               {/* Pulsante Paga */}
               <a href={`mailto:info@example.com?subject=Pagamento Cena&body=Ecco i dettagli del pagamento:\n\nIBAN: ${iban}\nImporto: 50€\n\nGrazie per aver partecipato all'evento!`}
@@ -57,9 +57,9 @@ const PagamentoSezione = () => {
             <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
-                Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
+              Cena prefissata al ristorante per l'evento previsto per il prossimo anno.
               </p>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: €50 a persona</p>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: prossimamente disponibile</p>
 
               {/* Pulsante Paga */}
               <a href={`mailto:info@example.com?subject=Pagamento Cena&body=Ecco i dettagli del pagamento:\n\nIBAN: ${iban}\nImporto: 50€\n\nGrazie per aver partecipato all'evento!`}
@@ -84,9 +84,9 @@ const PagamentoSezione = () => {
             <div className="articolo">
               <h2 style={{ fontSize: '1.5rem', fontWeight: '600', color: 'rgb(26, 26, 26)', marginBottom: '10px' }}>Cena Evento</h2>
               <p style={{ fontSize: '1rem', fontWeight: '300', color: 'rgb(47, 71, 94)', marginBottom: '20px' }}>
-                Cena prefissata al ristorante "La Dolce Vita" per l'evento speciale.
+              Cena prefissata al ristorante per l'evento previsto per il prossimo anno.
               </p>
-              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: €50 a persona</p>
+              <p style={{ fontSize: '1.2rem', fontWeight: '600', color: 'rgb(0, 102, 204)', marginBottom: '30px' }}>Prezzo: prossimamente disponibile</p>
 
               {/* Pulsante Paga */}
               <a href={`mailto:info@example.com?subject=Pagamento Cena&body=Ecco i dettagli del pagamento:\n\nIBAN: ${iban}\nImporto: 50€\n\nGrazie per aver partecipato all'evento!`}
