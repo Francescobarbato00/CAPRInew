@@ -30,7 +30,7 @@ const Comunicazione = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 space-y-4 sm:space-y-0">
           <h2 className="text-3xl sm:text-4xl font-light text-black">Comunicazioni in primo piano</h2>
-          <a href="#" className="text-blue-600 font-semibold underline hover:text-blue-800">
+          <a className="text-blue-600 font-semibold underline hover:text-blue-800">
             SCOPRI TUTTE LE COMUNICAZIONI &rarr;
           </a>
         </div>
@@ -39,25 +39,21 @@ const Comunicazione = () => {
          <nav style={{ marginBottom: '30px', borderBottom: '2px solid #e0e0e0', paddingBottom: '10px' }}>
                 <ul style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', listStyle: 'none', padding: '0', marginBottom: '0' }}>
                     <li style={{ marginRight: '20px' }}>
-                        <Link href="/news">
+                        
                             <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>News</span>
-                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <Link href="/eventi">
+                        
                             <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Eventi</span>
-                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <Link href="/comunicazioni-tecniche">
+                        
                             <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Comunicazioni Tecniche</span>
-                        </Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <Link href="/pubblicazioni">
+                       
                             <span style={{ textDecoration: 'none', color: 'rgb(0, 102, 204)', fontWeight: '400', fontSize: '1.5rem', lineHeight: '2rem' }}>Pubblicazioni</span>
-                        </Link>
-                    </li>
+                      </li>
                 </ul>
             </nav>
 
