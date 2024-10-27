@@ -80,7 +80,7 @@ const ChatComponent = () => {
           className={`chat-window mt-4 w-96 sm:w-80 h-[500px] sm:h-[400px] bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out z-50 flex flex-col border border-gray-200`}
         >
           <div className="flex justify-between items-center bg-blue-500 p-2 rounded-t-lg">
-            <p className="text-lg font-bold text-white">Assistente Capri</p>
+            <p className="text-lg font-bold text-white">Assistente IA Capri</p>
             <button
               className="text-white hover:text-gray-300 p-1 rounded-full transition-colors"
               onClick={() => setIsOpen(false)}
@@ -115,7 +115,7 @@ const ChatComponent = () => {
             {isThinking && (
               <div className="flex justify-start">
                 <div className="p-2 rounded-lg max-w-xs text-sm bg-gray-200 text-black">
-                  <p>Sto pensando...</p>
+                  <p>Sto pensando....</p>
                 </div>
               </div>
             )}
