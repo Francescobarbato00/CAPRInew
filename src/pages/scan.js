@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import { supabase } from './api/supabaseClient';  // Assicurati che Supabase sia importato correttamente
+import { supabase } from './api/supabaseClient';
 import { useRouter } from 'next/router';
 
 export default function ScanPage() {
@@ -37,13 +37,17 @@ export default function ScanPage() {
 
       // Se l'utente è un admin, inizializza lo scanner QR
       setAuthLoading(false); // Fine del processo di autenticazione
-      const scanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
-      scanner.render(onScanSuccess, onScanError);
 
-      // Pulizia al termine del componente
-      return () => {
-        scanner.clear();
-      };
+      // Attendi un breve momento per assicurarti che il div `reader` sia nel DOM
+      setTimeout(() => {
+        const scanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
+        scanner.render(onScanSuccess, onScanError);
+
+        // Pulizia al termine del componente
+        return () => {
+          scanner.clear();
+        };
+      }, 500); // ritardo di 500ms
     };
 
     checkUserRole();
