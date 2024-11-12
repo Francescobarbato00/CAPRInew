@@ -138,9 +138,7 @@ const Blog = () => {
                       Leggi di più
                     </a>
                   </Link>
-                  <div style={{ display: 'flex', gap: '10px' }}>
-                    <span style={{ color: '#777' }}>Condividi</span>
-                  </div>
+                  
                 </div>
               </div>
             ))
