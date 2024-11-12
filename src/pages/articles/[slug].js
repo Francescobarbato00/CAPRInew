@@ -2,39 +2,39 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { supabase } from '../api/supabaseClient';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const ComunicazionePage = () => {
   const router = useRouter();
-  const { slug } = router.query; // Recupera lo slug dall'URL
-  const [newsItem, setNewsItem] = useState(null); // Cambiato il nome della variabile per chiarezza
+  const { slug } = router.query;
+  const [newsItem, setNewsItem] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (slug) {
       const fetchNewsItem = async () => {
         const { data, error } = await supabase
-          .from('news') // Nome corretto della tabella: 'news'
+          .from('news')
           .select('*')
-          .eq('slug', slug) // Usa lo slug per la query
-          .single(); // Recupera un singolo elemento
+          .eq('slug', slug)
+          .single();
 
         if (error) {
           console.error('Errore nel recupero della news:', error.message);
         } else {
-          setNewsItem(data); // Salva i dati recuperati nello stato
-          console.log("Dati news recuperati:", data); // Log per verificare il recupero dei dati
+          setNewsItem(data);
+          console.log("Dati news recuperati:", data);
         }
-        setLoading(false); // Cambia lo stato di caricamento
+        setLoading(false);
       };
 
-      fetchNewsItem(); // Chiama la funzione per recuperare i dati
+      fetchNewsItem();
     }
-  }, [slug]); // Rerun l'effetto quando cambia lo slug
+  }, [slug]);
 
-  if (loading) return <p>Caricamento...</p>; // Mostra un messaggio di caricamento
-  if (!newsItem) return <p>News non trovata</p>; // Messaggio nel caso non venga trovata la news
+  if (loading) return <p>Caricamento...</p>;
+  if (!newsItem) return <p>News non trovata</p>;
 
-  // Funzione per navigare verso infoSection.js
   const handleNavigate = () => {
     router.push('/infoSection');
   };
@@ -46,9 +46,9 @@ const ComunicazionePage = () => {
         padding: '20px', 
         maxWidth: '1200px', 
         margin: '0 auto',
-        backgroundColor: '#ffffff', // Sfondo bianco
-        color: '#1a1a1a', // Colore del testo come nella versione desktop
-        minHeight: '100vh', // Copre l'intera altezza della pagina
+        backgroundColor: '#ffffff',
+        color: '#1a1a1a',
+        minHeight: '100vh',
       }}
     >
       <Head>
@@ -56,21 +56,35 @@ const ComunicazionePage = () => {
         <meta name="description" content={newsItem.description || 'Descrizione della notizia'} />
       </Head>
 
+      {/* Header */}
+      <header style={{ backgroundColor: '#1a4278', padding: '10px 0', marginBottom: '50px', width: '100vw', position: 'relative', left: '50%', transform: 'translateX(-50%)' }}>
+  <nav style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', fontFamily: "'Titillium Web', sans-serif" }}>
+    <Link href="/" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Home</Link>
+    <Link href="/event" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>L'Evento</Link>
+    <Link href="/service" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Servizi</Link>
+    <Link href="/infoSection" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Comunicazioni</Link>
+    <Link href="/streaming" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Streaming</Link>
+    <Link href="/contact" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Contattaci</Link>
+    <Link href="/blog" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Blog</Link>
+  </nav>
+</header>
+
+
       <header style={{ marginBottom: '50px' }}>
         <h1 
           style={{ 
-            fontSize: 'clamp(36px, 4vw, 64px)', // Font responsivo anche su desktop
+            fontSize: 'clamp(36px, 4vw, 64px)',
             fontWeight: '400', 
             lineHeight: 'clamp(42px, 5vw, 72px)', 
             marginBottom: '0',
-            color: '#1a1a1a' // Colore del testo desktop
+            color: '#1a1a1a'
           }}
         >
           {newsItem.title}
         </h1>
         <p 
           style={{ 
-            fontSize: 'clamp(14px, 2vw, 18px)', // Adattamento del font per mobile e desktop
+            fontSize: 'clamp(14px, 2vw, 18px)',
             fontWeight: '400', 
             lineHeight: '28px', 
             color: 'rgb(26, 26, 26)' 
@@ -86,20 +100,20 @@ const ComunicazionePage = () => {
           alt={newsItem.title}
           style={{ 
             width: '100%', 
-            height: 'auto', // Altezza automatica per mantenere proporzioni
+            height: 'auto', 
             objectFit: 'cover', 
             marginBottom: '20px' 
           }}
         />
         <div 
           style={{ 
-            fontSize: 'clamp(16px, 2vw, 20px)', // Testo adattabile in base al dispositivo
+            fontSize: 'clamp(16px, 2vw, 20px)',
             lineHeight: 'clamp(24px, 3vw, 32px)', 
             color: 'rgb(26, 26, 26)', 
             marginBottom: '20px' 
           }}
           dangerouslySetInnerHTML={{
-            __html: newsItem.content.replace(/\n/g, '<br />'), // Sostituisce i "vai a capo" con <br>
+            __html: newsItem.content.replace(/\n/g, '<br />'),
           }}
         />
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -122,7 +136,6 @@ const ComunicazionePage = () => {
         </div>
       </section>
 
-      {/* Bottone che porta a infoSection */}
       <button
         onClick={handleNavigate}
         style={{
@@ -134,8 +147,8 @@ const ComunicazionePage = () => {
           fontSize: '16px',
           cursor: 'pointer',
           transition: 'background-color 0.3s ease',
-          marginTop: '20px', // Aggiungo spazio sopra
-          textAlign: 'left',  // Allinea il pulsante a sinistra
+          marginTop: '20px',
+          textAlign: 'left',
         }}
         onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
         onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
