@@ -177,10 +177,10 @@ export default function Navbar() {
               <Link href="streaming">Streaming</Link>
             </li>
             <li className="hover:text-blue-400 transition-colors duration-300">
-              <Link href="/contact">Contattaci</Link>
+              <Link href="/blog">Blog</Link>
             </li>
             <li className="hover:text-blue-400 transition-colors duration-300">
-              <Link href="/blog">Blog</Link>
+              <Link href="/contact">Contattaci</Link>
             </li>
           </ul>
         </div>
@@ -318,15 +318,16 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="hover:text-blue-400 transition-colors duration-300">
-                <Link href="/contact" onClick={toggleMenu}>
-                  Contattaci
-                </Link>
-              </li>
-              <li className="hover:text-blue-400 transition-colors duration-300">
                 <Link href="/blog" onClick={toggleMenu}>
                   Blog
                 </Link>
               </li>
+              <li className="hover:text-blue-400 transition-colors duration-300">
+                <Link href="/contact" onClick={toggleMenu}>
+                  Contattaci
+                </Link>
+              </li>
+              
 
               {/* Pulsanti Login e Registrazione per mobile */}
               {!session && (
