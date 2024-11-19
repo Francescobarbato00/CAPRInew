@@ -57,7 +57,7 @@ const SezioneStreamingMateriali = () => {
                 </a>
               </li>
               <li>
-                <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBcWg3aUtEejMtc2xnVUdkNUtSbnBDeGZlV0N2P2U9MjY0RTU3&cid=25EBDFF3A0887BA8&id=25EBDFF3A0887BA8%21193&parId=25EBDFF3A0887BA8%21106&o=OneUp" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtu.be/FatAvW5d3j8?si=SshTReKxHJdiovLc" target="_blank" rel="noopener noreferrer">
                 GRUPPO 2 <br />  L’innovazione e la digitalizzazione del processo penale <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
                 </a>
