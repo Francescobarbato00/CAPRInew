@@ -62,7 +62,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="space-y-6">
             <div>
-              <h2 className="text-blue-500 font-bold uppercase mb-1">Sedi</h2>
+              <h2 className="text-blue-500 font-bold uppercase mb-1">Sedi Didattiche</h2>
               <p className="text-gray-700">Capri, Sala Pollio</p>
               <p className="text-gray-700">Capri, Certosa di San Giacomo</p>
             </div>
