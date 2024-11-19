@@ -51,7 +51,7 @@ const SezioneStreamingMateriali = () => {
                 </a>
               </li>
               <li>
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtu.be/lZKnzcbWVeQ?si=nvJwV2bkO5JE0Hyh" target="_blank" rel="noopener noreferrer">
                 GRUPPO 1 <br /> L’innovazione e la digitalizzazione nel diritto e processo civile <br />
                   Sabato 5 ottobre 2024 - 14:45 - 17:30
                 </a>

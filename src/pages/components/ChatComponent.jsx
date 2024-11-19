@@ -69,14 +69,14 @@ const ChatComponent = () => {
           onClick={handleChatToggle}
         >
         <div
-  className="relative bg-blue-500 text-white p-4 rounded-full border-4 border-white shadow-lg hover:shadow-xl z-50"
-  style={{
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)", // Ombra marcata per risaltare su sfondo chiaro
-  }}
-  onClick={handleChatToggle}
->
-  <img src="fara.svg" alt="Chat Icon" className="w-8 h-8" />
-</div>
+              className="relative bg-blue-500 text-white p-4 rounded-full border-4 border-white shadow-lg hover:shadow-xl z-50"
+              style={{
+                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)", // Ombra marcata per risaltare su sfondo chiaro
+              }}
+              onClick={handleChatToggle}
+            >
+          <img src="fara.svg" alt="Chat Icon" className="w-8 h-8" />
+        </div>
 
         </div>
       )}
