@@ -23,7 +23,7 @@ const ComunicazionePage = () => {
           console.error('Errore nel recupero della news:', error.message);
         } else {
           setNewsItem(data);
-          console.log("Dati news recuperati:", data);
+          console.log('Dati news recuperati:', data);
         }
         setLoading(false);
       };
@@ -40,169 +40,216 @@ const ComunicazionePage = () => {
   };
 
   return (
-    <div 
-      style={{ 
-        fontFamily: "'Titillium Web', sans-serif", 
-        padding: '20px', 
-        maxWidth: '1200px', 
-        margin: '0 auto',
-        backgroundColor: '#ffffff',
-        color: '#1a1a1a',
-        minHeight: '100vh',
-      }}
-    >
+    <>
       <Head>
         <title>{newsItem.title} | News</title>
         <meta name="description" content={newsItem.description || 'Descrizione della notizia'} />
       </Head>
 
       {/* Header */}
-      <header style={{ backgroundColor: '#1a4278', padding: '10px 0', marginBottom: '50px', width: '100vw', position: 'relative', left: '50%', transform: 'translateX(-50%)' }}>
-  <nav style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', fontFamily: "'Titillium Web', sans-serif" }}>
-    <Link href="/" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Home</Link>
-    <Link href="/event" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>L'Evento</Link>
-    <Link href="/service" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Servizi</Link>
-    <Link href="/infoSection" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Comunicazioni</Link>
-    <Link href="/streaming" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Streaming</Link>
-    <Link href="/contact" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Contattaci</Link>
-    <Link href="/blog" style={{ color: '#fff', textDecoration: 'none', fontSize: '18px', fontWeight: '300' }}>Blog</Link>
-  </nav>
-</header>
-
-
-      <header style={{ marginBottom: '50px' }}>
-        <h1 
-          style={{ 
-            fontSize: 'clamp(36px, 4vw, 64px)',
-            fontWeight: '400', 
-            lineHeight: 'clamp(42px, 5vw, 72px)', 
-            marginBottom: '0',
-            color: '#1a1a1a'
+      <header style={{ backgroundColor: '#1a4278', padding: '10px 0' }}>
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '20px',
+            flexWrap: 'wrap',
+            fontFamily: "'Titillium Web', sans-serif",
+            alignItems: 'center',
           }}
         >
-          {newsItem.title}
-        </h1>
-        <p 
-          style={{ 
-            fontSize: 'clamp(14px, 2vw, 18px)',
-            fontWeight: '400', 
-            lineHeight: '28px', 
-            color: 'rgb(26, 26, 26)' 
-          }}
-        >
-          Pubblicata il {new Date(newsItem.created_at).toLocaleDateString()}
-        </p>
+          <Link
+            href="/"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            href="/event"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            L'Evento
+          </Link>
+          <Link
+            href="/service"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Servizi
+          </Link>
+          <Link
+            href="/infoSection"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Comunicazioni
+          </Link>
+          <Link
+            href="/streaming"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Streaming
+          </Link>
+          <Link
+            href="/contact"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Contattaci
+          </Link>
+          <Link
+            href="/blog"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '18px',
+              fontWeight: '300',
+            }}
+          >
+            Blog
+          </Link>
+        </nav>
       </header>
 
-      <section style={{ marginBottom: '30px' }}>
-        <img
-          src={newsItem.image_url || '/placeholder.jpg'}
-          alt={newsItem.title}
-          style={{ 
-            width: '100%', 
-            height: 'auto', 
-            objectFit: 'cover', 
-            marginBottom: '20px' 
-          }}
-        />
-        <div 
-          style={{ 
-            fontSize: 'clamp(16px, 2vw, 20px)',
-            lineHeight: 'clamp(24px, 3vw, 32px)', 
-            color: 'rgb(26, 26, 26)', 
-            marginBottom: '20px' 
-          }}
-          dangerouslySetInnerHTML={{
-            __html: newsItem.content.replace(/\n/g, '<br />'),
-          }}
-        />
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          {newsItem.tags &&
-            newsItem.tags.split(',').map((tag, idx) => (
-              <span
-                key={idx}
-                style={{
-                  background: '#e0e0e0',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: '#333',
-                }}
-              >
-                {tag.trim()}
-              </span>
-            ))}
-        </div>
-      </section>
-
-      <button
-        onClick={handleNavigate}
+      {/* Contenuto */}
+      <div
         style={{
-          backgroundColor: '#0070f3',
-          color: '#fff',
-          padding: '12px 24px',
-          borderRadius: '5px',
-          border: 'none',
-          fontSize: '16px',
-          cursor: 'pointer',
-          transition: 'background-color 0.3s ease',
-          marginTop: '20px',
-          textAlign: 'left',
+          padding: '40px 20px',
+          fontFamily: "'Titillium Web', sans-serif",
+          maxWidth: '800px',
+          margin: 'auto',
+          backgroundColor: '#fff',
+          color: '#000',
+          marginTop: '60px', // Sposta il contenuto in basso per desktop
         }}
-        onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
-        onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
       >
-        Torna alle News
-      </button>
+        <header style={{ marginBottom: '50px' }}>
+          <h1
+            style={{
+              fontSize: '2.5rem',
+              fontWeight: '600',
+              lineHeight: '1.2',
+              marginBottom: '10px',
+              color: '#000',
+            }}
+          >
+            {newsItem.title}
+          </h1>
+          <p
+            style={{
+              fontSize: '1rem',
+              marginBottom: '30px',
+              color: '#000',
+            }}
+          >
+            Pubblicata il {new Date(newsItem.created_at).toLocaleDateString()}
+          </p>
+        </header>
+
+        <section style={{ marginBottom: '30px' }}>
+          <img
+            src={newsItem.image_url || '/placeholder.jpg'}
+            alt={newsItem.title}
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'cover',
+              marginBottom: '20px',
+            }}
+          />
+          <div
+            style={{
+              fontSize: '1rem',
+              fontWeight: '300',
+              lineHeight: '1.8',
+              marginBottom: '20px',
+              whiteSpace: 'pre-line',
+            }}
+            dangerouslySetInnerHTML={{
+              __html: newsItem.content.replace(/\n/g, '<br />'),
+            }}
+          />
+        </section>
+
+        <button
+          onClick={handleNavigate}
+          style={{
+            backgroundColor: '#0070f3',
+            color: '#fff',
+            padding: '12px 24px',
+            borderRadius: '5px',
+            border: 'none',
+            fontSize: '16px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease',
+            marginTop: '20px',
+          }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = '#005bb5')}
+          onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
+        >
+          Torna alle News
+        </button>
+      </div>
 
       <style jsx>{`
-        @media (min-width: 1024px) {
-          h1 {
-            font-size: 48px;
-            line-height: 60px;
-          }
-          p {
-            font-size: 16px;
-            line-height: 24px;
-          }
-        }
-
         @media (max-width: 768px) {
           h1 {
-            font-size: 36px;
-            line-height: 42px;
+            font-size: 2rem;
           }
           p {
-            font-size: 14px;
-            line-height: 22px;
+            font-size: 0.875rem;
           }
-          div[style*='padding: 20px'] {
-            padding: 15px;
-          }
-          img {
-            max-height: 300px;
+          button {
+            font-size: 0.875rem;
+            padding: 10px 15px;
           }
         }
 
         @media (max-width: 480px) {
           h1 {
-            font-size: 28px;
-            line-height: 36px;
+            font-size: 1.75rem;
           }
           p {
-            font-size: 12px;
-            line-height: 18px;
+            font-size: 0.75rem;
           }
-          div[style*='padding: 20px'] {
-            padding: 10px;
+          button {
+            font-size: 0.75rem;
+            padding: 8px 12px;
           }
-          img {
-            max-height: 250px;
+
+          div {
+            margin-top: 120px; /* Maggiore margine superiore su mobile */
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
