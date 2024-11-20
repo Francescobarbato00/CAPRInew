@@ -11,18 +11,35 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-
+  
     if (error) {
-      setError(error.message);
+      // Personalizzazione del messaggio di errore
+      let customErrorMessage = '';
+      switch (error.message) {
+        case 'Invalid login credentials':
+          customErrorMessage = 'Le credenziali inserite non sono valide. Riprova.';
+          break;
+        case 'Email not confirmed':
+          customErrorMessage = 'L\'email non è stata confermata. Controlla la tua casella di posta.';
+          break;
+        case 'Network request failed':
+          customErrorMessage = 'Si è verificato un errore di rete. Controlla la connessione.';
+          break;
+        default:
+          customErrorMessage = 'Si è verificato un errore. Riprova più tardi.';
+      }
+  
+      setError(customErrorMessage);
     } else {
       router.push('/'); // Reindirizza l'utente dopo il login
     }
   };
+  
 
   return (
     <>
