@@ -30,7 +30,7 @@ const ChatComponent = () => {
 
     // Simula una risposta automatica dopo un breve intervallo
     setTimeout(() => {
-      const botMessage = 'Grazie per il tuo messaggio! Ti risponderemo a breve.';
+      const botMessage = 'Grazie per il tuo messaggio! Ti risponderemo a breve, attualmente la mia conoscenza è in fase di sviluppo. Sarò operativo in poche settimane!';
 
       // Inizia il casting della risposta
       startBotResponseCasting(botMessage);
